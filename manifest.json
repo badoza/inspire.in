@@ -1,22 +1,24 @@
 {
   "name": "Inspire Basketball Academy",
   "short_name": "Inspire",
-  "description": "Elite basketball coaching and live sports news in Hubballi-Dharwad.",
+  "description": "Fun, energetic basketball coaching and live sports news.",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#0a0a0a",
+  "background_color": "#F4F7FC",
+  "theme_color": "#FF6B00",
   "orientation": "portrait-primary",
   "icons": [
     {
       "src": "icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
