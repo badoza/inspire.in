@@ -1,7 +1,8 @@
 {
   "name": "Inspire Basketball Academy",
   "short_name": "Inspire",
-  "start_url": "./",
+  "start_url": "/inspire.in/",
+  "scope": "/inspire.in/",
   "display": "standalone",
   "background_color": "#F8FAFC",
   "theme_color": "#F26522",
