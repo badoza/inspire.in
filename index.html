@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Inspire Basketball Academy</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a0a0a">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0a0a0a',
+                        brandGold: '#c5a059',
+                        brandGray: '#1f1f1f'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0a0a0a; color: #ffffff; -webkit-font-smoothing: antialiased; }
+        .glass-panel { background: rgba(31, 31, 31, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(197, 160, 89, 0.1); }
+        .gold-gradient-text { background: linear-gradient(90deg, #c5a059, #e8d08d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Hide scrollbar for a cleaner mobile app feel */
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+
+    <header class="fixed w-full top-0 z-50 glass-panel border-b-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-brandGold flex items-center justify-center text-brandDark font-bold text-xl">I</div>
+                <span class="font-bold text-lg tracking-wider uppercase">Inspire</span>
+            </div>
+            <div class="text-xs text-gray-400 font-light tracking-wide">
+                Developed by Kunal Dongare
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-[85vh] flex items-center justify-center pt-16 px-4">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2090&auto=format&fit=crop')] bg-cover bg-center opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-transparent to-transparent"></div>
+        <div class="relative z-10 text-center max-w-3xl opacity-0 animate-fade-in-up">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 uppercase">
+                Forge Your <span class="gold-gradient-text">Legacy</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8 font-light">
+                Elite basketball development in Hubballi-Dharwad. Join the ranks of the Inspire Boys.
+            </p>
+            <a href="#locations" class="inline-block bg-brandGold text-brandDark font-semibold px-8 py-3 rounded-none uppercase tracking-widest hover:bg-white transition-colors duration-300">
+                Find a Facility
+            </a>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold uppercase tracking-widest mb-2">Excellence in Action</h2>
+            <div class="w-16 h-1 bg-brandGold mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-panel p-8 hover:-translate-y-2 transition-transform duration-300">
+                <h3 class="text-xl font-bold mb-3 text-brandGold">Summer Camps</h3>
+                <p class="text-gray-400 font-light text-sm">Specialized intensive training programs designed to elevate fundamental skills during the off-season.</p>
+            </div>
+            <div class="glass-panel p-8 hover:-translate-y-2 transition-transform duration-300">
+                <h3 class="text-xl font-bold mb-3 text-brandGold">Championship Pedigree</h3>
+                <p class="text-gray-400 font-light text-sm">2024 Dharwad District Association Tournament Runners-up & C-Division Championship Qualifiers.</p>
+            </div>
+            <div class="glass-panel p-8 hover:-translate-y-2 transition-transform duration-300">
+                <h3 class="text-xl font-bold mb-3 text-brandGold">Expert Coaching</h3>
+                <p class="text-gray-400 font-light text-sm">Mentored by Mr. Gangadhar Jadav and recognized by the DDBBA. We build athletes from the ground up.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 bg-brandGray border-y border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h2 class="text-3xl font-bold uppercase tracking-widest mb-2">Live Court News</h2>
+                    <div class="w-16 h-1 bg-brandGold"></div>
+                </div>
+                <span class="text-xs text-brandGold animate-pulse flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-brandGold block"></span> Live Feed
+                </span>
+            </div>
+            
+            <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <p class="text-gray-500 font-light text-sm col-span-full">Fetching latest global basketball updates...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="locations" class="py-20 px-4 max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl font-bold uppercase tracking-widest mb-10">Our Courts</h2>
+        <div class="flex flex-col md:flex-row justify-center gap-10 text-left max-w-4xl mx-auto">
+            <div class="flex-1 glass-panel p-6 border-l-4 border-l-brandGold border-t-0 border-r-0 border-b-0">
+                <h4 class="font-bold text-lg mb-2">Primary Facility</h4>
+                <p class="text-sm text-gray-400 mb-1">JSS Banashankari Arts, Commerce and S.K. Gubbi Science College (Vidyagiri)</p>
+                <p class="text-sm text-gray-400">Dharwad, Karnataka</p>
+            </div>
+            <div class="flex-1 glass-panel p-6 border-l-4 border-l-brandGold border-t-0 border-r-0 border-b-0">
+                <h4 class="font-bold text-lg mb-2">Hubballi Presence</h4>
+                <p class="text-sm text-gray-400 mb-1">Decathlon Hubli</p>
+                <p class="text-sm text-gray-400">Hubballi, Karnataka</p>
+            </div>
+        </div>
+        <div class="mt-12">
+            <p class="text-xl font-bold">Contact: <span class="text-brandGold">+91 90190 73197</span></p>
+            <div class="flex justify-center gap-6 mt-6">
+                <a href="https://www.facebook.com/p/Inspire-Basketball-Academy-Hubballi-Dharwad-100071771282480/" target="_blank" class="text-gray-400 hover:text-brandGold transition-colors">Facebook</a>
+                <a href="https://www.instagram.com/inspirebasketballclub/" target="_blank" class="text-gray-400 hover:text-brandGold transition-colors">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // RSS Feed Fetcher using rss2json (Free, requires no backend)
+        const RSS_URL = 'https://www.espn.com/espn/rss/nba/news';
+        const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
+
+        async function fetchSportsNews() {
+            const container = document.getElementById('news-container');
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                
+                if(data.status === 'ok') {
+                    container.innerHTML = ''; // Clear loading text
+                    // Slice to get exactly 10 news items
+                    const newsItems = data.items.slice(0, 10);
+                    
+                    newsItems.forEach(item => {
+                        // Extract image if available in description, otherwise use placeholder
+                        let imgUrl = 'https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=800&auto=format&fit=crop';
+                        const imgRegex = /<img[^>]+src="([^">]+)"/;
+                        const match = item.description.match(imgRegex);
+                        if(match && match[1]) imgUrl = match[1];
+
+                        const date = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+                        const articleHTML = `
+                            <a href="${item.link}" target="_blank" class="group block glass-panel overflow-hidden hover:border-brandGold transition-all duration-300 flex flex-col h-full">
+                                <div class="h-48 overflow-hidden bg-gray-900">
+                                    <img src="${imgUrl}" alt="News Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70 group-hover:opacity-100">
+                                </div>
+                                <div class="p-5 flex flex-col flex-grow">
+                                    <span class="text-brandGold text-xs font-bold tracking-widest uppercase mb-2">${date}</span>
+                                    <h3 class="text-white font-semibold text-sm leading-snug group-hover:text-brandGold transition-colors">${item.title}</h3>
+                                </div>
+                            </a>
+                        `;
+                        container.insertAdjacentHTML('beforeend', articleHTML);
+                    });
+                }
+            } catch (error) {
+                container.innerHTML = '<p class="text-red-500 text-sm">Unable to load live news at this time.</p>';
+            }
+        }
+
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then(reg => {
+                    console.log('ServiceWorker registered successfully.');
+                }).catch(err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
+        // Initialize News Feed
+        document.addEventListener('DOMContentLoaded', fetchSportsNews);
+    </script>
+</body>
+</html>
