@@ -1,21 +1,20 @@
 {
   "name": "Inspire Basketball Academy",
   "short_name": "Inspire",
-  "description": "Fun, energetic basketball coaching and live sports news.",
-  "start_url": "/index.html",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#F4F7FC",
-  "theme_color": "#FF6B00",
+  "background_color": "#F8FAFC",
+  "theme_color": "#F26522",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "icons/icon-192.png",
+      "src": "./icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "icons/icon-512.png",
+      "src": "./icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
