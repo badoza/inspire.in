@@ -5,106 +5,209 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Inspire Basketball Academy</title>
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#FF6B00">
+    <meta name="theme-color" content="#F26522">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        /* INSERT YOUR PSD LOGO COLORS HERE */
-                        brandPrimary: '#FF6B00',   /* Energetic Orange Placeholder */
-                        brandSecondary: '#0052FF', /* Dynamic Blue Placeholder */
-                        brandLight: '#F4F7FC',
-                        brandDark: '#111827'
+                        /* Tweak these to perfectly match your uploaded logo */
+                        brandPrimary: '#F26522',   /* Vibrant Court Orange */
+                        brandSecondary: '#0B132B', /* Deep Navy/Black */
+                        brandLight: '#F8FAFC',
+                        brandAccent: '#FFD700'     /* Trophy Gold */
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
                     },
                     boxShadow: {
-                        'joy': '0 10px 25px -5px rgba(255, 107, 0, 0.3)',
+                        'app': '0 -4px 20px -5px rgba(0, 0, 0, 0.1)',
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #F4F7FC; color: #111827; -webkit-font-smoothing: antialiased; }
+        body { background-color: #F8FAFC; color: #0B132B; -webkit-font-smoothing: antialiased; padding-bottom: 80px; }
         .clip-slant { clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
         ::-webkit-scrollbar { width: 0px; background: transparent; }
+        
+        /* Smooth tab transitions */
+        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="font-sans antialiased overflow-x-hidden">
+<body class="font-sans">
 
-    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-brandPrimary rounded-xl flex items-center justify-center text-white font-black text-xl shadow-joy">I</div>
-                <span class="font-black text-xl tracking-tight text-brandDark">INSPIRE</span>
+                <img src="YOUR_LOGO_IMAGE_PATH_HERE.png" alt="Inspire Logo" class="w-10 h-10 object-contain bg-brandPrimary rounded-full p-1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="hidden w-10 h-10 bg-brandPrimary rounded-full items-center justify-center text-white font-black text-xl shadow-md">I</div>
+                <span class="font-black text-xl tracking-tight text-brandSecondary uppercase">Inspire</span>
             </div>
-            <div class="text-xs text-gray-500 font-medium bg-gray-100 px-3 py-1 rounded-full">
-                Developed by Kunal Dongare
+            <div class="text-[10px] text-gray-500 font-bold bg-gray-100 px-3 py-1 rounded-full uppercase tracking-wider">
+                Dev: Kunal Dongare
             </div>
         </div>
     </header>
 
-    <section class="relative pt-24 pb-32 px-4 bg-brandPrimary clip-slant overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
-        <div class="relative z-10 text-center max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter uppercase drop-shadow-md">
-                Play With <br><span class="text-brandDark bg-white px-4 inline-block transform -rotate-2 mt-2">Passion</span>
-            </h1>
-            <p class="text-lg md:text-2xl text-white/90 mb-10 font-bold max-w-2xl mx-auto">
-                Join the most exciting basketball academy in Hubballi-Dharwad. Bring your energy, we'll build your skills! 🏀
-            </p>
-            <a href="#news" class="inline-block bg-brandDark text-white font-black px-10 py-4 rounded-full text-lg shadow-xl hover:bg-brandSecondary hover:scale-105 transition-all duration-300">
-                LATEST UPDATES
-            </a>
-        </div>
-    </section>
+    <div class="pt-16 max-w-md mx-auto md:max-w-7xl md:px-4">
 
-    <section class="py-16 px-4 max-w-7xl mx-auto -mt-16 relative z-20">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white rounded-3xl p-8 shadow-xl card-hover transition-all duration-300 border-b-8 border-brandPrimary">
-                <div class="w-14 h-14 bg-brandPrimary/10 rounded-2xl flex items-center justify-center text-3xl mb-6">☀️</div>
-                <h3 class="text-2xl font-black mb-3 text-brandDark">Summer Camps</h3>
-                <p class="text-gray-600 font-medium">Action-packed training designed to boost skills while having an absolute blast on the court.</p>
-            </div>
-            <div class="bg-white rounded-3xl p-8 shadow-xl card-hover transition-all duration-300 border-b-8 border-brandSecondary">
-                <div class="w-14 h-14 bg-brandSecondary/10 rounded-2xl flex items-center justify-center text-3xl mb-6">🏆</div>
-                <h3 class="text-2xl font-black mb-3 text-brandDark">Winning Spirit</h3>
-                <p class="text-gray-600 font-medium">Proud 2024 Dharwad District Runners-up! We play hard, we play fair, and we celebrate every win.</p>
-            </div>
-            <div class="bg-white rounded-3xl p-8 shadow-xl card-hover transition-all duration-300 border-b-8 border-brandPrimary">
-                <div class="w-14 h-14 bg-brandPrimary/10 rounded-2xl flex items-center justify-center text-3xl mb-6">🤝</div>
-                <h3 class="text-2xl font-black mb-3 text-brandDark">Expert Mentors</h3>
-                <p class="text-gray-600 font-medium">Guided by Mr. Gangadhar Jadav and top DDBBA coaches who make learning the game fun and engaging.</p>
-            </div>
-        </div>
-    </section>
+        <main id="tab-home" class="tab-content active">
+            <section class="relative pt-12 pb-20 px-4 bg-brandSecondary clip-slant overflow-hidden md:rounded-b-3xl md:mt-4">
+                <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center"></div>
+                <div class="relative z-10 text-center">
+                    <h1 class="text-4xl md:text-6xl font-black text-white mb-4 tracking-tighter uppercase drop-shadow-lg">
+                        Own The <span class="text-brandPrimary">Court</span>
+                    </h1>
+                    <p class="text-sm md:text-lg text-gray-300 mb-8 font-semibold max-w-xl mx-auto px-2">
+                        Hubballi-Dharwad's premier basketball facility. Build skills, character, and a winning mindset.
+                    </p>
+                </div>
+            </section>
 
-    <section id="news" class="py-20 px-4 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-black text-brandDark uppercase mb-4">Live Court News</h2>
-                <p class="text-brandSecondary font-bold text-lg flex justify-center items-center gap-2">
-                    <span class="relative flex h-3 w-3">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brandSecondary opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-3 w-3 bg-brandSecondary"></span>
-                    </span>
+            <section class="py-8 px-4 -mt-10 relative z-20">
+                <div class="bg-white rounded-2xl p-6 shadow-xl border-l-4 border-brandPrimary flex flex-col gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-brandPrimary/10 text-brandPrimary rounded-full flex items-center justify-center text-xl"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h3 class="font-bold text-sm text-gray-500 uppercase">Primary Base</h3>
+                            <p class="font-black text-brandSecondary">JSS Banashankari Vidyagiri, Dharwad</p>
+                        </div>
+                    </div>
+                    <div class="h-px bg-gray-100 w-full"></div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-brandPrimary/10 text-brandPrimary rounded-full flex items-center justify-center text-xl"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h3 class="font-bold text-sm text-gray-500 uppercase">Contact Support</h3>
+                            <p class="font-black text-brandSecondary">+91 90190 73197</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+        <main id="tab-schedule" class="tab-content py-8 px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-black text-brandSecondary uppercase mb-2">Training Batches</h2>
+                <p class="text-brandPrimary font-bold text-sm uppercase tracking-wider">Find your perfect time slot</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brandPrimary text-white text-[10px] font-black px-3 py-1 rounded-bl-xl uppercase">Open</div>
+                    <h3 class="text-xl font-black text-brandSecondary mb-1"><i class="fas fa-sun text-brandPrimary mr-2"></i>Morning Drill</h3>
+                    <p class="text-xs text-gray-500 font-bold uppercase mb-4">All Ages • Fundamentals</p>
+                    <div class="flex justify-between items-center bg-brandLight p-3 rounded-xl">
+                        <span class="font-bold text-brandSecondary"><i class="far fa-clock mr-1 text-gray-400"></i> 6:00 AM - 8:00 AM</span>
+                        <span class="font-bold text-brandSecondary"><i class="far fa-calendar mr-1 text-gray-400"></i> Mon - Fri</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-black px-3 py-1 rounded-bl-xl uppercase">Filling Fast</div>
+                    <h3 class="text-xl font-black text-brandSecondary mb-1"><i class="fas fa-child text-brandPrimary mr-2"></i>Junior Squad</h3>
+                    <p class="text-xs text-gray-500 font-bold uppercase mb-4">Under 14 • Skill Building</p>
+                    <div class="flex justify-between items-center bg-brandLight p-3 rounded-xl">
+                        <span class="font-bold text-brandSecondary"><i class="far fa-clock mr-1 text-gray-400"></i> 4:30 PM - 6:00 PM</span>
+                        <span class="font-bold text-brandSecondary"><i class="far fa-calendar mr-1 text-gray-400"></i> Mon - Fri</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brandSecondary text-white text-[10px] font-black px-3 py-1 rounded-bl-xl uppercase">Pro</div>
+                    <h3 class="text-xl font-black text-brandSecondary mb-1"><i class="fas fa-basketball-ball text-brandPrimary mr-2"></i>Senior Elite</h3>
+                    <p class="text-xs text-gray-500 font-bold uppercase mb-4">Under 18 • Competitive</p>
+                    <div class="flex justify-between items-center bg-brandLight p-3 rounded-xl">
+                        <span class="font-bold text-brandSecondary"><i class="far fa-clock mr-1 text-gray-400"></i> 6:00 PM - 8:00 PM</span>
+                        <span class="font-bold text-brandSecondary"><i class="far fa-calendar mr-1 text-gray-400"></i> Mon - Fri</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brandPrimary text-white text-[10px] font-black px-3 py-1 rounded-bl-xl uppercase">Open</div>
+                    <h3 class="text-xl font-black text-brandSecondary mb-1"><i class="fas fa-fire text-brandPrimary mr-2"></i>Weekend Warriors</h3>
+                    <p class="text-xs text-gray-500 font-bold uppercase mb-4">Working Pros & Students</p>
+                    <div class="flex justify-between items-center bg-brandLight p-3 rounded-xl">
+                        <span class="font-bold text-brandSecondary"><i class="far fa-clock mr-1 text-gray-400"></i> 7:00 AM - 10:00 AM</span>
+                        <span class="font-bold text-brandSecondary"><i class="far fa-calendar mr-1 text-gray-400"></i> Sat & Sun</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="alert('Contact +91 90190 73197 to enroll!')" class="w-full mt-8 bg-brandPrimary text-white font-black py-4 rounded-xl shadow-lg shadow-brandPrimary/30 uppercase tracking-widest hover:bg-orange-600 transition-colors">
+                Join a Batch Now
+            </button>
+        </main>
+
+
+        <main id="tab-news" class="tab-content py-8 px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-black text-brandSecondary uppercase mb-2">Live News</h2>
+                <p class="text-brandPrimary font-bold text-sm uppercase tracking-wider flex justify-center items-center gap-2">
+                    <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brandPrimary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-brandPrimary"></span></span>
                     Global Hoops Updates
                 </p>
             </div>
             
-            <div id="news-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <p class="text-gray-500 font-bold text-center col-span-full py-10">Dribbling the latest news to your screen...</p>
+            <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <p class="text-gray-400 font-bold text-center col-span-full py-10">Fetching court updates...</p>
             </div>
+        </main>
+
+    </div>
+
+    <nav class="fixed bottom-0 w-full bg-white border-t border-gray-200 shadow-app z-50 md:hidden pb-safe">
+        <div class="flex justify-around items-center h-16">
+            <button onclick="switchTab('home')" id="nav-home" class="nav-btn active flex flex-col items-center justify-center w-full h-full text-brandPrimary">
+                <i class="fas fa-home text-xl mb-1"></i>
+                <span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+            </button>
+            <button onclick="switchTab('schedule')" id="nav-schedule" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
+                <i class="fas fa-calendar-alt text-xl mb-1"></i>
+                <span class="text-[10px] font-bold uppercase tracking-wider">Batches</span>
+            </button>
+            <button onclick="switchTab('news')" id="nav-news" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
+                <i class="fas fa-newspaper text-xl mb-1"></i>
+                <span class="text-[10px] font-bold uppercase tracking-wider">News</span>
+            </button>
         </div>
-    </section>
+    </nav>
 
     <script>
+        // --- 1. Tab Navigation Logic ---
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            // Reset all nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-brandPrimary');
+                btn.classList.add('text-gray-400');
+            });
+
+            // Show selected tab
+            document.getElementById('tab-' + tabId).classList.add('active');
+            
+            // Highlight selected nav button (Mobile)
+            const activeNav = document.getElementById('nav-' + tabId);
+            if(activeNav) {
+                activeNav.classList.remove('text-gray-400');
+                activeNav.classList.add('text-brandPrimary');
+            }
+            
+            // Scroll to top when switching
+            window.scrollTo(0,0);
+        }
+
+        // --- 2. Live News Fetching Logic ---
         const RSS_URL = 'https://www.espn.com/espn/rss/nba/news';
         const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
 
@@ -116,12 +219,12 @@
                 
                 if(data.status === 'ok') {
                     container.innerHTML = ''; 
-                    const newsItems = data.items.slice(0, 12); 
+                    const newsItems = data.items.slice(0, 10); 
                     
                     newsItems.forEach(item => {
-                        // Better image extraction
                         let imgUrl = 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=800&auto=format&fit=crop'; 
                         
+                        // Extract image logic
                         if (item.enclosure && item.enclosure.link) {
                             imgUrl = item.enclosure.link;
                         } else {
@@ -132,16 +235,14 @@
 
                         const date = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 
-                        // Strict image constraints applied here (h-48, w-full, object-cover) to prevent enlargement
                         const articleHTML = `
-                            <a href="${item.link}" target="_blank" class="bg-brandLight rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group transform hover:-translate-y-1">
-                                <div class="h-48 w-full overflow-hidden bg-gray-200 relative">
-                                    <div class="absolute inset-0 bg-brandPrimary opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-10"></div>
-                                    <img src="${imgUrl}" alt="News Image" class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500">
+                            <a href="${item.link}" target="_blank" class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full active:scale-95 transition-transform">
+                                <div class="h-40 w-full overflow-hidden bg-gray-200">
+                                    <img src="${imgUrl}" alt="News" class="w-full h-full object-cover">
                                 </div>
-                                <div class="p-6 flex flex-col flex-grow">
-                                    <span class="inline-block bg-white text-brandSecondary text-xs font-black px-3 py-1 rounded-full w-max mb-3 shadow-sm">${date}</span>
-                                    <h3 class="text-brandDark font-bold text-base leading-snug group-hover:text-brandPrimary transition-colors">${item.title}</h3>
+                                <div class="p-4 flex flex-col flex-grow">
+                                    <span class="text-brandPrimary text-[10px] font-black uppercase mb-1">${date}</span>
+                                    <h3 class="text-brandSecondary font-bold text-sm leading-snug">${item.title}</h3>
                                 </div>
                             </a>
                         `;
@@ -149,16 +250,11 @@
                     });
                 }
             } catch (error) {
-                container.innerHTML = '<p class="text-red-500 font-bold text-center w-full">Unable to fetch live news. Try refreshing!</p>';
+                container.innerHTML = '<p class="text-red-500 font-bold text-center w-full">Unable to load news.</p>';
             }
         }
 
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js').catch(() => {});
-            });
-        }
-
+        // Initialize News on load
         document.addEventListener('DOMContentLoaded', fetchSportsNews);
     </script>
 </body>
