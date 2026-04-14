@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Inspire Basketball Academy</title>
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#F26522">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
@@ -15,13 +15,12 @@
             theme: {
                 extend: {
                     colors: {
-                        brandPrimary: '#F26522',   /* Court Orange */
-                        brandSecondary: '#0B132B', /* Deep Navy */
+                        brandPrimary: '#F26522',
+                        brandSecondary: '#0B132B',
                         brandLight: '#F8FAFC',
-                        brandAccent: '#FFD700'     /* Trophy Gold */
+                        brandAccent: '#FFD700'
                     },
-                    fontFamily: { sans: ['Montserrat', 'sans-serif'], },
-                    boxShadow: { 'app': '0 -4px 20px -5px rgba(0, 0, 0, 0.15)', }
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'], }
                 }
             }
         }
@@ -33,14 +32,11 @@
         .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
         .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-        
-        /* Modal Styles */
-        #enroll-modal { transition: opacity 0.3s ease; }
         .modal-body { transform: scale(0.95); transition: transform 0.3s ease; }
-        #enroll-modal:not(.hidden) .modal-body { transform: scale(1); }
+        .active-modal .modal-body { transform: scale(1); }
     </style>
 </head>
-<body class="font-sans selection:bg-brandPrimary selection:text-white">
+<body class="font-sans">
 
     <header class="fixed w-full top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -57,36 +53,47 @@
         </div>
     </header>
 
+    <div id="install-banner" class="fixed bottom-20 left-4 right-4 z-50 bg-brandSecondary text-white p-4 rounded-2xl shadow-2xl flex justify-between items-center hidden border border-brandPrimary/30">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-brandPrimary rounded-xl flex items-center justify-center text-white font-black">I</div>
+            <div>
+                <h4 class="font-black text-sm">Install Inspire App</h4>
+                <p class="text-[10px] text-gray-400">Get native access & offline schedules</p>
+            </div>
+        </div>
+        <button id="install-btn" class="bg-brandPrimary text-white font-black text-xs px-4 py-2 rounded-lg">INSTALL</button>
+        <button onclick="document.getElementById('install-banner').classList.add('hidden')" class="text-gray-400 ml-2"><i class="fas fa-times"></i></button>
+    </div>
+
     <div id="enroll-modal" class="fixed inset-0 z-50 hidden bg-brandSecondary/90 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="modal-body bg-white w-full max-w-md rounded-3xl p-6 shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brandPrimary to-brandAccent"></div>
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-brandSecondary text-2xl"><i class="fas fa-times"></i></button>
-            
+        <div class="modal-body bg-white w-full max-w-md rounded-3xl p-6 shadow-2xl relative">
+            <button onclick="closeModal('enroll-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-brandSecondary text-2xl"><i class="fas fa-times"></i></button>
             <h2 class="text-2xl font-black text-brandSecondary mb-1 uppercase">Join The Squad</h2>
-            <p class="text-sm font-bold text-brandPrimary mb-6">Hubballi-Dharwad's Best</p>
             
-            <form onsubmit="submitForm(event)" class="space-y-4">
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4 mt-6">
+                <input type="hidden" name="access_key" value="AIzaSyCcoRV-OI6x6ucFsu6t0Y0l72iLMOl63CI">
+                <input type="hidden" name="subject" value="New Academy Enrollment!">
+                
                 <div>
                     <label class="text-xs font-bold text-gray-500 uppercase">Player Name</label>
-                    <input type="text" required class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary">
+                    <input type="text" name="name" required class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary">
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="text-xs font-bold text-gray-500 uppercase">Age</label>
-                        <input type="number" required class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary">
+                        <input type="number" name="age" required class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-brandPrimary">
                     </div>
                     <div>
                         <label class="text-xs font-bold text-gray-500 uppercase">Phone Number</label>
-                        <input type="tel" required class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary">
+                        <input type="tel" name="phone" required class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-brandPrimary">
                     </div>
                 </div>
                 <div>
                     <label class="text-xs font-bold text-gray-500 uppercase">Select Batch</label>
-                    <select class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brandPrimary">
+                    <select name="batch" class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-brandPrimary">
                         <option>Morning Drill (6 AM - 8 AM)</option>
                         <option>Junior Squad (4:30 PM - 6 PM)</option>
                         <option>Senior Elite (6 PM - 8 PM)</option>
-                        <option>Weekend Warriors</option>
                     </select>
                 </div>
                 <button type="submit" class="w-full bg-brandSecondary text-white font-black py-4 rounded-xl shadow-lg mt-4 hover:bg-brandPrimary transition-colors uppercase tracking-wider">
@@ -96,123 +103,34 @@
         </div>
     </div>
 
+    <div id="news-modal" class="fixed inset-0 z-50 hidden bg-brandSecondary/90 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="modal-body bg-white w-full max-w-md rounded-3xl overflow-hidden shadow-2xl relative flex flex-col max-h-[85vh]">
+            <button onclick="closeModal('news-modal')" class="absolute top-4 right-4 text-white bg-black/50 w-8 h-8 rounded-full z-10 flex items-center justify-center"><i class="fas fa-times"></i></button>
+            <div id="news-modal-img" class="w-full h-48 bg-gray-200 flex-shrink-0"></div>
+            <div class="p-6 overflow-y-auto">
+                <span id="news-modal-date" class="text-brandPrimary text-[10px] font-black uppercase tracking-wider"></span>
+                <h2 id="news-modal-title" class="text-xl font-black text-brandSecondary mt-1 mb-4 leading-snug"></h2>
+                <div id="news-modal-desc" class="text-sm text-gray-600 font-medium mb-6 space-y-3"></div>
+                <a id="news-modal-link" href="#" target="_blank" class="block text-center w-full bg-gray-100 text-brandSecondary font-bold py-3 rounded-xl hover:bg-brandPrimary hover:text-white transition-colors text-sm uppercase">Read Full Article on ESPN</a>
+            </div>
+        </div>
+    </div>
+
     <div class="pt-16 max-w-md mx-auto md:max-w-7xl md:px-4">
 
         <main id="tab-home" class="tab-content active">
             <section class="relative pt-12 pb-24 px-4 bg-brandSecondary clip-slant overflow-hidden md:rounded-b-3xl">
                 <div class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center mix-blend-luminosity"></div>
                 <div class="relative z-10 text-center mt-4">
-                    <span class="inline-block bg-brandPrimary/20 text-brandPrimary border border-brandPrimary/50 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-4">Admissions Open 2024</span>
+                    <span class="inline-block bg-brandPrimary/20 text-brandPrimary border border-brandPrimary/50 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-4">Admissions Open 2026</span>
                     <h1 class="text-5xl md:text-7xl font-black text-white mb-4 tracking-tighter uppercase drop-shadow-xl">
                         Forge Your <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brandPrimary to-brandAccent">Legacy</span>
                     </h1>
-                    <button onclick="openModal()" class="mt-6 bg-brandPrimary text-white font-black px-10 py-4 rounded-full shadow-lg shadow-brandPrimary/40 hover:scale-105 transition-transform uppercase tracking-widest">
+                    <button onclick="document.getElementById('enroll-modal').classList.remove('hidden')" class="mt-6 bg-brandPrimary text-white font-black px-10 py-4 rounded-full shadow-lg hover:scale-105 transition-transform uppercase tracking-widest">
                         Join The Academy
                     </button>
                 </div>
             </section>
-
-            <section class="py-6 px-4 -mt-16 relative z-20">
-                <div class="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 flex flex-col gap-5">
-                    <div class="flex items-center gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-colors">
-                        <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl shadow-inner"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="flex-1">
-                            <h3 class="font-black text-xs text-gray-400 uppercase tracking-wider">Main Court</h3>
-                            <p class="font-bold text-brandSecondary text-sm leading-tight mt-1">JSS Banashankari College, Vidyagiri, Dharwad</p>
-                        </div>
-                    </div>
-                    <div class="h-px bg-gray-100 w-full"></div>
-                    <div class="flex items-center gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-colors">
-                        <div class="w-14 h-14 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center text-2xl shadow-inner"><i class="fab fa-whatsapp"></i></div>
-                        <div class="flex-1">
-                            <h3 class="font-black text-xs text-gray-400 uppercase tracking-wider">Direct Contact</h3>
-                            <a href="tel:+919019073197" class="font-black text-brandSecondary text-lg block mt-1 hover:text-brandPrimary">+91 90190 73197</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <main id="tab-batches" class="tab-content py-6 px-4">
-            <h2 class="text-3xl font-black text-brandSecondary uppercase mb-6 flex items-center gap-3">
-                <i class="fas fa-stopwatch text-brandPrimary"></i> Schedules
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-brandPrimary relative">
-                    <div class="absolute top-4 right-4 bg-green-100 text-green-700 text-[10px] font-black px-3 py-1 rounded-full uppercase">Open</div>
-                    <h3 class="text-2xl font-black text-brandSecondary mb-1">Morning Drill</h3>
-                    <p class="text-xs text-gray-500 font-bold uppercase mb-5">All Ages • Fundamentals</p>
-                    <div class="bg-brandLight p-4 rounded-2xl flex justify-between items-center mb-5 border border-gray-100">
-                        <span class="font-black text-brandSecondary text-sm"><i class="far fa-clock text-brandPrimary mr-2"></i> 6:00 - 8:00 AM</span>
-                        <span class="font-bold text-gray-500 text-xs">Mon - Fri</span>
-                    </div>
-                    <button onclick="openModal()" class="w-full bg-brandSecondary/5 text-brandSecondary font-bold py-3 rounded-xl hover:bg-brandPrimary hover:text-white transition-colors">Enroll in Morning</button>
-                </div>
-
-                <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-brandSecondary relative">
-                    <div class="absolute top-4 right-4 bg-red-100 text-red-700 text-[10px] font-black px-3 py-1 rounded-full uppercase">Almost Full</div>
-                    <h3 class="text-2xl font-black text-brandSecondary mb-1">Senior Elite</h3>
-                    <p class="text-xs text-gray-500 font-bold uppercase mb-5">Under 18 • Competitive</p>
-                    <div class="bg-brandLight p-4 rounded-2xl flex justify-between items-center mb-5 border border-gray-100">
-                        <span class="font-black text-brandSecondary text-sm"><i class="far fa-clock text-brandPrimary mr-2"></i> 6:00 - 8:00 PM</span>
-                        <span class="font-bold text-gray-500 text-xs">Mon - Fri</span>
-                    </div>
-                    <button onclick="openModal()" class="w-full bg-brandSecondary/5 text-brandSecondary font-bold py-3 rounded-xl hover:bg-brandPrimary hover:text-white transition-colors">Enroll in Elite</button>
-                </div>
-            </div>
-        </main>
-
-        <main id="tab-stats" class="tab-content py-6 px-4">
-            <h2 class="text-3xl font-black text-brandSecondary uppercase mb-6 flex items-center gap-3">
-                <i class="fas fa-trophy text-brandAccent"></i> Trophy Room
-            </h2>
-            
-            <div class="bg-gradient-to-br from-brandSecondary to-gray-900 rounded-3xl p-6 text-white shadow-xl mb-6 relative overflow-hidden">
-                <i class="fas fa-medal absolute -right-4 -bottom-4 text-9xl text-white/5"></i>
-                <h3 class="text-brandAccent font-black text-sm uppercase tracking-widest mb-2">2024 Milestones</h3>
-                <p class="text-2xl font-black leading-tight mb-4">Dharwad District Association Tournament Runners-Up 🥈</p>
-                <div class="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-bold">
-                    C-Division Championship Qualifiers
-                </div>
-            </div>
-
-            <h3 class="font-black text-lg text-brandSecondary uppercase mb-4 mt-8">Leadership</h3>
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
-                <div class="w-16 h-16 bg-gray-200 rounded-full overflow-hidden border-2 border-brandPrimary">
-                    <img src="https://images.unsplash.com/photo-1544365558-35aa4afcf11f?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <h4 class="font-black text-brandSecondary text-lg">Mr. Gangadhar Jadav</h4>
-                    <p class="text-xs text-brandPrimary font-bold uppercase">Head Coach / Director</p>
-                    <p class="text-xs text-gray-500 mt-1">DDBBA Recognized Mentor</p>
-                </div>
-            </div>
-        </main>
-
-        <main id="tab-media" class="tab-content py-6 px-4">
-            <h2 class="text-3xl font-black text-brandSecondary uppercase mb-6 flex items-center gap-3">
-                <i class="fas fa-camera text-brandPrimary"></i> Court Action
-            </h2>
-            <div class="grid grid-cols-2 gap-3">
-                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                </div>
-                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                </div>
-                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md col-span-2 h-48">
-                    <img src="https://images.unsplash.com/photo-1520616162391-7fb8cd8288fb?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                </div>
-                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1608245449230-4ac19066d2d0?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                </div>
-                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md flex items-center justify-center bg-brandSecondary group cursor-pointer">
-                    <div class="text-center group-hover:scale-110 transition-transform">
-                        <i class="fab fa-instagram text-3xl text-brandPrimary mb-2"></i>
-                        <p class="text-white text-xs font-bold">View More</p>
-                    </div>
-                </div>
-            </div>
         </main>
 
         <main id="tab-news" class="tab-content py-6 px-4">
@@ -220,20 +138,22 @@
                 <h2 class="text-3xl font-black text-brandSecondary uppercase flex items-center gap-3">
                     <i class="fas fa-bolt text-brandPrimary"></i> Live News
                 </h2>
-                <span class="flex h-3 w-3 relative mb-2 mr-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-                </span>
             </div>
-            
-            <div id="news-container" class="space-y-4">
-                <div id="news-loader" class="text-center py-10">
-                    <i class="fas fa-circle-notch fa-spin text-3xl text-brandPrimary mb-3"></i>
-                    <p class="text-gray-400 font-bold text-sm">Pulling latest updates from the court...</p>
+            <div id="news-container" class="space-y-4"></div>
+        </main>
+        
+        <main id="tab-batches" class="tab-content py-6 px-4">
+            <h2 class="text-3xl font-black text-brandSecondary uppercase mb-6 flex items-center gap-3"><i class="fas fa-stopwatch text-brandPrimary"></i> Schedules</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-brandPrimary">
+                    <h3 class="text-2xl font-black text-brandSecondary mb-1">Morning Drill</h3>
+                    <div class="bg-brandLight p-4 rounded-2xl flex justify-between items-center mb-5 mt-4">
+                        <span class="font-black text-brandSecondary text-sm">6:00 - 8:00 AM</span>
+                        <span class="font-bold text-gray-500 text-xs">Mon - Fri</span>
+                    </div>
                 </div>
             </div>
         </main>
-
     </div>
 
     <nav class="fixed bottom-0 w-full bg-white border-t border-gray-100 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-40 pb-safe">
@@ -241,77 +161,62 @@
             <button onclick="switchTab('home')" id="nav-home" class="nav-btn active flex flex-col items-center justify-center w-full h-full text-brandPrimary">
                 <i class="fas fa-home text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Home</span>
             </button>
-            <button onclick="switchTab('batches')" id="nav-batches" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
+            <button onclick="switchTab('batches')" id="nav-batches" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400">
                 <i class="fas fa-stopwatch text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Batches</span>
             </button>
-            <button onclick="switchTab('stats')" id="nav-stats" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
-                <i class="fas fa-trophy text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Stats</span>
-            </button>
-            <button onclick="switchTab('media')" id="nav-media" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
-                <i class="fas fa-camera text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Media</span>
-            </button>
-            <button onclick="switchTab('news')" id="nav-news" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
+            <button onclick="switchTab('news')" id="nav-news" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400">
                 <i class="fas fa-newspaper text-xl mb-1"></i><span class="text-[9px] font-black uppercase">News</span>
             </button>
         </div>
     </nav>
 
     <script>
-        // --- Navigation Logic ---
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('text-brandPrimary');
-                btn.classList.add('text-gray-400');
-            });
+            document.querySelectorAll('.nav-btn').forEach(btn => { btn.classList.remove('text-brandPrimary'); btn.classList.add('text-gray-400'); });
             document.getElementById('tab-' + tabId).classList.add('active');
-            const activeNav = document.getElementById('nav-' + tabId);
-            if(activeNav) {
-                activeNav.classList.remove('text-gray-400');
-                activeNav.classList.add('text-brandPrimary');
-            }
+            document.getElementById('nav-' + tabId).classList.remove('text-gray-400');
+            document.getElementById('nav-' + tabId).classList.add('text-brandPrimary');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // --- Modal Logic ---
-        function openModal() {
-            document.getElementById('enroll-modal').classList.remove('hidden');
-        }
-        function closeModal() {
-            document.getElementById('enroll-modal').classList.add('hidden');
-        }
-        function submitForm(e) {
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+
+        // --- PWA INSTALL LOGIC ---
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
-            alert("Application submitted! Our coaching staff will contact you shortly.");
-            closeModal();
-            e.target.reset();
+            deferredPrompt = e;
+            document.getElementById('install-banner').classList.remove('hidden');
+        });
+
+        document.getElementById('install-btn').addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') document.getElementById('install-banner').classList.add('hidden');
+                deferredPrompt = null;
+            }
+        });
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js');
         }
 
-        // --- Failsafe News Fetching Logic ---
+        // --- NEWS LOGIC WITH MODAL ---
         const RSS_URL = 'https://www.espn.com/espn/rss/nba/news';
         const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
-        
-        // Backup data in case GitHub Pages blocks the API request
-        const backupNews = [
-            { title: "Inspire Boys Qualify for C-Division Championship!", date: "Recent", img: "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=500&auto=format&fit=crop", link: "#" },
-            { title: "Summer Basketball Camp Registrations Now Open", date: "Recent", img: "https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=500&auto=format&fit=crop", link: "#" },
-            { title: "New Training Equipments Arrive at Main Facility", date: "Update", img: "https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=500&auto=format&fit=crop", link: "#" }
-        ];
+        let globalNewsData = [];
 
         async function fetchSportsNews() {
             const container = document.getElementById('news-container');
-            const loader = document.getElementById('news-loader');
-            
             try {
                 const response = await fetch(API_URL);
-                if (!response.ok) throw new Error("API Blocked");
                 const data = await response.json();
                 
                 if(data.status === 'ok') {
-                    if(loader) loader.remove();
-                    const newsItems = data.items.slice(0, 10); 
-                    
-                    newsItems.forEach(item => {
+                    globalNewsData = data.items.slice(0, 10); 
+                    globalNewsData.forEach((item, index) => {
                         let imgUrl = 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=500&auto=format&fit=crop'; 
                         if (item.enclosure && item.enclosure.link) imgUrl = item.enclosure.link;
                         else {
@@ -319,39 +224,45 @@
                             if(match && match[1]) imgUrl = match[1];
                         }
                         const date = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-                        renderNewsItem(container, imgUrl, date, item.title, item.link);
+                        
+                        // Pass the index to the click handler
+                        const articleHTML = `
+                            <div onclick="openNewsModal(${index}, '${imgUrl}')" class="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 flex gap-4 items-center cursor-pointer active:scale-95 transition-transform">
+                                <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100">
+                                    <img src="${imgUrl}" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex flex-col py-1">
+                                    <span class="text-brandPrimary text-[10px] font-black uppercase mb-1 tracking-wider">${date}</span>
+                                    <h3 class="text-brandSecondary font-bold text-sm leading-snug line-clamp-2">${item.title}</h3>
+                                </div>
+                            </div>
+                        `;
+                        container.insertAdjacentHTML('beforeend', articleHTML);
                     });
                 }
             } catch (error) {
-                // If API fails (Common on GitHub pages), load backup local data!
-                if(loader) loader.remove();
-                backupNews.forEach(item => renderNewsItem(container, item.img, item.date, item.title, item.link));
+                container.innerHTML = "<p>Error loading news.</p>";
             }
         }
 
-        function renderNewsItem(container, img, date, title, link) {
-            const articleHTML = `
-                <a href="${link}" target="_blank" class="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 flex gap-4 items-center hover:shadow-md transition-shadow">
-                    <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100">
-                        <img src="${img}" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col py-1">
-                        <span class="text-brandPrimary text-[10px] font-black uppercase mb-1 tracking-wider">${date}</span>
-                        <h3 class="text-brandSecondary font-bold text-sm leading-snug">${title}</h3>
-                    </div>
-                </a>
-            `;
-            container.insertAdjacentHTML('beforeend', articleHTML);
+        // Populates and opens the news modal
+        function openNewsModal(index, imgUrl) {
+            const item = globalNewsData[index];
+            const date = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+            
+            // Strip HTML tags from description for a clean paragraph
+            let cleanDesc = item.description.replace(/<\/?[^>]+(>|$)/g, "");
+            
+            document.getElementById('news-modal-img').innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover">`;
+            document.getElementById('news-modal-date').innerText = date;
+            document.getElementById('news-modal-title').innerText = item.title;
+            document.getElementById('news-modal-desc').innerText = cleanDesc || "No further details provided in the live feed.";
+            document.getElementById('news-modal-link').href = item.link;
+            
+            document.getElementById('news-modal').classList.remove('hidden');
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            // Check if URL has a hash to load specific tab (e.g., #news)
-            const hash = window.location.hash.replace('#', '');
-            if(hash && document.getElementById('tab-' + hash)) {
-                switchTab(hash);
-            }
-            fetchSportsNews();
-        });
+        document.addEventListener('DOMContentLoaded', fetchSportsNews);
     </script>
 </body>
 </html>
