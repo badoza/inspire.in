@@ -29,13 +29,9 @@
         body { background-color: #F8FAFC; color: #0B132B; -webkit-font-smoothing: antialiased; padding-bottom: 80px; }
         .clip-slant { clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
         ::-webkit-scrollbar { width: 0px; background: transparent; }
-        
-        /* Smooth tab transitions */
         .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
         .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-        
-        /* Modal Styles */
         .modal-body { transform: scale(0.95); transition: transform 0.3s ease; }
         .active-modal .modal-body { transform: scale(1); }
     </style>
@@ -80,7 +76,7 @@
             <p class="text-sm font-bold text-brandPrimary mb-6">Hubballi-Dharwad's Best</p>
             
             <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-                <input type="hidden" name="access_key" value="40048b50-84fd-48a9-bb4f-61a66846d43d">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
                 <input type="hidden" name="subject" value="New Academy Enrollment!">
                 <input type="hidden" name="redirect" value="https://web3forms.com/success">
                 
@@ -99,13 +95,8 @@
                     </div>
                 </div>
                 <div>
-                    <label class="text-xs font-bold text-gray-500 uppercase">Select Batch</label>
-                    <select name="batch" class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brandPrimary">
-                        <option>Morning Drill (6 AM - 8 AM)</option>
-                        <option>Junior Squad (4:30 PM - 6 PM)</option>
-                        <option>Senior Elite (6 PM - 8 PM)</option>
-                        <option>Weekend Warriors</option>
-                    </select>
+                    <label class="text-xs font-bold text-gray-500 uppercase">Batch Preference</label>
+                    <input type="text" name="batch" placeholder="e.g. Morning Drill" required class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brandPrimary">
                 </div>
                 <button type="submit" class="w-full bg-brandSecondary text-white font-black py-4 rounded-xl shadow-lg mt-4 hover:bg-brandPrimary transition-colors uppercase tracking-wider">
                     Submit Application
@@ -168,27 +159,10 @@
             <h2 class="text-3xl font-black text-brandSecondary uppercase mb-6 flex items-center gap-3">
                 <i class="fas fa-stopwatch text-brandPrimary"></i> Schedules
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-brandPrimary relative">
-                    <div class="absolute top-4 right-4 bg-green-100 text-green-700 text-[10px] font-black px-3 py-1 rounded-full uppercase">Open</div>
-                    <h3 class="text-2xl font-black text-brandSecondary mb-1">Morning Drill</h3>
-                    <p class="text-xs text-gray-500 font-bold uppercase mb-5">All Ages • Fundamentals</p>
-                    <div class="bg-brandLight p-4 rounded-2xl flex justify-between items-center mb-5 border border-gray-100">
-                        <span class="font-black text-brandSecondary text-sm"><i class="far fa-clock text-brandPrimary mr-2"></i> 6:00 - 8:00 AM</span>
-                        <span class="font-bold text-gray-500 text-xs">Mon - Fri</span>
-                    </div>
-                    <button onclick="document.getElementById('enroll-modal').classList.remove('hidden')" class="w-full bg-brandSecondary/5 text-brandSecondary font-bold py-3 rounded-xl hover:bg-brandPrimary hover:text-white transition-colors">Enroll in Morning</button>
-                </div>
-
-                <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-brandSecondary relative">
-                    <div class="absolute top-4 right-4 bg-red-100 text-red-700 text-[10px] font-black px-3 py-1 rounded-full uppercase">Almost Full</div>
-                    <h3 class="text-2xl font-black text-brandSecondary mb-1">Senior Elite</h3>
-                    <p class="text-xs text-gray-500 font-bold uppercase mb-5">Under 18 • Competitive</p>
-                    <div class="bg-brandLight p-4 rounded-2xl flex justify-between items-center mb-5 border border-gray-100">
-                        <span class="font-black text-brandSecondary text-sm"><i class="far fa-clock text-brandPrimary mr-2"></i> 6:00 - 8:00 PM</span>
-                        <span class="font-bold text-gray-500 text-xs">Mon - Fri</span>
-                    </div>
-                    <button onclick="document.getElementById('enroll-modal').classList.remove('hidden')" class="w-full bg-brandSecondary/5 text-brandSecondary font-bold py-3 rounded-xl hover:bg-brandPrimary hover:text-white transition-colors">Enroll in Elite</button>
+            <div id="schedule-container" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="col-span-full text-center py-10">
+                    <i class="fas fa-circle-notch fa-spin text-3xl text-brandPrimary mb-3"></i>
+                    <p class="text-gray-400 font-bold text-sm uppercase tracking-wider">Loading Batches...</p>
                 </div>
             </div>
         </main>
@@ -234,9 +208,6 @@
                 <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md col-span-2 h-48">
                     <img src="https://images.unsplash.com/photo-1520616162391-7fb8cd8288fb?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
                 </div>
-                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1608245449230-4ac19066d2d0?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                </div>
                 <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md flex items-center justify-center bg-brandSecondary group cursor-pointer" onclick="window.open('https://www.instagram.com/inspirebasketballclub/', '_blank')">
                     <div class="text-center group-hover:scale-110 transition-transform">
                         <i class="fab fa-instagram text-3xl text-brandPrimary mb-2"></i>
@@ -260,7 +231,7 @@
             <div id="news-container" class="space-y-4">
                 <div id="news-loader" class="text-center py-10">
                     <i class="fas fa-circle-notch fa-spin text-3xl text-brandPrimary mb-3"></i>
-                    <p class="text-gray-400 font-bold text-sm">Pulling latest updates...</p>
+                    <p class="text-gray-400 font-bold text-sm uppercase tracking-wider">Pulling updates...</p>
                 </div>
             </div>
         </main>
@@ -331,15 +302,55 @@
             navigator.serviceWorker.register('./sw.js').catch(()=> console.log("SW Register Failed"));
         }
 
-        // --- 4. News Fetching & Modal Logic ---
+        // --- 4. Live Google Sheets Schedule Fetching ---
+        const SCHEDULE_API_URL = 'https://script.google.com/macros/s/AKfycbzSwsOARrbQEznAvEminfPGg3bK8Jx0b4YQ0SrH11FlBG0kVpMzA0BFUSqRtzsZyu4i/exec';
+
+        async function fetchSchedules() {
+            const container = document.getElementById('schedule-container');
+            
+            try {
+                const response = await fetch(SCHEDULE_API_URL);
+                const batches = await response.json();
+                
+                container.innerHTML = ''; // Remove loader
+                
+                batches.forEach(batch => {
+                    // Logic to color code the tags
+                    let tagColor = 'bg-green-100 text-green-700'; // Default Open
+                    if(batch.Status && batch.Status.toLowerCase().includes('fill')) tagColor = 'bg-red-100 text-red-700';
+                    if(batch.Status && batch.Status.toLowerCase().includes('close')) tagColor = 'bg-gray-100 text-gray-700';
+
+                    const batchHTML = `
+                        <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-brandPrimary relative">
+                            <div class="absolute top-4 right-4 ${tagColor} text-[10px] font-black px-3 py-1 rounded-full uppercase">${batch.Status || 'Open'}</div>
+                            <h3 class="text-2xl font-black text-brandSecondary mb-1">${batch.BatchName || 'Training Batch'}</h3>
+                            <div class="bg-brandLight p-4 rounded-2xl flex justify-between items-center mb-5 mt-4 border border-gray-100">
+                                <span class="font-black text-brandSecondary text-sm"><i class="far fa-clock text-brandPrimary mr-2"></i> ${batch.Timing || 'TBA'}</span>
+                                <span class="font-bold text-gray-500 text-xs">${batch.Days || 'TBA'}</span>
+                            </div>
+                            <button onclick="document.getElementById('enroll-modal').classList.remove('hidden')" class="w-full bg-brandSecondary/5 text-brandSecondary font-bold py-3 rounded-xl hover:bg-brandPrimary hover:text-white transition-colors">Enroll Now</button>
+                        </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', batchHTML);
+                });
+                
+                if(batches.length === 0) {
+                     container.innerHTML = '<p class="col-span-full text-center text-gray-500 font-bold mt-4">No active batches available right now.</p>';
+                }
+            } catch (error) {
+                console.error("Could not load schedules", error);
+                container.innerHTML = '<p class="col-span-full text-center text-red-500 font-bold mt-4">Unable to load schedules. Please check your connection.</p>';
+            }
+        }
+
+        // --- 5. News Fetching & Modal Logic ---
         const RSS_URL = 'https://www.espn.com/espn/rss/nba/news';
         const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
         let globalNewsData = [];
 
-        // Fallback data in case the API gets blocked
         const backupNews = [
             { title: "Inspire Boys Qualify for Championship!", pubDate: new Date().toISOString(), description: "Great news for the academy as the boys secure their spot in the upcoming C-Division finals.", link: "#" },
-            { title: "Summer Camp Early Bird Discounts", pubDate: new Date().toISOString(), description: "Register now for the summer camp and get a 10% discount on standard fees.", link: "#" }
+            { title: "Summer Camp Early Bird Discounts", pubDate: new Date().toISOString(), description: "Register now for the summer camp and get a discount on standard fees.", link: "#" }
         ];
 
         async function fetchSportsNews() {
@@ -380,7 +391,6 @@
             } catch (error) {
                 if(loader) loader.remove();
                 globalNewsData = backupNews;
-                // Render backups
                 globalNewsData.forEach((item, index) => {
                     const date = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
                     const imgUrl = "https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=500&auto=format&fit=crop";
@@ -397,7 +407,7 @@
         function openNewsModal(index, imgUrl) {
             const item = globalNewsData[index];
             const date = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-            let cleanDesc = item.description.replace(/<\/?[^>]+(>|$)/g, ""); // Remove HTML tags
+            let cleanDesc = item.description.replace(/<\/?[^>]+(>|$)/g, "");
             
             document.getElementById('news-modal-img').innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover">`;
             document.getElementById('news-modal-date').innerText = date;
@@ -408,10 +418,11 @@
             document.getElementById('news-modal').classList.remove('hidden');
         }
 
-        // Initialize
+        // --- 6. Initialize App on Load ---
         document.addEventListener('DOMContentLoaded', () => {
             fetchSportsNews();
-            // Handle URL Hashes (e.g., loading directly to #news)
+            fetchSchedules(); // PULLS FROM YOUR GOOGLE SHEET!
+            
             const hash = window.location.hash.replace('#', '');
             if(hash && document.getElementById('tab-' + hash)) switchTab(hash);
         });
