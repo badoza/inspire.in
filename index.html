@@ -15,10 +15,10 @@
             theme: {
                 extend: {
                     colors: {
-                        brandPrimary: '#F26522',   /* Court Orange */
-                        brandSecondary: '#0B132B', /* Deep Navy */
+                        brandPrimary: '#F26522',
+                        brandSecondary: '#0B132B',
                         brandLight: '#F8FAFC',
-                        brandAccent: '#FFD700'     /* Trophy Gold */
+                        brandAccent: '#FFD700'
                     },
                     fontFamily: { sans: ['Montserrat', 'sans-serif'], }
                 }
@@ -49,23 +49,11 @@
                     <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Basketball Academy</span>
                 </div>
             </div>
-            <div class="text-[9px] text-gray-500 font-bold bg-gray-100 px-3 py-1.5 rounded-full uppercase tracking-wider">
-                Dev: Kunal Dongare
-            </div>
+            <button id="header-install-btn" class="hidden bg-brandPrimary text-white text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-wider shadow-sm">
+                <i class="fas fa-download mr-1"></i> App
+            </button>
         </div>
     </header>
-
-    <div id="install-banner" class="fixed bottom-20 left-4 right-4 z-50 bg-brandSecondary text-white p-4 rounded-2xl shadow-2xl flex justify-between items-center hidden border border-brandPrimary/30">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-brandPrimary rounded-xl flex items-center justify-center text-white font-black">I</div>
-            <div>
-                <h4 class="font-black text-sm">Install Inspire App</h4>
-                <p class="text-[10px] text-gray-400">Get native access & offline schedules</p>
-            </div>
-        </div>
-        <button id="install-btn" class="bg-brandPrimary text-white font-black text-xs px-4 py-2 rounded-lg">INSTALL</button>
-        <button onclick="document.getElementById('install-banner').classList.add('hidden')" class="text-gray-400 ml-2"><i class="fas fa-times"></i></button>
-    </div>
 
     <div id="enroll-modal" class="fixed inset-0 z-50 hidden bg-brandSecondary/90 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="modal-body bg-white w-full max-w-md rounded-3xl p-6 shadow-2xl relative">
@@ -78,11 +66,12 @@
             <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
                 <input type="hidden" name="access_key" value="40048b50-84fd-48a9-bb4f-61a66846d43d">
                 <input type="hidden" name="subject" value="New Academy Enrollment!">
-                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                
+                <input type="hidden" name="redirect" value="https://badoza.github.io/inspire.in/">
                 
                 <div>
                     <label class="text-xs font-bold text-gray-500 uppercase">Player Name</label>
-                    <input type="text" name="name" required class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brandPrimary focus:ring-1 focus:ring-brandPrimary">
+                    <input type="text" name="name" required class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brandPrimary">
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
@@ -133,7 +122,6 @@
                     </button>
                 </div>
             </section>
-
             <section class="py-6 px-4 -mt-16 relative z-20">
                 <div class="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 flex flex-col gap-5">
                     <div class="flex items-center gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-colors">
@@ -171,25 +159,12 @@
             <h2 class="text-3xl font-black text-brandSecondary uppercase mb-6 flex items-center gap-3">
                 <i class="fas fa-trophy text-brandAccent"></i> Trophy Room
             </h2>
-            
             <div class="bg-gradient-to-br from-brandSecondary to-gray-900 rounded-3xl p-6 text-white shadow-xl mb-6 relative overflow-hidden">
                 <i class="fas fa-medal absolute -right-4 -bottom-4 text-9xl text-white/5"></i>
                 <h3 class="text-brandAccent font-black text-sm uppercase tracking-widest mb-2">Milestones</h3>
                 <p class="text-2xl font-black leading-tight mb-4">Dharwad District Association Tournament Runners-Up 🥈</p>
                 <div class="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-bold">
                     C-Division Championship Qualifiers
-                </div>
-            </div>
-
-            <h3 class="font-black text-lg text-brandSecondary uppercase mb-4 mt-8">Leadership</h3>
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
-                <div class="w-16 h-16 bg-gray-200 rounded-full overflow-hidden border-2 border-brandPrimary">
-                    <img src="https://images.unsplash.com/photo-1544365558-35aa4afcf11f?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <h4 class="font-black text-brandSecondary text-lg">Mr. Gangadhar Jadav</h4>
-                    <p class="text-xs text-brandPrimary font-bold uppercase">Head Coach / Director</p>
-                    <p class="text-xs text-gray-500 mt-1">DDBBA Recognized Mentor</p>
                 </div>
             </div>
         </main>
@@ -199,20 +174,19 @@
                 <i class="fas fa-camera text-brandPrimary"></i> Court Action
             </h2>
             <div class="grid grid-cols-2 gap-3">
+                
+                <div class="col-span-2 rounded-2xl overflow-hidden bg-black shadow-md relative group mb-2 border border-gray-200">
+                    <video id="gallery-video" src="./intro.mp4" class="w-full h-auto object-cover rounded-2xl" controls playsinline preload="metadata" poster="./logo.png"></video>
+                </div>
+
                 <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover">
                 </div>
                 <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover">
                 </div>
                 <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md col-span-2 h-48">
-                    <img src="https://images.unsplash.com/photo-1520616162391-7fb8cd8288fb?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-                </div>
-                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md flex items-center justify-center bg-brandSecondary group cursor-pointer" onclick="window.open('https://www.instagram.com/inspirebasketballclub/', '_blank')">
-                    <div class="text-center group-hover:scale-110 transition-transform">
-                        <i class="fab fa-instagram text-3xl text-brandPrimary mb-2"></i>
-                        <p class="text-white text-xs font-bold uppercase tracking-wider">Follow Us</p>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1520616162391-7fb8cd8288fb?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover">
                 </div>
             </div>
         </main>
@@ -222,18 +196,8 @@
                 <h2 class="text-3xl font-black text-brandSecondary uppercase flex items-center gap-3">
                     <i class="fas fa-bolt text-brandPrimary"></i> Live News
                 </h2>
-                <span class="flex h-3 w-3 relative mb-2 mr-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-                </span>
             </div>
-            
-            <div id="news-container" class="space-y-4">
-                <div id="news-loader" class="text-center py-10">
-                    <i class="fas fa-circle-notch fa-spin text-3xl text-brandPrimary mb-3"></i>
-                    <p class="text-gray-400 font-bold text-sm uppercase tracking-wider">Pulling updates...</p>
-                </div>
-            </div>
+            <div id="news-container" class="space-y-4"></div>
         </main>
 
     </div>
@@ -243,23 +207,23 @@
             <button onclick="switchTab('home')" id="nav-home" class="nav-btn active flex flex-col items-center justify-center w-full h-full text-brandPrimary">
                 <i class="fas fa-home text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Home</span>
             </button>
-            <button onclick="switchTab('batches')" id="nav-batches" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
+            <button onclick="switchTab('batches')" id="nav-batches" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400">
                 <i class="fas fa-stopwatch text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Batches</span>
             </button>
-            <button onclick="switchTab('stats')" id="nav-stats" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
+            <button onclick="switchTab('stats')" id="nav-stats" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400">
                 <i class="fas fa-trophy text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Stats</span>
             </button>
-            <button onclick="switchTab('media')" id="nav-media" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
+            <button onclick="switchTab('media')" id="nav-media" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400">
                 <i class="fas fa-camera text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Media</span>
             </button>
-            <button onclick="switchTab('news')" id="nav-news" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
+            <button onclick="switchTab('news')" id="nav-news" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400">
                 <i class="fas fa-newspaper text-xl mb-1"></i><span class="text-[9px] font-black uppercase">News</span>
             </button>
         </div>
     </nav>
 
     <script>
-        // --- 1. Navigation Logic ---
+        // --- 1. Navigation & Smart Video Logic ---
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(btn => { 
@@ -274,49 +238,57 @@
                 activeNav.classList.add('text-brandPrimary');
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // SMART VIDEO CONTROL
+            const video = document.getElementById('gallery-video');
+            if(video) {
+                if(tabId === 'media') {
+                    // Because user clicked a button, the browser allows us to play with sound!
+                    video.muted = false;
+                    video.play().catch(e => console.log("User must interact with page first before audio plays."));
+                } else {
+                    // Pause video if they navigate away from the media tab
+                    video.pause();
+                }
+            }
         }
 
-        // --- 2. Modal Logic ---
-        function closeModal(id) { 
-            document.getElementById(id).classList.add('hidden'); 
-        }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-        // --- 3. PWA Install Logic ---
+        // --- 2. PWA Install Logic (Chrome Download Button) ---
         let deferredPrompt;
+        const installBtn = document.getElementById('header-install-btn');
+
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            document.getElementById('install-banner').classList.remove('hidden');
+            installBtn.classList.remove('hidden'); // Show button in header
         });
 
-        document.getElementById('install-btn').addEventListener('click', async () => {
+        installBtn.addEventListener('click', async () => {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 const { outcome } = await deferredPrompt.userChoice;
-                if (outcome === 'accepted') document.getElementById('install-banner').classList.add('hidden');
+                if (outcome === 'accepted') installBtn.classList.add('hidden');
                 deferredPrompt = null;
             }
         });
 
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js').catch(()=> console.log("SW Register Failed"));
+            navigator.serviceWorker.register('./sw.js');
         }
 
-        // --- 4. Live Google Sheets Schedule Fetching ---
+        // --- 3. Google Sheets Schedule Fetching ---
         const SCHEDULE_API_URL = 'https://script.google.com/macros/s/AKfycbzSwsOARrbQEznAvEminfPGg3bK8Jx0b4YQ0SrH11FlBG0kVpMzA0BFUSqRtzsZyu4i/exec';
 
         async function fetchSchedules() {
             const container = document.getElementById('schedule-container');
-            
             try {
                 const response = await fetch(SCHEDULE_API_URL);
                 const batches = await response.json();
-                
-                container.innerHTML = ''; // Remove loader
-                
+                container.innerHTML = ''; 
                 batches.forEach(batch => {
-                    // Logic to color code the tags
-                    let tagColor = 'bg-green-100 text-green-700'; // Default Open
+                    let tagColor = 'bg-green-100 text-green-700'; 
                     if(batch.Status && batch.Status.toLowerCase().includes('fill')) tagColor = 'bg-red-100 text-red-700';
                     if(batch.Status && batch.Status.toLowerCase().includes('close')) tagColor = 'bg-gray-100 text-gray-700';
 
@@ -329,42 +301,26 @@
                                 <span class="font-bold text-gray-500 text-xs">${batch.Days || 'TBA'}</span>
                             </div>
                             <button onclick="document.getElementById('enroll-modal').classList.remove('hidden')" class="w-full bg-brandSecondary/5 text-brandSecondary font-bold py-3 rounded-xl hover:bg-brandPrimary hover:text-white transition-colors">Enroll Now</button>
-                        </div>
-                    `;
+                        </div>`;
                     container.insertAdjacentHTML('beforeend', batchHTML);
                 });
-                
-                if(batches.length === 0) {
-                     container.innerHTML = '<p class="col-span-full text-center text-gray-500 font-bold mt-4">No active batches available right now.</p>';
-                }
             } catch (error) {
-                console.error("Could not load schedules", error);
-                container.innerHTML = '<p class="col-span-full text-center text-red-500 font-bold mt-4">Unable to load schedules. Please check your connection.</p>';
+                container.innerHTML = '<p class="col-span-full text-center text-red-500 font-bold mt-4">Unable to load schedules.</p>';
             }
         }
 
-        // --- 5. News Fetching & Modal Logic ---
+        // --- 4. News Fetching ---
         const RSS_URL = 'https://www.espn.com/espn/rss/nba/news';
         const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
         let globalNewsData = [];
 
-        const backupNews = [
-            { title: "Inspire Boys Qualify for Championship!", pubDate: new Date().toISOString(), description: "Great news for the academy as the boys secure their spot in the upcoming C-Division finals.", link: "#" },
-            { title: "Summer Camp Early Bird Discounts", pubDate: new Date().toISOString(), description: "Register now for the summer camp and get a discount on standard fees.", link: "#" }
-        ];
-
         async function fetchSportsNews() {
             const container = document.getElementById('news-container');
-            const loader = document.getElementById('news-loader');
-            
             try {
                 const response = await fetch(API_URL);
                 const data = await response.json();
-                
                 if(data.status === 'ok') {
-                    if(loader) loader.remove();
                     globalNewsData = data.items.slice(0, 10); 
-                    
                     globalNewsData.forEach((item, index) => {
                         let imgUrl = 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=500&auto=format&fit=crop'; 
                         if (item.enclosure && item.enclosure.link) imgUrl = item.enclosure.link;
@@ -373,56 +329,30 @@
                             if(match && match[1]) imgUrl = match[1];
                         }
                         const date = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-                        
                         const articleHTML = `
                             <div onclick="openNewsModal(${index}, '${imgUrl}')" class="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 flex gap-4 items-center cursor-pointer active:scale-95 transition-transform">
-                                <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100">
-                                    <img src="${imgUrl}" class="w-full h-full object-cover">
-                                </div>
-                                <div class="flex flex-col py-1">
-                                    <span class="text-brandPrimary text-[10px] font-black uppercase mb-1 tracking-wider">${date}</span>
-                                    <h3 class="text-brandSecondary font-bold text-sm leading-snug line-clamp-2">${item.title}</h3>
-                                </div>
-                            </div>
-                        `;
+                                <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100"><img src="${imgUrl}" class="w-full h-full object-cover"></div>
+                                <div class="flex flex-col py-1"><span class="text-brandPrimary text-[10px] font-black uppercase mb-1 tracking-wider">${date}</span><h3 class="text-brandSecondary font-bold text-sm leading-snug line-clamp-2">${item.title}</h3></div>
+                            </div>`;
                         container.insertAdjacentHTML('beforeend', articleHTML);
                     });
                 }
             } catch (error) {
-                if(loader) loader.remove();
-                globalNewsData = backupNews;
-                globalNewsData.forEach((item, index) => {
-                    const date = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-                    const imgUrl = "https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=500&auto=format&fit=crop";
-                    const articleHTML = `
-                        <div onclick="openNewsModal(${index}, '${imgUrl}')" class="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 flex gap-4 items-center cursor-pointer active:scale-95 transition-transform">
-                            <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100"><img src="${imgUrl}" class="w-full h-full object-cover"></div>
-                            <div class="flex flex-col py-1"><span class="text-brandPrimary text-[10px] font-black uppercase mb-1">${date}</span><h3 class="text-brandSecondary font-bold text-sm">${item.title}</h3></div>
-                        </div>`;
-                    container.insertAdjacentHTML('beforeend', articleHTML);
-                });
+                container.innerHTML = "<p>Error loading news.</p>";
             }
         }
 
         function openNewsModal(index, imgUrl) {
             const item = globalNewsData[index];
-            const date = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-            let cleanDesc = item.description.replace(/<\/?[^>]+(>|$)/g, "");
-            
             document.getElementById('news-modal-img').innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover">`;
-            document.getElementById('news-modal-date').innerText = date;
             document.getElementById('news-modal-title').innerText = item.title;
-            document.getElementById('news-modal-desc').innerText = cleanDesc || "Check the full article for more details on this update.";
             document.getElementById('news-modal-link').href = item.link;
-            
             document.getElementById('news-modal').classList.remove('hidden');
         }
 
-        // --- 6. Initialize App on Load ---
         document.addEventListener('DOMContentLoaded', () => {
             fetchSportsNews();
-            fetchSchedules(); // PULLS FROM YOUR GOOGLE SHEET!
-            
+            fetchSchedules();
             const hash = window.location.hash.replace('#', '');
             if(hash && document.getElementById('tab-' + hash)) switchTab(hash);
         });
