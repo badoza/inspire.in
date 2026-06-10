@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Inspire Basketball Academy</title>
-    
+    <title>Inspire Sports Ecosystem</title>
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#F26522">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -25,17 +24,7 @@
                         brandLight: '#F8FAFC',
                         brandAccent: '#FFD700'
                     },
-                    fontFamily: { sans: ['Montserrat', 'sans-serif'], },
-                    animation: {
-                        'tilt': 'tilt 10s infinite linear',
-                    },
-                    keyframes: {
-                        tilt: {
-                            '0%, 50%, 100%': { transform: 'rotate(0deg)' },
-                            '25%': { transform: 'rotate(1deg)' },
-                            '75%': { transform: 'rotate(-1deg)' },
-                        }
-                    }
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'], }
                 }
             }
         }
@@ -49,6 +38,15 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
         .modal-body { transform: scale(0.95); transition: transform 0.3s ease; }
         .active-modal .modal-body { transform: scale(1); }
+        
+        /* Shiny Card Animation */
+        .card-shine { position: relative; overflow: hidden; }
+        .card-shine::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg); animation: shine 3s infinite;
+        }
+        @keyframes shine { 0% { left: -100%; } 20% { left: 200%; } 100% { left: 200%; } }
     </style>
 </head>
 <body class="font-sans selection:bg-brandPrimary selection:text-white">
@@ -64,9 +62,9 @@
                     <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Foundation</span>
                 </div>
             </div>
-            <button id="header-install-btn" class="hidden bg-brandPrimary text-white text-[10px] font-black px-4 py-2 rounded-xl uppercase tracking-wider shadow-md hover:bg-orange-600 transition-colors">
-                <i class="fas fa-download mr-1"></i> Install App
-            </button>
+            <div class="text-[9px] text-gray-500 font-bold bg-gray-100 px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1">
+                <i class="fas fa-bolt text-brandPrimary"></i> Pro Version
+            </div>
         </div>
     </header>
 
@@ -112,6 +110,239 @@
         </div>
     </div>
 
+    <div class="pt-20 max-w-md mx-auto md:max-w-7xl md:px-4">
+
+        <main id="tab-home" class="tab-content active px-4">
+            
+            <div class="bg-gradient-to-br from-brandSecondary to-gray-900 rounded-3xl p-6 text-white shadow-xl mb-8 relative overflow-hidden card-shine">
+                <i class="fas fa-fire absolute -right-6 -top-4 text-9xl text-white/5"></i>
+                <div class="flex justify-between items-center mb-6 relative z-10">
+                    <div>
+                        <h2 class="font-black text-xl tracking-wider uppercase">Welcome Back</h2>
+                        <p class="text-brandPrimary font-bold text-xs">Ready to grind?</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-3 text-center border border-white/20">
+                        <i class="fas fa-fire text-orange-500 text-xl mb-1"></i>
+                        <p class="font-black text-xl leading-none">12</p>
+                        <p class="text-[8px] uppercase tracking-widest font-bold text-gray-300">Day Streak</p>
+                    </div>
+                </div>
+                
+                <div class="bg-black/30 rounded-2xl p-4 relative z-10 border border-white/10">
+                    <div class="flex justify-between items-end mb-2">
+                        <h3 class="font-bold text-sm text-gray-200"><i class="fas fa-star text-brandAccent mr-2"></i>Daily Quest</h3>
+                        <span class="text-[10px] bg-brandPrimary px-2 py-1 rounded-full font-bold uppercase">+50 XP</span>
+                    </div>
+                    <p class="font-black text-white">Complete 50 Crossovers</p>
+                    <button class="w-full mt-3 bg-white text-brandSecondary font-black py-2 rounded-xl text-xs uppercase tracking-wider hover:bg-brandPrimary hover:text-white transition-colors">Claim Reward</button>
+                </div>
+            </div>
+
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-black text-brandSecondary uppercase mb-1">The Academy</h2>
+                <div class="w-16 h-1 bg-brandPrimary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 flex flex-col gap-5 mb-8">
+                <div class="flex items-center gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-colors">
+                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl shadow-inner"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="flex-1">
+                        <h3 class="font-black text-xs text-gray-400 uppercase tracking-wider">Main Base</h3>
+                        <p class="font-bold text-brandSecondary text-sm leading-tight mt-1">JSS Banashankari College, Vidyagiri</p>
+                    </div>
+                </div>
+                <div class="h-px bg-gray-100 w-full"></div>
+                <div class="flex items-center gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-colors" onclick="document.getElementById('enroll-modal').classList.remove('hidden')">
+                    <div class="w-14 h-14 bg-brandPrimary/10 text-brandPrimary rounded-2xl flex items-center justify-center text-2xl shadow-inner"><i class="fas fa-user-plus"></i></div>
+                    <div class="flex-1">
+                        <h3 class="font-black text-xs text-brandPrimary uppercase tracking-wider">Admissions Open 2026</h3>
+                        <p class="font-black text-brandSecondary text-lg mt-1">Join The Squad</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-300"></i>
+                </div>
+            </div>
+        </main>
+
+        <main id="tab-book" class="tab-content py-2 px-4">
+            
+            <div class="flex justify-between items-end mb-6">
+                <div>
+                    <h2 class="text-3xl font-black text-brandSecondary uppercase mb-1">Book & Play</h2>
+                    <p class="text-sm font-bold text-gray-500">Hubballi-Dharwad Venues</p>
+                </div>
+                <div class="bg-brandSecondary text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg" onclick="alert('Digital Venue Pass Ready.')">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+            </div>
+
+            <div class="flex bg-gray-200 p-1 rounded-2xl mb-6">
+                <button class="flex-1 bg-white text-brandSecondary font-black text-xs py-3 rounded-xl shadow-sm uppercase tracking-wider">Book Turf</button>
+                <button class="flex-1 text-gray-500 font-bold text-xs py-3 rounded-xl uppercase tracking-wider">Academy Batches</button>
+            </div>
+
+            <h3 class="font-black text-brandSecondary uppercase mb-4 text-sm flex items-center gap-2"><i class="fas fa-calendar-check text-brandPrimary"></i> Today's Open Slots</h3>
+            
+            <div class="grid grid-cols-1 gap-4 mb-8">
+                <div class="bg-white rounded-3xl p-5 shadow-md border border-gray-100 flex justify-between items-center relative overflow-hidden">
+                    <div class="absolute left-0 top-0 bottom-0 w-2 bg-gray-300"></div>
+                    <div class="pl-4">
+                        <h4 class="font-black text-brandSecondary text-lg">7:00 PM - 8:00 PM</h4>
+                        <p class="text-xs font-bold text-gray-500 mt-1"><i class="fas fa-users mr-1"></i> Split Pay Available</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="font-black text-xl text-brandSecondary">₹1200</p>
+                        <button class="bg-brandSecondary text-white text-[10px] font-black px-4 py-2 rounded-lg mt-1 uppercase">Book</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-brandPrimary flex justify-between items-center relative overflow-hidden transform hover:-translate-y-1 transition-all">
+                    <div class="absolute left-0 top-0 bottom-0 w-2 bg-brandPrimary"></div>
+                    <div class="absolute top-0 right-0 bg-brandPrimary text-white text-[8px] font-black px-3 py-1 rounded-bl-xl uppercase tracking-widest"><i class="fas fa-bolt mr-1"></i> Off-Peak Deal</div>
+                    <div class="pl-4">
+                        <h4 class="font-black text-brandSecondary text-lg">2:00 PM - 3:00 PM</h4>
+                        <p class="text-xs font-bold text-green-500 mt-1"><i class="fas fa-tag mr-1"></i> Save 33%</p>
+                    </div>
+                    <div class="text-right mt-2">
+                        <p class="font-black text-xs text-gray-400 line-through">₹1200</p>
+                        <p class="font-black text-xl text-brandPrimary">₹800</p>
+                        <button class="bg-brandPrimary text-white text-[10px] font-black px-4 py-2 rounded-lg mt-1 uppercase shadow-md shadow-brandPrimary/30">Book</button>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="font-black text-brandSecondary uppercase mb-4 text-sm flex items-center gap-2"><i class="fas fa-stopwatch text-brandPrimary"></i> Academy Batches</h3>
+            <div id="schedule-container" class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                <div class="col-span-full text-center py-10">
+                    <i class="fas fa-circle-notch fa-spin text-3xl text-brandPrimary mb-3"></i>
+                    <p class="text-gray-400 font-bold text-sm uppercase tracking-wider">Syncing Live Schedule...</p>
+                </div>
+            </div>
+        </main>
+
+        <main id="tab-card" class="tab-content py-2 px-4">
+            <h2 class="text-3xl font-black text-brandSecondary uppercase mb-6 text-center">Player Card</h2>
+            
+            <div class="max-w-sm mx-auto bg-gradient-to-br from-gray-900 to-black rounded-[2rem] p-1 shadow-2xl relative overflow-hidden card-shine">
+                <div class="bg-gradient-to-br from-brandAccent via-yellow-600 to-brandPrimary rounded-[1.8rem] p-1">
+                    <div class="bg-gray-900 rounded-[1.6rem] p-6 relative overflow-hidden">
+                        
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-center">
+                                <h3 class="font-black text-5xl text-white">84</h3>
+                                <p class="text-[10px] font-bold text-brandAccent uppercase tracking-widest">OVR</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="bg-brandPrimary/20 text-brandAccent border border-brandAccent/30 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Gold Tier</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center mb-6">
+                            <div class="w-24 h-24 bg-gray-800 rounded-full border-4 border-brandAccent mb-3 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1544365558-35aa4afcf11f?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover opacity-80 mix-blend-luminosity">
+                            </div>
+                            <h3 class="font-black text-2xl text-white uppercase tracking-wider">Player One</h3>
+                            <p class="text-xs font-bold text-gray-400">Point Guard • Under 14</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 border-t border-gray-800 pt-4">
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1"><span class="text-gray-400 uppercase">Shooting</span><span class="text-white">82</span></div>
+                                <div class="w-full bg-gray-800 h-1.5 rounded-full"><div class="bg-brandAccent h-1.5 rounded-full" style="width: 82%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1"><span class="text-gray-400 uppercase">Defense</span><span class="text-white">88</span></div>
+                                <div class="w-full bg-gray-800 h-1.5 rounded-full"><div class="bg-brandAccent h-1.5 rounded-full" style="width: 88%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1"><span class="text-gray-400 uppercase">Hustle</span><span class="text-white">95</span></div>
+                                <div class="w-full bg-gray-800 h-1.5 rounded-full"><div class="bg-brandAccent h-1.5 rounded-full" style="width: 95%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1"><span class="text-gray-400 uppercase">Attendance</span><span class="text-white">90</span></div>
+                                <div class="w-full bg-gray-800 h-1.5 rounded-full"><div class="bg-brandAccent h-1.5 rounded-full" style="width: 90%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-white rounded-3xl p-6 shadow-md border border-gray-100">
+                <h3 class="font-black text-brandSecondary uppercase mb-4 text-sm flex items-center gap-2"><i class="fas fa-medal text-brandAccent"></i> Badges Earned</h3>
+                <div class="flex gap-4 overflow-x-auto pb-2">
+                    <div class="bg-gray-50 rounded-2xl p-4 min-w-[100px] text-center border border-gray-100">
+                        <i class="fas fa-crosshairs text-3xl text-brandPrimary mb-2"></i>
+                        <p class="text-[10px] font-black text-brandSecondary uppercase">Sharpshooter</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-2xl p-4 min-w-[100px] text-center border border-gray-100">
+                        <i class="fas fa-shield-alt text-3xl text-blue-500 mb-2"></i>
+                        <p class="text-[10px] font-black text-brandSecondary uppercase">Lockdown</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-2xl p-4 min-w-[100px] text-center border border-gray-100 opacity-50">
+                        <i class="fas fa-lock text-3xl text-gray-400 mb-2"></i>
+                        <p class="text-[10px] font-black text-gray-500 uppercase">Playmaker</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <main id="tab-media" class="tab-content py-2 px-4">
+            <div class="flex justify-between items-end mb-6">
+                <h2 class="text-3xl font-black text-brandSecondary uppercase mb-1">Court Action</h2>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="col-span-2 rounded-2xl overflow-hidden bg-black shadow-md relative group mb-2 border border-gray-200">
+                    <video id="gallery-video" src="./intro.mp4" class="w-full h-auto object-cover rounded-2xl" controls playsinline preload="metadata" poster="./logo.png"></video>
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md col-span-2 h-48 flex items-center justify-center bg-gradient-to-br from-purple-600 to-pink-500 group cursor-pointer" onclick="window.open('https://www.instagram.com/inspirebasketballclub/', '_blank')">
+                    <div class="text-center group-hover:scale-110 transition-transform">
+                        <i class="fab fa-instagram text-4xl text-white mb-2"></i>
+                        <p class="text-white text-sm font-black uppercase tracking-wider">Follow The Journey</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <main id="tab-news" class="tab-content py-2 px-4">
+            <div class="flex justify-between items-end mb-6">
+                <h2 class="text-3xl font-black text-brandSecondary uppercase mb-1">Live News</h2>
+                <span class="flex h-3 w-3 relative mb-2 mr-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span></span>
+            </div>
+            <div id="news-container" class="space-y-4">
+                <div id="news-loader" class="text-center py-10"><i class="fas fa-circle-notch fa-spin text-3xl text-brandPrimary mb-3"></i><p class="text-gray-400 font-bold text-sm uppercase tracking-wider">Pulling updates...</p></div>
+            </div>
+        </main>
+
+    </div>
+
+    <nav class="fixed bottom-0 w-full bg-white border-t border-gray-100 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-40 pb-safe">
+        <div class="flex justify-around items-center h-16 max-w-md mx-auto px-2">
+            <button onclick="switchTab('home')" id="nav-home" class="nav-btn active flex flex-col items-center justify-center w-full h-full text-brandPrimary">
+                <i class="fas fa-home text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Home</span>
+            </button>
+            <button onclick="switchTab('book')" id="nav-book" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
+                <i class="fas fa-calendar-alt text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Book</span>
+            </button>
+            <button onclick="switchTab('card')" id="nav-card" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandAccent transition-colors -mt-4">
+                <div class="bg-brandSecondary text-brandAccent w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-4 border-white mb-1">
+                    <i class="fas fa-id-badge text-xl"></i>
+                </div>
+                <span class="text-[9px] font-black uppercase text-brandSecondary">My Card</span>
+            </button>
+            <button onclick="switchTab('media')" id="nav-media" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
+                <i class="fas fa-play-circle text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Media</span>
+            </button>
+            <button onclick="switchTab('news')" id="nav-news" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
+                <i class="fas fa-newspaper text-xl mb-1"></i><span class="text-[9px] font-black uppercase">News</span>
+            </button>
+        </div>
+    </nav>
+
     <div id="news-modal" class="fixed inset-0 z-50 hidden bg-brandSecondary/90 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="modal-body bg-white w-full max-w-md rounded-3xl overflow-hidden shadow-2xl relative flex flex-col max-h-[85vh]">
             <button onclick="closeModal('news-modal')" class="absolute top-4 right-4 text-white bg-black/50 w-8 h-8 rounded-full z-10 flex items-center justify-center"><i class="fas fa-times"></i></button>
@@ -125,258 +356,34 @@
         </div>
     </div>
 
-    <div class="pt-16 max-w-md mx-auto md:max-w-7xl md:px-4">
-
-        <main id="tab-home" class="tab-content active">
-            <section class="relative pt-12 pb-20 px-4 bg-brandSecondary clip-slant overflow-hidden md:rounded-b-3xl">
-                <div class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center mix-blend-luminosity"></div>
-                <div class="relative z-10 text-center mt-4">
-                    <span class="inline-block bg-brandPrimary/20 text-brandPrimary border border-brandPrimary/50 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-4">Admissions Open 2026</span>
-                    <h1 class="text-5xl md:text-7xl font-black text-white mb-4 tracking-tighter uppercase drop-shadow-xl">
-                        Forge Your <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brandPrimary to-brandAccent">Legacy</span>
-                    </h1>
-                    <button onclick="document.getElementById('enroll-modal').classList.remove('hidden')" class="mt-6 bg-brandPrimary text-white font-black px-10 py-4 rounded-full shadow-lg shadow-brandPrimary/40 hover:scale-105 transition-transform uppercase tracking-widest">
-                        Join The Academy
-                    </button>
-                </div>
-            </section>
-
-            <section class="py-6 px-4 -mt-16 relative z-20">
-                <div class="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 flex flex-col gap-5">
-                    <div class="flex items-center gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-colors">
-                        <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl shadow-inner"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="flex-1">
-                            <h3 class="font-black text-xs text-gray-400 uppercase tracking-wider">Main Base</h3>
-                            <p class="font-bold text-brandSecondary text-sm leading-tight mt-1">JSS Banashankari College, Vidyagiri, Dharwad</p>
-                        </div>
-                    </div>
-                    <div class="h-px bg-gray-100 w-full"></div>
-                    <div class="flex items-center gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-colors">
-                        <div class="w-14 h-14 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center text-2xl shadow-inner"><i class="fab fa-whatsapp"></i></div>
-                        <div class="flex-1">
-                            <h3 class="font-black text-xs text-gray-400 uppercase tracking-wider">Direct Contact</h3>
-                            <a href="tel:+919019073197" class="font-black text-brandSecondary text-lg block mt-1 hover:text-brandPrimary">+91 90190 73197</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="pt-6 pb-4 px-4 relative z-20">
-                <div class="text-center mb-6">
-                    <h2 class="text-3xl font-black text-brandSecondary uppercase mb-1">The Foundation</h2>
-                    <div class="w-16 h-1 bg-brandPrimary mx-auto rounded-full"></div>
-                </div>
-                <div class="bg-white rounded-3xl p-6 shadow-md border border-gray-100 relative overflow-hidden">
-                    <i class="fas fa-shield-alt absolute -right-6 -bottom-6 text-9xl text-gray-50"></i>
-                    <div class="relative z-10">
-                        <h3 class="text-brandPrimary font-bold text-sm uppercase tracking-widest mb-3">Inspire Sports Facility Management</h3>
-                        <p class="text-gray-600 text-sm font-medium leading-relaxed mb-4">
-                            We are dedicated to nurturing athletic talent and fostering community wellness across the Hubballi-Dharwad region. We believe in building character, discipline, and excellence through highly structured sports programs.
-                        </p>
-                        <p class="text-gray-600 text-sm font-medium leading-relaxed">
-                            By partnering with premier educational institutions and facilities like Decathlon Hubli, our foundation ensures every young athlete has access to state-of-the-art courts and elite mentorship to reach their maximum potential.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="py-6 px-4 mb-4 relative z-20">
-                <div class="text-center mb-6">
-                    <h2 class="text-3xl font-black text-brandSecondary uppercase mb-1">Our Academies</h2>
-                    <div class="w-16 h-1 bg-brandPrimary mx-auto rounded-full"></div>
-                </div>
-                <div class="grid grid-cols-1 gap-4">
-                    <div class="bg-gradient-to-r from-brandSecondary to-gray-900 rounded-3xl p-5 shadow-lg flex items-center gap-4 text-white transform transition hover:-translate-y-1">
-                        <div class="w-16 h-16 bg-brandPrimary rounded-2xl flex items-center justify-center text-3xl shadow-inner shrink-0">
-                            <i class="fas fa-basketball-ball"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-black text-xl uppercase tracking-wider text-brandAccent">Basketball</h3>
-                            <p class="text-xs text-gray-300 font-bold mt-1">Elite coaching & competitive tournament leagues.</p>
-                        </div>
-                    </div>
-                    <div class="bg-gradient-to-r from-green-800 to-green-900 rounded-3xl p-5 shadow-lg flex items-center gap-4 text-white transform transition hover:-translate-y-1">
-                        <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center text-3xl shadow-inner shrink-0">
-                            <i class="fas fa-futbol"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-black text-xl uppercase tracking-wider text-white">Football</h3>
-                            <p class="text-xs text-green-100 font-bold mt-1">Tactical turf training & youth athletic development.</p>
-                        </div>
-                    </div>
-                    <div class="bg-gradient-to-r from-blue-800 to-blue-900 rounded-3xl p-5 shadow-lg flex items-center gap-4 text-white transform transition hover:-translate-y-1">
-                        <div class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-3xl shadow-inner shrink-0">
-                            <i class="fas fa-volleyball-ball"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-black text-xl uppercase tracking-wider text-white">Volleyball</h3>
-                            <p class="text-xs text-blue-100 font-bold mt-1">Agility, vertical power, and advanced teamwork.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="mt-4 mb-10 flex justify-center">
-                <div class="group relative cursor-pointer hover:scale-105 transition-transform duration-300">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-brandPrimary via-brandAccent to-brandPrimary rounded-full blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                    <div class="relative flex items-center gap-3 bg-white px-6 py-3 rounded-full ring-1 ring-gray-200 shadow-sm">
-                        <div class="flex flex-col text-right">
-                            <span class="text-[9px] font-black text-gray-400 uppercase tracking-widest leading-none mb-1">Engineered By</span>
-                            <span class="text-sm font-black text-brandSecondary leading-none uppercase tracking-wide">Kunal Dongare</span>
-                        </div>
-                        <div class="w-8 h-8 rounded-full bg-brandLight flex items-center justify-center">
-                            <i class="fas fa-code text-brandPrimary text-xs animate-pulse"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="h-6"></div> </main>
-
-        <main id="tab-batches" class="tab-content py-6 px-4">
-            <h2 class="text-3xl font-black text-brandSecondary uppercase mb-6 flex items-center gap-3">
-                <i class="fas fa-stopwatch text-brandPrimary"></i> Schedules
-            </h2>
-            <div id="schedule-container" class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div class="col-span-full text-center py-10">
-                    <i class="fas fa-circle-notch fa-spin text-3xl text-brandPrimary mb-3"></i>
-                    <p class="text-gray-400 font-bold text-sm uppercase tracking-wider">Loading Batches...</p>
-                </div>
-            </div>
-        </main>
-
-        <main id="tab-stats" class="tab-content py-6 px-4">
-            <h2 class="text-3xl font-black text-brandSecondary uppercase mb-6 flex items-center gap-3">
-                <i class="fas fa-trophy text-brandAccent"></i> Trophy Room
-            </h2>
-            <div class="bg-gradient-to-br from-brandSecondary to-gray-900 rounded-3xl p-6 text-white shadow-xl mb-6 relative overflow-hidden">
-                <i class="fas fa-medal absolute -right-4 -bottom-4 text-9xl text-white/5"></i>
-                <h3 class="text-brandAccent font-black text-sm uppercase tracking-widest mb-2">Milestones</h3>
-                <p class="text-2xl font-black leading-tight mb-4">Dharwad District Association Tournament Runners-Up 🥈</p>
-                <div class="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-bold">
-                    C-Division Championship Qualifiers
-                </div>
-            </div>
-            
-            <h3 class="font-black text-lg text-brandSecondary uppercase mb-4 mt-8">Leadership</h3>
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
-                <div class="w-16 h-16 bg-gray-200 rounded-full overflow-hidden border-2 border-brandPrimary">
-                    <img src="https://images.unsplash.com/photo-1544365558-35aa4afcf11f?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <h4 class="font-black text-brandSecondary text-lg">Mr. Gangadhar Jadav</h4>
-                    <p class="text-xs text-brandPrimary font-bold uppercase">Head Coach / Director</p>
-                    <p class="text-xs text-gray-500 mt-1">DDBBA Recognized Mentor</p>
-                </div>
-            </div>
-        </main>
-
-        <main id="tab-media" class="tab-content py-6 px-4">
-            <h2 class="text-3xl font-black text-brandSecondary uppercase mb-6 flex items-center gap-3">
-                <i class="fas fa-camera text-brandPrimary"></i> Court Action
-            </h2>
-            <div class="grid grid-cols-2 gap-3">
-                <div class="col-span-2 rounded-2xl overflow-hidden bg-black shadow-md relative group mb-2 border border-gray-200">
-                    <video id="gallery-video" src="./intro.mp4" class="w-full h-auto object-cover rounded-2xl" controls playsinline preload="metadata" poster="./logo.png"></video>
-                </div>
-
-                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md col-span-2 h-48">
-                    <img src="https://images.unsplash.com/photo-1520616162391-7fb8cd8288fb?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover">
-                </div>
-            </div>
-        </main>
-
-        <main id="tab-news" class="tab-content py-6 px-4">
-            <div class="flex justify-between items-end mb-6">
-                <h2 class="text-3xl font-black text-brandSecondary uppercase flex items-center gap-3">
-                    <i class="fas fa-bolt text-brandPrimary"></i> Live News
-                </h2>
-            </div>
-            <div id="news-container" class="space-y-4"></div>
-        </main>
-
-    </div>
-
-    <nav class="fixed bottom-0 w-full bg-white border-t border-gray-100 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-40 pb-safe">
-        <div class="flex justify-around items-center h-16 max-w-md mx-auto px-2">
-            <button onclick="switchTab('home')" id="nav-home" class="nav-btn active flex flex-col items-center justify-center w-full h-full text-brandPrimary">
-                <i class="fas fa-home text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Home</span>
-            </button>
-            <button onclick="switchTab('batches')" id="nav-batches" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400">
-                <i class="fas fa-stopwatch text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Batches</span>
-            </button>
-            <button onclick="switchTab('stats')" id="nav-stats" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400">
-                <i class="fas fa-trophy text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Stats</span>
-            </button>
-            <button onclick="switchTab('media')" id="nav-media" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400">
-                <i class="fas fa-camera text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Media</span>
-            </button>
-            <button onclick="switchTab('news')" id="nav-news" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400">
-                <i class="fas fa-newspaper text-xl mb-1"></i><span class="text-[9px] font-black uppercase">News</span>
-            </button>
-        </div>
-    </nav>
-
     <script>
-        // --- 1. Navigation & Smart Video Logic ---
+        // --- 1. Tab Navigation Logic ---
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(btn => { 
                 btn.classList.remove('text-brandPrimary'); 
-                btn.classList.add('text-gray-400'); 
+                if(btn.id !== 'nav-card') btn.classList.add('text-gray-400'); 
             });
             document.getElementById('tab-' + tabId).classList.add('active');
             
             const activeNav = document.getElementById('nav-' + tabId);
-            if(activeNav) {
+            if(activeNav && tabId !== 'card') {
                 activeNav.classList.remove('text-gray-400');
                 activeNav.classList.add('text-brandPrimary');
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // SMART VIDEO CONTROL
+            // Video logic
             const video = document.getElementById('gallery-video');
             if(video) {
-                if(tabId === 'media') {
-                    video.muted = false;
-                    video.play().catch(e => console.log("User interaction required for video play."));
-                } else {
-                    video.pause();
-                }
+                if(tabId === 'media') { video.muted = false; video.play().catch(e=>{}); }
+                else { video.pause(); }
             }
         }
 
         function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-        // --- 2. PWA Install Logic ---
-        let deferredPrompt;
-        const installBtn = document.getElementById('header-install-btn');
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installBtn.classList.remove('hidden');
-        });
-
-        installBtn.addEventListener('click', async () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                if (outcome === 'accepted') installBtn.classList.add('hidden');
-                deferredPrompt = null;
-            }
-        });
-
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js');
-        }
-
-        // --- 3. Google Sheets Schedule Fetching ---
+        // --- 2. Google Sheets Schedule Fetching ---
         const SCHEDULE_API_URL = 'https://script.google.com/macros/s/AKfycbzSwsOARrbQEznAvEminfPGg3bK8Jx0b4YQ0SrH11FlBG0kVpMzA0BFUSqRtzsZyu4i/exec';
 
         async function fetchSchedules() {
@@ -391,14 +398,14 @@
                     if(batch.Status && batch.Status.toLowerCase().includes('close')) tagColor = 'bg-gray-100 text-gray-700';
 
                     const batchHTML = `
-                        <div class="bg-white rounded-3xl p-6 shadow-lg border-b-4 border-brandPrimary relative">
+                        <div class="bg-white rounded-3xl p-6 shadow-md border border-gray-100 relative">
                             <div class="absolute top-4 right-4 ${tagColor} text-[10px] font-black px-3 py-1 rounded-full uppercase">${batch.Status || 'Open'}</div>
-                            <h3 class="text-2xl font-black text-brandSecondary mb-1">${batch.BatchName || 'Training Batch'}</h3>
-                            <div class="bg-brandLight p-4 rounded-2xl flex justify-between items-center mb-5 mt-4 border border-gray-100">
-                                <span class="font-black text-brandSecondary text-sm"><i class="far fa-clock text-brandPrimary mr-2"></i> ${batch.Timing || 'TBA'}</span>
-                                <span class="font-bold text-gray-500 text-xs">${batch.Days || 'TBA'}</span>
+                            <h3 class="text-xl font-black text-brandSecondary mb-1">${batch.BatchName || 'Training Batch'}</h3>
+                            <div class="bg-brandLight p-3 rounded-2xl flex justify-between items-center mb-4 mt-4 border border-gray-100">
+                                <span class="font-black text-brandSecondary text-xs"><i class="far fa-clock text-brandPrimary mr-1"></i> ${batch.Timing || 'TBA'}</span>
+                                <span class="font-bold text-gray-500 text-[10px] uppercase">${batch.Days || 'TBA'}</span>
                             </div>
-                            <button onclick="document.getElementById('enroll-modal').classList.remove('hidden')" class="w-full bg-brandSecondary/5 text-brandSecondary font-bold py-3 rounded-xl hover:bg-brandPrimary hover:text-white transition-colors">Enroll Now</button>
+                            <button onclick="document.getElementById('enroll-modal').classList.remove('hidden')" class="w-full bg-brandSecondary/5 text-brandSecondary text-sm font-black py-3 rounded-xl hover:bg-brandPrimary hover:text-white transition-colors uppercase tracking-wider">Enroll</button>
                         </div>`;
                     container.insertAdjacentHTML('beforeend', batchHTML);
                 });
@@ -407,7 +414,7 @@
             }
         }
 
-        // --- 4. News Fetching ---
+        // --- 3. Live ESPN News Fetching ---
         const RSS_URL = 'https://www.espn.com/espn/rss/nba/news';
         const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
         let globalNewsData = [];
@@ -418,6 +425,7 @@
                 const response = await fetch(API_URL);
                 const data = await response.json();
                 if(data.status === 'ok') {
+                    document.getElementById('news-loader').remove();
                     globalNewsData = data.items.slice(0, 10); 
                     globalNewsData.forEach((item, index) => {
                         let imgUrl = 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=500&auto=format&fit=crop'; 
@@ -436,7 +444,7 @@
                     });
                 }
             } catch (error) {
-                container.innerHTML = "<p>Error loading news.</p>";
+                container.innerHTML = "<p class='text-center font-bold text-gray-500'>Error loading news.</p>";
             }
         }
 
@@ -448,12 +456,9 @@
             document.getElementById('news-modal').classList.remove('hidden');
         }
 
-        // --- 5. Initialize App on Load ---
         document.addEventListener('DOMContentLoaded', () => {
             fetchSportsNews();
             fetchSchedules();
-            const hash = window.location.hash.replace('#', '');
-            if(hash && document.getElementById('tab-' + hash)) switchTab(hash);
         });
     </script>
 </body>
