@@ -3,462 +3,1033 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Inspire Sports Ecosystem</title>
+    <title>Inspire Sports Academy | Hubballi-Dharwad</title>
     <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#F26522">
+    <meta name="theme-color" content="#071527">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Inspire">
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brandPrimary: '#F26522',
-                        brandSecondary: '#0B132B',
-                        brandLight: '#F8FAFC',
-                        brandAccent: '#FFD700'
+                        bpNavyDark: '#040d1a',
+                        bpNavy: '#071527',
+                        bpNavyCard: '#0d223d',
+                        bpNavySurface: '#122c4d',
+                        bpLine: '#1e4471',
+                        bpCyan: '#38bdf8',
+                        bpCyanGlow: '#60a5fa',
+                        courtOrange: '#ff5500',
+                        courtOrangeLight: '#ff7733',
+                        tagLime: '#c6ff00',
+                        tagYellow: '#d4e157'
                     },
-                    fontFamily: { sans: ['Montserrat', 'sans-serif'], }
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Space Grotesk"', 'monospace']
+                    }
                 }
             }
         }
     </script>
+
     <style>
-        body { background-color: #F8FAFC; color: #0B132B; -webkit-font-smoothing: antialiased; padding-bottom: 80px; }
-        .clip-slant { clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
-        ::-webkit-scrollbar { width: 0px; background: transparent; }
-        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
-        .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-        .modal-body { transform: scale(0.95); transition: transform 0.3s ease; }
-        .active-modal .modal-body { transform: scale(1); }
-        
-        /* Shiny Card Animation */
-        .card-shine { position: relative; overflow: hidden; }
-        .card-shine::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-            transform: skewX(-25deg); animation: shine 3s infinite;
+        /* Blueprint Grid Backdrop */
+        .blueprint-bg {
+            background-color: #071527;
+            background-image: 
+                linear-gradient(to right, rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+                linear-gradient(to right, rgba(56, 189, 248, 0.03) 5px, transparent 5px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.03) 5px, transparent 5px);
+            background-size: 40px 40px, 40px 40px, 8px 8px, 8px 8px;
         }
-        @keyframes shine { 0% { left: -100%; } 20% { left: 200%; } 100% { left: 200%; } }
+
+        /* Blueprint Accent Border */
+        .blueprint-frame {
+            border: 1px solid #1e4471;
+            box-shadow: 0 0 25px rgba(7, 21, 39, 0.9), inset 0 0 15px rgba(56, 189, 248, 0.05);
+            position: relative;
+        }
+        .blueprint-frame::before {
+            content: '';
+            position: absolute;
+            top: -3px; left: -3px;
+            width: 8px; height: 8px;
+            border-top: 2px solid #38bdf8;
+            border-left: 2px solid #38bdf8;
+        }
+        .blueprint-frame::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; right: -3px;
+            width: 8px; height: 8px;
+            border-bottom: 2px solid #38bdf8;
+            border-right: 2px solid #38bdf8;
+        }
+
+        /* Presentation Badge Box */
+        .tag-play-become {
+            background-color: #ff5500;
+            border: 3px solid #c6ff00;
+            box-shadow: 0 0 20px rgba(255, 85, 0, 0.45);
+        }
+
+        /* 3D Ground Perspective Engine */
+        .ground-3d-scene {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+        }
+        .ground-3d-stage {
+            transform: rotateX(54deg) rotateZ(-34deg) translateY(-20px);
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .ground-3d-stage:hover {
+            transform: rotateX(50deg) rotateZ(-28deg) translateY(-30px);
+        }
+        .court-slab {
+            transform: translateZ(18px);
+            box-shadow: -15px 25px 35px rgba(0, 0, 0, 0.85), -2px 3px 0px #030811;
+        }
+
+        /* UI Elements */
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-thumb { background: #1e4471; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #040d1a; }
+        
+        .tab-panel { display: none; animation: fadeIn 0.4s ease forwards; }
+        .tab-panel.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Shimmer */
+        .shimmer-card { position: relative; overflow: hidden; }
+        .shimmer-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.15), transparent);
+            transform: skewX(-25deg);
+            animation: shimmerMove 3.5s infinite;
+        }
+        @keyframes shimmerMove {
+            0% { left: -100%; }
+            30% { left: 200%; }
+            100% { left: 200%; }
+        }
     </style>
 </head>
-<body class="font-sans selection:bg-brandPrimary selection:text-white">
+<body class="blueprint-bg text-slate-200 font-sans min-h-screen pb-24 md:pb-12 antialiased selection:bg-courtOrange selection:text-white">
 
-    <header class="fixed w-full top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <img src="./logo.png" alt="Inspire Logo" class="w-10 h-10 object-contain drop-shadow-sm" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                <div class="hidden w-10 h-10 bg-brandPrimary rounded-xl items-center justify-center text-white font-black text-xl shadow-md rotate-3">I</div>
-                
-                <div class="flex flex-col">
-                    <span class="font-black text-lg tracking-tight text-brandSecondary leading-none uppercase">Inspire</span>
-                    <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Foundation</span>
+    <!-- DESKTOP / TABLET HEADER -->
+    <header class="sticky top-0 z-50 bg-bpNavy/90 backdrop-blur-md border-b border-bpLine/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4 cursor-pointer" onclick="switchTab('home')">
+                <img src="./logo.png" alt="Inspire Logo" class="w-12 h-12 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="hidden w-12 h-12 bg-courtOrange text-white font-black text-2xl rounded-xl items-center justify-center border border-tagLime">I</div>
+                <div>
+                    <h1 class="font-black text-xl sm:text-2xl text-white tracking-wider uppercase font-mono leading-none flex items-center gap-2">
+                        INSPIRE <span class="text-courtOrange text-xs font-bold px-2 py-0.5 rounded bg-courtOrange/20 border border-courtOrange/40">SPORTS</span>
+                    </h1>
+                    <p class="text-[10px] sm:text-xs text-bpCyan font-mono tracking-widest uppercase mt-0.5">Hubballi - Dharwad</p>
                 </div>
             </div>
-            <div class="text-[9px] text-gray-500 font-bold bg-gray-100 px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1">
-                <i class="fas fa-bolt text-brandPrimary"></i> Pro Version
+
+            <!-- Laptop Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-1 lg:gap-2 font-mono text-xs font-bold tracking-wider">
+                <button onclick="switchTab('home')" class="nav-desktop-btn px-4 py-2 rounded-lg text-white hover:text-bpCyan transition-colors flex items-center gap-2" data-tab="home">
+                    <span class="text-courtOrange">01.</span> ECOSYSTEM
+                </button>
+                <button onclick="switchTab('ground')" class="nav-desktop-btn px-4 py-2 rounded-lg text-slate-400 hover:text-bpCyan transition-colors flex items-center gap-2" data-tab="ground">
+                    <span class="text-courtOrange">02.</span> 3D COMPLEX
+                </button>
+                <button onclick="switchTab('pathway')" class="nav-desktop-btn px-4 py-2 rounded-lg text-slate-400 hover:text-bpCyan transition-colors flex items-center gap-2" data-tab="pathway">
+                    <span class="text-courtOrange">03.</span> PATHWAY
+                </button>
+                <button onclick="switchTab('batches')" class="nav-desktop-btn px-4 py-2 rounded-lg text-slate-400 hover:text-bpCyan transition-colors flex items-center gap-2" data-tab="batches">
+                    <span class="text-courtOrange">04.</span> SCHEDULES
+                </button>
+                <button onclick="switchTab('card')" class="nav-desktop-btn px-4 py-2 rounded-lg text-slate-400 hover:text-bpCyan transition-colors flex items-center gap-2" data-tab="card">
+                    <span class="text-courtOrange">05.</span> PLAYER CARD
+                </button>
+                <button onclick="switchTab('news')" class="nav-desktop-btn px-4 py-2 rounded-lg text-slate-400 hover:text-bpCyan transition-colors flex items-center gap-2" data-tab="news">
+                    <span class="text-courtOrange">06.</span> LIVE NEWS
+                </button>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button id="pwa-install-header" class="hidden bg-bpNavySurface text-bpCyan border border-bpCyan/30 hover:border-bpCyan text-xs font-mono font-bold px-3.5 py-2 rounded-lg transition-all">
+                    <i class="fas fa-download mr-1.5"></i> GET APP
+                </button>
+                <button onclick="openEnrollModal()" class="bg-courtOrange hover:bg-courtOrangeLight text-white font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-2.5 rounded-lg border-2 border-tagLime transition-transform hover:scale-105 shadow-[0_0_15px_rgba(255,85,0,0.5)]">
+                    ENROLL 2026
+                </button>
             </div>
         </div>
     </header>
 
-    <div id="enroll-modal" class="fixed inset-0 z-50 hidden bg-brandSecondary/90 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="modal-body bg-white w-full max-w-md rounded-3xl p-6 shadow-2xl relative">
-            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brandPrimary to-brandAccent"></div>
-            <button onclick="closeModal('enroll-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-brandSecondary text-2xl"><i class="fas fa-times"></i></button>
+    <!-- PWA MOBILE INSTALL BANNER -->
+    <div id="pwa-mobile-banner" class="fixed bottom-20 left-3 right-3 z-40 bg-bpNavyCard border border-bpCyan/40 p-4 rounded-2xl shadow-2xl flex items-center justify-between hidden md:hidden">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-courtOrange rounded-xl flex items-center justify-center text-white font-black border border-tagLime">I</div>
+            <div>
+                <p class="text-white font-black text-xs uppercase font-mono">Install Inspire App</p>
+                <p class="text-[10px] text-slate-400">Launch fullscreen on your phone</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <button id="pwa-mobile-install-btn" class="bg-courtOrange text-white font-black text-xs px-3.5 py-2 rounded-lg uppercase font-mono">Install</button>
+            <button onclick="document.getElementById('pwa-mobile-banner').classList.add('hidden')" class="text-slate-400 p-2"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- MAIN INTERFACE VIEWPORT -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+
+        <!-- ===================================================================
+             TAB 1: HOME (THE PPT BLUEPRINT ECOSYSTEM)
+             =================================================================== -->
+        <section id="tab-panel-home" class="tab-panel active space-y-12">
             
-            <h2 class="text-2xl font-black text-brandSecondary mb-1 uppercase mt-2">Join The Squad</h2>
-            <p class="text-sm font-bold text-brandPrimary mb-6">Hubballi-Dharwad's Best</p>
+            <!-- Hero Banner (Slide 2 Exact Recreation) -->
+            <div class="blueprint-frame bg-bpNavyCard/70 rounded-3xl p-6 sm:p-10 lg:p-14 relative overflow-hidden">
+                <!-- Blueprint Compass & Corner Rulers -->
+                <div class="absolute top-4 right-4 text-bpLine font-mono text-[10px] tracking-widest hidden sm:block">
+                    LAT 15.3647° N // LON 75.1240° E
+                </div>
+                <div class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full border border-bpLine/50 pointer-events-none opacity-40"></div>
+                <div class="absolute -right-8 -bottom-8 w-64 h-64 rounded-full border border-bpCyan/20 pointer-events-none opacity-40"></div>
+
+                <div class="max-w-3xl relative z-10 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-bpNavySurface border border-bpLine text-bpCyan text-xs font-mono tracking-wider uppercase">
+                        <span class="w-2 h-2 rounded-full bg-courtOrange animate-ping"></span>
+                        Hubballi-Dharwad Sports Infrastructure
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white uppercase font-sans leading-[1.05]">
+                        INSPIRE SPORTS <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-bpCyan">ACADEMY</span>
+                    </h1>
+
+                    <!-- The Iconic PPT Orange Box (Slide 1 & 2) -->
+                    <div class="pt-1">
+                        <div class="tag-play-become inline-block px-7 py-2.5 rounded-sm">
+                            <span class="text-2xl sm:text-4xl font-black tracking-tight text-slate-950 font-sans uppercase">Play. Become.</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <p class="text-xl sm:text-2xl font-bold text-slate-100 underline decoration-tagLime decoration-2 underline-offset-8">
+                            Become the best version of yourself.
+                        </p>
+                    </div>
+
+                    <p class="text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed pt-2">
+                        Sport is the starting point. Becoming better is the journey. We unlock every child’s potential through world-class basketball infrastructure, professional coaching, and disciplined athletic pathways.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <button onclick="openEnrollModal()" class="bg-courtOrange hover:bg-courtOrangeLight text-white font-black text-sm uppercase px-8 py-3.5 rounded-xl border border-tagLime shadow-[0_0_20px_rgba(255,85,0,0.5)] transition-all transform hover:-translate-y-0.5">
+                            Apply for Coaching 2026
+                        </button>
+                        <button onclick="switchTab('ground')" class="bg-bpNavySurface hover:bg-bpLine text-bpCyan border border-bpLine font-mono text-xs sm:text-sm font-bold px-6 py-3.5 rounded-xl transition-all flex items-center gap-2">
+                            <i class="fas fa-cube text-courtOrange"></i> Explore 3D Arena
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillars of Inspire (Slide 4 Recreation) -->
+            <div class="space-y-6">
+                <div class="text-center max-w-2xl mx-auto space-y-2">
+                    <h2 class="text-2xl sm:text-3xl font-black text-white uppercase font-sans tracking-wide">
+                        What Is <span class="text-courtOrange">INSPIRE</span> Sports Academy?
+                    </h2>
+                    <p class="text-xs sm:text-sm text-bpCyan font-mono">
+                        A sports-development organization committed to helping people become better through sport.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="blueprint-frame bg-bpNavyCard/90 p-8 rounded-2xl text-center space-y-4 hover:border-courtOrange transition-colors group">
+                        <div class="w-14 h-14 mx-auto rounded-xl bg-bpNavySurface border border-bpLine flex items-center justify-center text-courtOrange text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fas fa-user-astronaut"></i>
+                        </div>
+                        <h3 class="text-lg font-black text-white uppercase font-mono">Personal Growth</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Building confidence, character, emotional resilience, and lifelong disciplined habits that transcend the court.
+                        </p>
+                    </div>
+
+                    <div class="blueprint-frame bg-bpNavyCard/90 p-8 rounded-2xl text-center space-y-4 hover:border-courtOrange transition-colors group">
+                        <div class="w-14 h-14 mx-auto rounded-xl bg-bpNavySurface border border-bpLine flex items-center justify-center text-bpCyan text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3 class="text-lg font-black text-white uppercase font-mono">Athletic Development</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            FIBA-standard coaching, functional conditioning, hand-eye coordination, and foundational movement mechanics.
+                        </p>
+                    </div>
+
+                    <div class="blueprint-frame bg-bpNavyCard/90 p-8 rounded-2xl text-center space-y-4 hover:border-courtOrange transition-colors group">
+                        <div class="w-14 h-14 mx-auto rounded-xl bg-bpNavySurface border border-bpLine flex items-center justify-center text-tagLime text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="text-lg font-black text-white uppercase font-mono">Competitive Excellence</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Tournament play, Dharwad District Association leagues, match pressure handling, and progressive talent pathways.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facilities & Physical Locations -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="blueprint-frame bg-bpNavyCard/80 p-6 sm:p-8 rounded-2xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-bold text-courtOrange uppercase tracking-widest">// Campus 01</span>
+                        <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-green-500/20 text-green-400 border border-green-500/30 font-bold uppercase">Primary Base</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white uppercase font-sans">JSS Banashankari College</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Arts, Commerce & S.K. Gubbi Science College Campus, Vidyagiri, Dharwad, Karnataka. Fully equipped with tournament-grade outdoor basketball facilities.
+                    </p>
+                    <div class="pt-2 flex items-center gap-4 text-xs font-mono text-bpCyan">
+                        <span><i class="fas fa-check-circle text-tagLime mr-1"></i> FIBA Court</span>
+                        <span><i class="fas fa-check-circle text-tagLime mr-1"></i> Floodlit Facility</span>
+                        <span><i class="fas fa-check-circle text-tagLime mr-1"></i> DDBBA Affiliated</span>
+                    </div>
+                </div>
+
+                <div class="blueprint-frame bg-bpNavyCard/80 p-6 sm:p-8 rounded-2xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-bold text-courtOrange uppercase tracking-widest">// Campus 02</span>
+                        <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-bpCyan/20 text-bpCyan border border-bpCyan/30 font-bold uppercase">Commercial Hub</span>
+                    </div>
+                    <h3 class="text-xl font-black text-white uppercase font-sans">Decathlon Hubballi</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Gokul Road, Hubballi. Specialized tactical skill labs, grassroots drills, weekend camps, and community engagement tournaments.
+                    </p>
+                    <div class="pt-2 flex items-center gap-4 text-xs font-mono text-bpCyan">
+                        <span><i class="fas fa-check-circle text-tagLime mr-1"></i> Skill Clinics</span>
+                        <span><i class="fas fa-check-circle text-tagLime mr-1"></i> 3v3 Tournaments</span>
+                        <span><i class="fas fa-check-circle text-tagLime mr-1"></i> Youth Academy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro Video Player (Embedded with sound toggle) -->
+            <div class="blueprint-frame bg-bpNavyCard rounded-3xl p-6 space-y-4">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-lg font-black text-white uppercase font-sans">Inside The Academy</h3>
+                        <p class="text-xs font-mono text-slate-400">Court Action & Athlete Training Atmosphere</p>
+                    </div>
+                    <span class="text-xs font-mono text-courtOrange font-bold tracking-wider uppercase"><i class="fas fa-video mr-1"></i> 4K Footage</span>
+                </div>
+                <div class="rounded-2xl overflow-hidden bg-black border border-bpLine aspect-video max-h-[460px] mx-auto w-full relative">
+                    <video id="academy-intro-video" src="./intro.mp4" class="w-full h-full object-cover" controls playsinline poster="./logo.png"></video>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 2: 3D COMPLEX (SLIDE 13 & 14 RECREATION)
+             =================================================================== -->
+        <section id="tab-panel-ground" class="tab-panel space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-courtOrange/10 border border-courtOrange/30 text-courtOrange text-xs font-mono font-bold uppercase">
+                    Slide 14 Architectural Masterplan
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-white uppercase font-sans tracking-tight">
+                    Our Foundation is Built. <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-courtOrange via-tagLime to-bpCyan">Our Vision is Expanding.</span>
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-300 font-mono">
+                    A dedicated multi-sport complex in Hubballi-Dharwad starting with our completed FIBA court, expanding to volleyball and football turf.
+                </p>
+            </div>
+
+            <!-- Court Selector Controls -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 font-mono text-xs">
+                <button onclick="setCourtHighlight('all')" class="court-btn px-4 py-2 rounded-xl bg-bpLine text-white font-bold border border-bpCyan/50" data-court="all">
+                    // SHOW FULL COMPLEX
+                </button>
+                <button onclick="setCourtHighlight('bball')" class="court-btn px-4 py-2 rounded-xl bg-bpNavyCard text-slate-300 font-bold border border-bpLine hover:border-courtOrange" data-court="bball">
+                    <span class="w-2 h-2 rounded-full bg-courtOrange inline-block mr-1.5"></span> 01. BASKETBALL (COMPLETED)
+                </button>
+                <button onclick="setCourtHighlight('vball')" class="court-btn px-4 py-2 rounded-xl bg-bpNavyCard text-slate-300 font-bold border border-bpLine hover:border-bpCyan" data-court="vball">
+                    <span class="w-2 h-2 rounded-full bg-bpCyan inline-block mr-1.5"></span> 02. VOLLEYBALL (NEXT PHASE)
+                </button>
+                <button onclick="setCourtHighlight('fball')" class="court-btn px-4 py-2 rounded-xl bg-bpNavyCard text-slate-300 font-bold border border-bpLine hover:border-tagLime" data-court="fball">
+                    <span class="w-2 h-2 rounded-full bg-tagLime inline-block mr-1.5"></span> 03. FOOTBALL (PLANNED)
+                </button>
+            </div>
+
+            <!-- 3D GROUND CANVAS / ISOMETRIC CONTAINER -->
+            <div class="blueprint-frame bg-bpNavyDark/90 rounded-3xl p-4 sm:p-10 min-h-[500px] flex items-center justify-center relative overflow-hidden ground-3d-scene">
+                <!-- Measurement Grid Annotations (From PPT Slide 14) -->
+                <div class="absolute top-6 left-6 font-mono text-[11px] text-bpCyan/70 space-y-1">
+                    <div>COMPLEX_SCALE: 1:100 METRIC</div>
+                    <div>SURFACE: ACRYLIC SYNTHETIC + TURF</div>
+                    <div>STATUS: ACTIVE PHASE 01</div>
+                </div>
+
+                <!-- 3D Isometric Ground Deck -->
+                <div class="ground-3d-stage w-[320px] sm:w-[500px] lg:w-[620px] aspect-[4/3] relative">
+                    
+                    <!-- Base Concrete Platform Structure -->
+                    <div class="absolute inset-0 rounded-2xl bg-slate-900 border-2 border-bpLine court-slab transition-all duration-500 p-3 grid grid-cols-12 grid-rows-6 gap-2">
+                        
+                        <!-- 1. BASKETBALL COURT (Completed - Orange Slide 14) -->
+                        <div id="court-mesh-bball" class="col-span-5 row-span-6 bg-courtOrange rounded-xl border-2 border-amber-300 p-2 relative overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(255,85,0,0.6)] flex flex-col justify-between">
+                            <!-- Court Line Markings -->
+                            <div class="absolute inset-x-2 top-2 bottom-2 border border-white/70 pointer-events-none"></div>
+                            <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-white/70 -translate-y-1/2"></div>
+                            <div class="absolute top-1/2 left-1/2 w-12 h-12 rounded-full border border-white/70 -translate-x-1/2 -translate-y-1/2"></div>
+                            
+                            <!-- North Key -->
+                            <div class="w-14 h-10 border border-white/80 mx-auto rounded-b-full bg-courtOrangeLight/50"></div>
+                            
+                            <!-- Center Stamp -->
+                            <div class="text-center relative z-10">
+                                <span class="font-mono text-[10px] sm:text-xs font-black text-slate-950 bg-white/90 px-2 py-0.5 rounded shadow">FIBA STANDARD</span>
+                            </div>
+
+                            <!-- South Key -->
+                            <div class="w-14 h-10 border border-white/80 mx-auto rounded-t-full bg-courtOrangeLight/50"></div>
+                        </div>
+
+                        <!-- 2. VOLLEYBALL COURT (Next Phase - Blue Grid Slide 14) -->
+                        <div id="court-mesh-vball" class="col-span-3 row-span-6 bg-bpNavySurface/90 rounded-xl border border-bpCyan/60 p-2 relative overflow-hidden transition-all duration-300 flex flex-col justify-between">
+                            <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(56,189,248,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.15)_1px,transparent_1px)] bg-[size:12px_12px]"></div>
+                            <!-- Center Net Representation -->
+                            <div class="absolute top-1/2 left-0 right-0 h-1 bg-white/90 -translate-y-1/2 shadow-[0_0_8px_#38bdf8]"></div>
+                            <div class="text-center relative z-10 pt-2">
+                                <span class="text-[9px] font-mono font-bold text-bpCyan">VOLLEYBALL</span>
+                            </div>
+                            <div class="text-center relative z-10 pb-2">
+                                <span class="text-[8px] font-mono bg-bpNavy px-1.5 py-0.5 rounded text-slate-300 border border-bpLine">NEXT PHASE</span>
+                            </div>
+                        </div>
+
+                        <!-- 3. FOOTBALL TURF (Planned - Dark Mesh Slide 14) -->
+                        <div id="court-mesh-fball" class="col-span-4 row-span-6 bg-emerald-950/70 rounded-xl border border-tagLime/50 p-2 relative overflow-hidden transition-all duration-300 flex flex-col justify-between">
+                            <div class="absolute inset-2 border border-dashed border-tagLime/40"></div>
+                            <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-tagLime/40 -translate-y-1/2"></div>
+                            <div class="absolute top-1/2 left-1/2 w-10 h-10 rounded-full border border-tagLime/40 -translate-x-1/2 -translate-y-1/2"></div>
+                            <div class="text-center relative z-10 pt-2">
+                                <span class="text-[9px] font-mono font-bold text-tagLime">FOOTBALL TURF</span>
+                            </div>
+                            <div class="text-center relative z-10 pb-2">
+                                <span class="text-[8px] font-mono bg-bpNavy px-1.5 py-0.5 rounded text-slate-300 border border-bpLine">PLANNED</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Floating Spec Cards -->
+                <div class="absolute bottom-4 right-4 bg-bpNavyCard/95 border border-bpLine p-4 rounded-xl max-w-xs text-xs font-mono hidden sm:block">
+                    <p class="text-courtOrange font-bold uppercase">// Integrated Multi-Sport Vision</p>
+                    <p class="text-slate-300 text-[11px] mt-1">Starting with high-rebound acrylic basketball, expanding to standard volleyball and multi-format football.</p>
+                </div>
+            </div>
+
+            <!-- Court Features Grid (Slide 13) -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 font-mono text-xs text-center">
+                <div class="blueprint-frame bg-bpNavyCard/60 p-4 rounded-xl">
+                    <p class="text-courtOrange font-bold text-sm mb-1">01</p>
+                    <p class="text-white">Grassroots Development</p>
+                </div>
+                <div class="blueprint-frame bg-bpNavyCard/60 p-4 rounded-xl">
+                    <p class="text-courtOrange font-bold text-sm mb-1">02</p>
+                    <p class="text-white">Structured Coaching</p>
+                </div>
+                <div class="blueprint-frame bg-bpNavyCard/60 p-4 rounded-xl">
+                    <p class="text-courtOrange font-bold text-sm mb-1">03</p>
+                    <p class="text-white">Skill Practice & Drills</p>
+                </div>
+                <div class="blueprint-frame bg-bpNavyCard/60 p-4 rounded-xl">
+                    <p class="text-courtOrange font-bold text-sm mb-1">04</p>
+                    <p class="text-white">School Partnerships</p>
+                </div>
+                <div class="blueprint-frame bg-bpNavyCard/60 p-4 rounded-xl col-span-2 md:col-span-1">
+                    <p class="text-courtOrange font-bold text-sm mb-1">05</p>
+                    <p class="text-white">League Game Experience</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 3: THE PATHWAY (SLIDES 8, 9, 10, 15 RECREATION)
+             =================================================================== -->
+        <section id="tab-panel-pathway" class="tab-panel space-y-10">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-3xl sm:text-5xl font-black text-white uppercase font-sans">
+                    What Makes <span class="text-courtOrange">INSPIRE</span> Different?
+                </h2>
+                <p class="text-sm font-mono text-bpCyan font-bold uppercase tracking-widest">
+                    Not just a coaching class. A continuous development pathway.
+                </p>
+            </div>
+
+            <!-- The 4 Stages of Athlete Growth (Slides 8, 9, 10) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="blueprint-frame bg-bpNavyCard p-6 rounded-2xl space-y-3">
+                    <span class="text-xs font-mono font-bold text-bpCyan">// STAGE 01</span>
+                    <h3 class="text-2xl font-black text-white uppercase font-mono">CHILD</h3>
+                    <p class="text-xs text-slate-300">Foundation of personal growth.</p>
+                    <ul class="text-xs space-y-1.5 text-slate-400 font-mono pt-2 border-t border-bpLine">
+                        <li><i class="fas fa-angle-right text-courtOrange mr-1"></i> Confidence building</li>
+                        <li><i class="fas fa-angle-right text-courtOrange mr-1"></i> Mutual respect</li>
+                        <li><i class="fas fa-angle-right text-courtOrange mr-1"></i> Accountability</li>
+                    </ul>
+                </div>
+
+                <div class="blueprint-frame bg-bpNavyCard p-6 rounded-2xl space-y-3">
+                    <span class="text-xs font-mono font-bold text-bpCyan">// STAGE 02</span>
+                    <h3 class="text-2xl font-black text-white uppercase font-mono">HABITS</h3>
+                    <p class="text-xs text-slate-300">The engine of long-term progress.</p>
+                    <ul class="text-xs space-y-1.5 text-slate-400 font-mono pt-2 border-t border-bpLine">
+                        <li><i class="fas fa-angle-right text-courtOrange mr-1"></i> High discipline</li>
+                        <li><i class="fas fa-angle-right text-courtOrange mr-1"></i> Punctuality & attendance</li>
+                        <li><i class="fas fa-angle-right text-courtOrange mr-1"></i> Relentless effort</li>
+                    </ul>
+                </div>
+
+                <div class="blueprint-frame bg-bpNavyCard p-6 rounded-2xl space-y-3">
+                    <span class="text-xs font-mono font-bold text-bpCyan">// STAGE 03</span>
+                    <h3 class="text-2xl font-black text-white uppercase font-mono">ATHLETE</h3>
+                    <p class="text-xs text-slate-300">Mastery of technical execution.</p>
+                    <ul class="text-xs space-y-1.5 text-slate-400 font-mono pt-2 border-t border-bpLine">
+                        <li><i class="fas fa-angle-right text-courtOrange mr-1"></i> Ball-handling & shooting</li>
+                        <li><i class="fas fa-angle-right text-courtOrange mr-1"></i> Tactical spatial IQ</li>
+                        <li><i class="fas fa-angle-right text-courtOrange mr-1"></i> Peak fitness & speed</li>
+                    </ul>
+                </div>
+
+                <div class="blueprint-frame bg-bpNavyCard p-6 rounded-2xl space-y-3 border-courtOrange">
+                    <span class="text-xs font-mono font-bold text-tagLime">// STAGE 04</span>
+                    <h3 class="text-2xl font-black text-courtOrange uppercase font-mono">EXCELLENCE</h3>
+                    <p class="text-xs text-slate-300">Competitive triumph in tournaments.</p>
+                    <ul class="text-xs space-y-1.5 text-slate-400 font-mono pt-2 border-t border-bpLine">
+                        <li><i class="fas fa-angle-right text-tagLime mr-1"></i> District C-Division</li>
+                        <li><i class="fas fa-angle-right text-tagLime mr-1"></i> State level recognition</li>
+                        <li><i class="fas fa-angle-right text-tagLime mr-1"></i> Lifelong leadership</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Comparison Table: Traditional Coaching vs INSPIRE (Slide 15) -->
+            <div class="blueprint-frame bg-bpNavyCard rounded-2xl p-6 sm:p-8 space-y-6">
+                <h3 class="text-xl font-black text-white uppercase font-mono tracking-wider">
+                    // Direct Comparison: Old Way vs. The Inspire Standard
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left font-mono text-xs">
+                        <thead>
+                            <tr class="border-b border-bpLine text-slate-400">
+                                <th class="pb-3 w-1/2">TRADITIONAL COACHING FOCUS</th>
+                                <th class="pb-3 w-1/2 text-courtOrange">INSPIRE DEVELOPMENT FOCUS</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-bpLine/50 text-slate-300">
+                            <tr>
+                                <td class="py-3 text-slate-400">■ Individual disconnected training sessions</td>
+                                <td class="py-3 text-white font-bold">➤ Long-term multi-year development</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 text-slate-400">■ Mainly mechanical technical skills</td>
+                                <td class="py-3 text-white font-bold">➤ Personal character plus athletic ability</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 text-slate-400">■ Short-term casual participation</td>
+                                <td class="py-3 text-white font-bold">➤ Progressive clear athlete pathway</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 text-slate-400">■ Limited metrics and zero tracking</td>
+                                <td class="py-3 text-white font-bold">➤ Measurable progress tracking</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 text-slate-400">■ Competition treated as final endpoint</td>
+                                <td class="py-3 text-white font-bold">➤ Competition as continuous learning tool</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 4: SCHEDULES (SYNCED DIRECTLY TO YOUR GOOGLE SCRIPT)
+             =================================================================== -->
+        <section id="tab-panel-batches" class="tab-panel space-y-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 border-b border-bpLine pb-4">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white uppercase font-sans">
+                        Court Schedules & Batches
+                    </h2>
+                    <p class="text-xs font-mono text-bpCyan mt-1">Live Feed Directly From Academy Operations</p>
+                </div>
+                <button onclick="fetchSchedules()" class="bg-bpNavySurface hover:bg-bpLine text-bpCyan font-mono text-xs font-bold px-3 py-1.5 rounded-lg border border-bpLine transition-colors">
+                    <i class="fas fa-sync-alt mr-1"></i> REFRESH DATA
+                </button>
+            </div>
+
+            <!-- Dynamic Google Sheets Container -->
+            <div id="schedule-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Fallback Loading State -->
+                <div class="col-span-full text-center py-16">
+                    <i class="fas fa-circle-notch fa-spin text-3xl text-courtOrange mb-3"></i>
+                    <p class="text-xs font-mono text-bpCyan tracking-widest uppercase">Connecting to Google Sheet...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 5: DIGITAL PLAYER CARD & TROPHY ROOM
+             =================================================================== -->
+        <section id="tab-panel-card" class="tab-panel space-y-10">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <h2 class="text-3xl sm:text-5xl font-black text-white uppercase font-sans">
+                    Player Performance & Roster
+                </h2>
+                <p class="text-xs sm:text-sm font-mono text-bpCyan">
+                    Gamified Level Progression for Inspire Youth Athletes
+                </p>
+            </div>
+
+            <!-- 3D Gold Player Card -->
+            <div class="max-w-sm mx-auto bg-gradient-to-br from-amber-400 via-amber-600 to-courtOrange p-1 rounded-[2rem] shadow-[0_0_30px_rgba(255,85,0,0.35)] shimmer-card">
+                <div class="bg-bpNavyDark rounded-[1.8rem] p-6 text-white space-y-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-5xl font-black font-mono leading-none">88</span>
+                            <span class="block text-[10px] font-mono text-amber-400 font-bold uppercase tracking-widest">OVR RATING</span>
+                        </div>
+                        <span class="bg-amber-400/20 text-amber-300 border border-amber-400/50 text-[10px] font-mono font-bold px-2.5 py-1 rounded-full uppercase">
+                            TIER: ALL-DISTRICT
+                        </span>
+                    </div>
+
+                    <div class="text-center space-y-2">
+                        <div class="w-24 h-24 mx-auto rounded-full bg-bpNavySurface border-2 border-amber-400 overflow-hidden shadow-inner flex items-center justify-center">
+                            <i class="fas fa-user-ninja text-4xl text-slate-400"></i>
+                        </div>
+                        <h3 class="text-xl font-black uppercase tracking-wider font-mono">INSPIRE ATHLETE</h3>
+                        <p class="text-xs text-slate-400 font-mono">Position: Point Guard // U-14 Squad</p>
+                    </div>
+
+                    <div class="space-y-3 font-mono text-xs border-t border-bpLine/80 pt-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-slate-400">SHOOTING ARCH</span>
+                                <span class="text-amber-400 font-bold">86%</span>
+                            </div>
+                            <div class="w-full bg-bpNavySurface h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-courtOrange h-full w-[86%]"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-slate-400">SPEED & AGILITY</span>
+                                <span class="text-amber-400 font-bold">92%</span>
+                            </div>
+                            <div class="w-full bg-bpNavySurface h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-tagLime h-full w-[92%]"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-slate-400">HUSTLE / DEFENSE</span>
+                                <span class="text-amber-400 font-bold">89%</span>
+                            </div>
+                            <div class="w-full bg-bpNavySurface h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-bpCyan h-full w-[89%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trophy Room Milestones -->
+            <div class="blueprint-frame bg-bpNavyCard rounded-2xl p-6 sm:p-8 space-y-6">
+                <div class="flex items-center gap-3 border-b border-bpLine pb-4">
+                    <i class="fas fa-medal text-2xl text-courtOrange"></i>
+                    <h3 class="text-lg font-black text-white uppercase font-sans">Official Club Accolades</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                    <div class="bg-bpNavySurface/70 p-4 rounded-xl border border-bpLine flex items-center gap-4">
+                        <div class="text-3xl text-amber-400">🥈</div>
+                        <div>
+                            <h4 class="font-bold text-white uppercase">DDBBA District Runners-Up</h4>
+                            <p class="text-slate-400 text-[11px] mt-0.5">Dharwad District Basketball Association 2024 Tournament.</p>
+                        </div>
+                    </div>
+                    <div class="bg-bpNavySurface/70 p-4 rounded-xl border border-bpLine flex items-center gap-4">
+                        <div class="text-3xl text-bpCyan">🏆</div>
+                        <div>
+                            <h4 class="font-bold text-white uppercase">State C-Division Qualifiers</h4>
+                            <p class="text-slate-400 text-[11px] mt-0.5">Official qualification for the Karnataka State C-Division Championship.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 6: LIVE NEWS (ESPN RSS INTEGRATION + DETAILS MODAL)
+             =================================================================== -->
+        <section id="tab-panel-news" class="tab-panel space-y-6">
+            <div class="flex items-center justify-between border-b border-bpLine pb-4">
+                <div>
+                    <h2 class="text-3xl font-black text-white uppercase font-sans flex items-center gap-3">
+                        <i class="fas fa-bolt text-courtOrange"></i> Global Hoops Feed
+                    </h2>
+                    <p class="text-xs font-mono text-bpCyan">Real-time Basketball News & Tournament Updates</p>
+                </div>
+                <span class="w-3 h-3 rounded-full bg-courtOrange animate-ping"></span>
+            </div>
+
+            <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="col-span-full text-center py-12 text-slate-400 font-mono text-xs">
+                    <i class="fas fa-circle-notch fa-spin text-courtOrange text-2xl mb-2"></i>
+                    <p>FETCHING GLOBAL SPORTS WIRE...</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BOTTOM MOBILE NAVIGATION (NATIVE APP FEEL) -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-bpNavy/95 backdrop-blur-lg border-t border-bpLine md:hidden">
+        <div class="flex justify-around items-center h-16 max-w-md mx-auto px-2">
+            <button onclick="switchTab('home')" class="nav-mobile-btn flex flex-col items-center justify-center text-courtOrange w-full" data-tab="home">
+                <i class="fas fa-compass text-lg mb-0.5"></i>
+                <span class="text-[9px] font-mono font-bold tracking-tight uppercase">Home</span>
+            </button>
+            <button onclick="switchTab('ground')" class="nav-mobile-btn flex flex-col items-center justify-center text-slate-400 w-full" data-tab="ground">
+                <i class="fas fa-cube text-lg mb-0.5"></i>
+                <span class="text-[9px] font-mono font-bold tracking-tight uppercase">3D Court</span>
+            </button>
+            <button onclick="switchTab('pathway')" class="nav-mobile-btn flex flex-col items-center justify-center text-slate-400 w-full" data-tab="pathway">
+                <i class="fas fa-sitemap text-lg mb-0.5"></i>
+                <span class="text-[9px] font-mono font-bold tracking-tight uppercase">Pathway</span>
+            </button>
+            <button onclick="switchTab('batches')" class="nav-mobile-btn flex flex-col items-center justify-center text-slate-400 w-full" data-tab="batches">
+                <i class="fas fa-calendar-alt text-lg mb-0.5"></i>
+                <span class="text-[9px] font-mono font-bold tracking-tight uppercase">Batches</span>
+            </button>
+            <button onclick="switchTab('news')" class="nav-mobile-btn flex flex-col items-center justify-center text-slate-400 w-full" data-tab="news">
+                <i class="fas fa-newspaper text-lg mb-0.5"></i>
+                <span class="text-[9px] font-mono font-bold tracking-tight uppercase">News</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ENROLLMENT MODAL (PRESERVED ACCESS KEY) -->
+    <div id="enroll-modal" class="fixed inset-0 z-50 hidden bg-bpNavyDark/90 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="blueprint-frame bg-bpNavyCard w-full max-w-lg rounded-3xl p-6 sm:p-8 space-y-5 relative">
+            <button onclick="closeEnrollModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl">
+                <i class="fas fa-times"></i>
+            </button>
             
-            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+            <div class="space-y-1">
+                <span class="text-xs font-mono font-bold text-courtOrange uppercase tracking-widest">// Admissions Open 2026</span>
+                <h3 class="text-2xl font-black text-white uppercase font-sans">Join Inspire Academy</h3>
+                <p class="text-xs text-slate-300 font-mono">Hubballi & Dharwad Coaching Enrollment</p>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4 font-mono text-xs">
+                <!-- ACCESS KEY (PRESERVED) -->
                 <input type="hidden" name="access_key" value="40048b50-84fd-48a9-bb4f-61a66846d43d">
-                <input type="hidden" name="subject" value="New Academy Enrollment!">
+                <input type="hidden" name="subject" value="New Inspire Sports Academy Registration">
                 <input type="hidden" name="redirect" value="https://badoza.github.io/inspire.in/">
                 
                 <div>
-                    <label class="text-xs font-bold text-gray-500 uppercase">Player Name</label>
-                    <input type="text" name="name" required class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brandPrimary">
+                    <label class="block text-slate-300 mb-1">PLAYER FULL NAME</label>
+                    <input type="text" name="player_name" required placeholder="e.g. Rohan Patil" class="w-full bg-bpNavySurface border border-bpLine rounded-xl px-4 py-3 text-white focus:outline-none focus:border-courtOrange">
                 </div>
+
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="text-xs font-bold text-gray-500 uppercase">Age</label>
-                        <input type="number" name="age" required class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brandPrimary">
+                        <label class="block text-slate-300 mb-1">AGE</label>
+                        <input type="number" name="age" required min="5" max="25" placeholder="e.g. 12" class="w-full bg-bpNavySurface border border-bpLine rounded-xl px-4 py-3 text-white focus:outline-none focus:border-courtOrange">
                     </div>
                     <div>
-                        <label class="text-xs font-bold text-gray-500 uppercase">Phone Number</label>
-                        <input type="tel" name="phone" required class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brandPrimary">
+                        <label class="block text-slate-300 mb-1">CONTACT PHONE</label>
+                        <input type="tel" name="phone" required placeholder="+91 90000 00000" class="w-full bg-bpNavySurface border border-bpLine rounded-xl px-4 py-3 text-white focus:outline-none focus:border-courtOrange">
                     </div>
                 </div>
+
                 <div>
-                    <label class="text-xs font-bold text-gray-500 uppercase">Program Preference</label>
-                    <select name="program" required class="w-full mt-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brandPrimary">
-                        <option value="Basketball">Basketball</option>
-                        <option value="Football">Football</option>
-                        <option value="Volleyball">Volleyball</option>
+                    <label class="block text-slate-300 mb-1">SELECT SPORT / PROGRAM</label>
+                    <select name="program" class="w-full bg-bpNavySurface border border-bpLine rounded-xl px-4 py-3 text-white focus:outline-none focus:border-courtOrange">
+                        <option value="Basketball - JSS Dharwad">Basketball - JSS Banashankari (Dharwad)</option>
+                        <option value="Basketball - Decathlon Hubli">Basketball - Decathlon (Hubballi)</option>
+                        <option value="Football Development">Football Turf Academy</option>
+                        <option value="Volleyball Skills">Volleyball Training</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full bg-brandSecondary text-white font-black py-4 rounded-xl shadow-lg mt-4 hover:bg-brandPrimary transition-colors uppercase tracking-wider">
-                    Submit Application
+
+                <button type="submit" class="w-full bg-courtOrange hover:bg-courtOrangeLight text-white font-black text-sm uppercase py-4 rounded-xl border border-tagLime shadow-[0_0_15px_rgba(255,85,0,0.5)] transition-all mt-4">
+                    SUBMIT REGISTRATION
                 </button>
             </form>
         </div>
     </div>
 
-    <div class="pt-20 max-w-md mx-auto md:max-w-7xl md:px-4">
-
-        <main id="tab-home" class="tab-content active px-4">
-            
-            <div class="bg-gradient-to-br from-brandSecondary to-gray-900 rounded-3xl p-6 text-white shadow-xl mb-8 relative overflow-hidden card-shine">
-                <i class="fas fa-fire absolute -right-6 -top-4 text-9xl text-white/5"></i>
-                <div class="flex justify-between items-center mb-6 relative z-10">
-                    <div>
-                        <h2 class="font-black text-xl tracking-wider uppercase">Welcome Back</h2>
-                        <p class="text-brandPrimary font-bold text-xs">Ready to grind?</p>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-3 text-center border border-white/20">
-                        <i class="fas fa-fire text-orange-500 text-xl mb-1"></i>
-                        <p class="font-black text-xl leading-none">12</p>
-                        <p class="text-[8px] uppercase tracking-widest font-bold text-gray-300">Day Streak</p>
-                    </div>
-                </div>
-                
-                <div class="bg-black/30 rounded-2xl p-4 relative z-10 border border-white/10">
-                    <div class="flex justify-between items-end mb-2">
-                        <h3 class="font-bold text-sm text-gray-200"><i class="fas fa-star text-brandAccent mr-2"></i>Daily Quest</h3>
-                        <span class="text-[10px] bg-brandPrimary px-2 py-1 rounded-full font-bold uppercase">+50 XP</span>
-                    </div>
-                    <p class="font-black text-white">Complete 50 Crossovers</p>
-                    <button class="w-full mt-3 bg-white text-brandSecondary font-black py-2 rounded-xl text-xs uppercase tracking-wider hover:bg-brandPrimary hover:text-white transition-colors">Claim Reward</button>
-                </div>
-            </div>
-
-            <div class="text-center mb-6">
-                <h2 class="text-3xl font-black text-brandSecondary uppercase mb-1">The Academy</h2>
-                <div class="w-16 h-1 bg-brandPrimary mx-auto rounded-full"></div>
-            </div>
-
-            <div class="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 flex flex-col gap-5 mb-8">
-                <div class="flex items-center gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-colors">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl shadow-inner"><i class="fas fa-map-marker-alt"></i></div>
-                    <div class="flex-1">
-                        <h3 class="font-black text-xs text-gray-400 uppercase tracking-wider">Main Base</h3>
-                        <p class="font-bold text-brandSecondary text-sm leading-tight mt-1">JSS Banashankari College, Vidyagiri</p>
-                    </div>
-                </div>
-                <div class="h-px bg-gray-100 w-full"></div>
-                <div class="flex items-center gap-4 p-3 rounded-2xl hover:bg-gray-50 transition-colors" onclick="document.getElementById('enroll-modal').classList.remove('hidden')">
-                    <div class="w-14 h-14 bg-brandPrimary/10 text-brandPrimary rounded-2xl flex items-center justify-center text-2xl shadow-inner"><i class="fas fa-user-plus"></i></div>
-                    <div class="flex-1">
-                        <h3 class="font-black text-xs text-brandPrimary uppercase tracking-wider">Admissions Open 2026</h3>
-                        <p class="font-black text-brandSecondary text-lg mt-1">Join The Squad</p>
-                    </div>
-                    <i class="fas fa-chevron-right text-gray-300"></i>
-                </div>
-            </div>
-        </main>
-
-        <main id="tab-book" class="tab-content py-2 px-4">
-            
-            <div class="flex justify-between items-end mb-6">
-                <div>
-                    <h2 class="text-3xl font-black text-brandSecondary uppercase mb-1">Book & Play</h2>
-                    <p class="text-sm font-bold text-gray-500">Hubballi-Dharwad Venues</p>
-                </div>
-                <div class="bg-brandSecondary text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg" onclick="alert('Digital Venue Pass Ready.')">
-                    <i class="fas fa-qrcode"></i>
-                </div>
-            </div>
-
-            <div class="flex bg-gray-200 p-1 rounded-2xl mb-6">
-                <button class="flex-1 bg-white text-brandSecondary font-black text-xs py-3 rounded-xl shadow-sm uppercase tracking-wider">Book Turf</button>
-                <button class="flex-1 text-gray-500 font-bold text-xs py-3 rounded-xl uppercase tracking-wider">Academy Batches</button>
-            </div>
-
-            <h3 class="font-black text-brandSecondary uppercase mb-4 text-sm flex items-center gap-2"><i class="fas fa-calendar-check text-brandPrimary"></i> Today's Open Slots</h3>
-            
-            <div class="grid grid-cols-1 gap-4 mb-8">
-                <div class="bg-white rounded-3xl p-5 shadow-md border border-gray-100 flex justify-between items-center relative overflow-hidden">
-                    <div class="absolute left-0 top-0 bottom-0 w-2 bg-gray-300"></div>
-                    <div class="pl-4">
-                        <h4 class="font-black text-brandSecondary text-lg">7:00 PM - 8:00 PM</h4>
-                        <p class="text-xs font-bold text-gray-500 mt-1"><i class="fas fa-users mr-1"></i> Split Pay Available</p>
-                    </div>
-                    <div class="text-right">
-                        <p class="font-black text-xl text-brandSecondary">₹1200</p>
-                        <button class="bg-brandSecondary text-white text-[10px] font-black px-4 py-2 rounded-lg mt-1 uppercase">Book</button>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-3xl p-5 shadow-lg border-2 border-brandPrimary flex justify-between items-center relative overflow-hidden transform hover:-translate-y-1 transition-all">
-                    <div class="absolute left-0 top-0 bottom-0 w-2 bg-brandPrimary"></div>
-                    <div class="absolute top-0 right-0 bg-brandPrimary text-white text-[8px] font-black px-3 py-1 rounded-bl-xl uppercase tracking-widest"><i class="fas fa-bolt mr-1"></i> Off-Peak Deal</div>
-                    <div class="pl-4">
-                        <h4 class="font-black text-brandSecondary text-lg">2:00 PM - 3:00 PM</h4>
-                        <p class="text-xs font-bold text-green-500 mt-1"><i class="fas fa-tag mr-1"></i> Save 33%</p>
-                    </div>
-                    <div class="text-right mt-2">
-                        <p class="font-black text-xs text-gray-400 line-through">₹1200</p>
-                        <p class="font-black text-xl text-brandPrimary">₹800</p>
-                        <button class="bg-brandPrimary text-white text-[10px] font-black px-4 py-2 rounded-lg mt-1 uppercase shadow-md shadow-brandPrimary/30">Book</button>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="font-black text-brandSecondary uppercase mb-4 text-sm flex items-center gap-2"><i class="fas fa-stopwatch text-brandPrimary"></i> Academy Batches</h3>
-            <div id="schedule-container" class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
-                <div class="col-span-full text-center py-10">
-                    <i class="fas fa-circle-notch fa-spin text-3xl text-brandPrimary mb-3"></i>
-                    <p class="text-gray-400 font-bold text-sm uppercase tracking-wider">Syncing Live Schedule...</p>
-                </div>
-            </div>
-        </main>
-
-        <main id="tab-card" class="tab-content py-2 px-4">
-            <h2 class="text-3xl font-black text-brandSecondary uppercase mb-6 text-center">Player Card</h2>
-            
-            <div class="max-w-sm mx-auto bg-gradient-to-br from-gray-900 to-black rounded-[2rem] p-1 shadow-2xl relative overflow-hidden card-shine">
-                <div class="bg-gradient-to-br from-brandAccent via-yellow-600 to-brandPrimary rounded-[1.8rem] p-1">
-                    <div class="bg-gray-900 rounded-[1.6rem] p-6 relative overflow-hidden">
-                        
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="text-center">
-                                <h3 class="font-black text-5xl text-white">84</h3>
-                                <p class="text-[10px] font-bold text-brandAccent uppercase tracking-widest">OVR</p>
-                            </div>
-                            <div class="text-right">
-                                <span class="bg-brandPrimary/20 text-brandAccent border border-brandAccent/30 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Gold Tier</span>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col items-center mb-6">
-                            <div class="w-24 h-24 bg-gray-800 rounded-full border-4 border-brandAccent mb-3 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1544365558-35aa4afcf11f?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover opacity-80 mix-blend-luminosity">
-                            </div>
-                            <h3 class="font-black text-2xl text-white uppercase tracking-wider">Player One</h3>
-                            <p class="text-xs font-bold text-gray-400">Point Guard • Under 14</p>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-4 border-t border-gray-800 pt-4">
-                            <div>
-                                <div class="flex justify-between text-xs font-bold mb-1"><span class="text-gray-400 uppercase">Shooting</span><span class="text-white">82</span></div>
-                                <div class="w-full bg-gray-800 h-1.5 rounded-full"><div class="bg-brandAccent h-1.5 rounded-full" style="width: 82%"></div></div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs font-bold mb-1"><span class="text-gray-400 uppercase">Defense</span><span class="text-white">88</span></div>
-                                <div class="w-full bg-gray-800 h-1.5 rounded-full"><div class="bg-brandAccent h-1.5 rounded-full" style="width: 88%"></div></div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs font-bold mb-1"><span class="text-gray-400 uppercase">Hustle</span><span class="text-white">95</span></div>
-                                <div class="w-full bg-gray-800 h-1.5 rounded-full"><div class="bg-brandAccent h-1.5 rounded-full" style="width: 95%"></div></div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-xs font-bold mb-1"><span class="text-gray-400 uppercase">Attendance</span><span class="text-white">90</span></div>
-                                <div class="w-full bg-gray-800 h-1.5 rounded-full"><div class="bg-brandAccent h-1.5 rounded-full" style="width: 90%"></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-8 bg-white rounded-3xl p-6 shadow-md border border-gray-100">
-                <h3 class="font-black text-brandSecondary uppercase mb-4 text-sm flex items-center gap-2"><i class="fas fa-medal text-brandAccent"></i> Badges Earned</h3>
-                <div class="flex gap-4 overflow-x-auto pb-2">
-                    <div class="bg-gray-50 rounded-2xl p-4 min-w-[100px] text-center border border-gray-100">
-                        <i class="fas fa-crosshairs text-3xl text-brandPrimary mb-2"></i>
-                        <p class="text-[10px] font-black text-brandSecondary uppercase">Sharpshooter</p>
-                    </div>
-                    <div class="bg-gray-50 rounded-2xl p-4 min-w-[100px] text-center border border-gray-100">
-                        <i class="fas fa-shield-alt text-3xl text-blue-500 mb-2"></i>
-                        <p class="text-[10px] font-black text-brandSecondary uppercase">Lockdown</p>
-                    </div>
-                    <div class="bg-gray-50 rounded-2xl p-4 min-w-[100px] text-center border border-gray-100 opacity-50">
-                        <i class="fas fa-lock text-3xl text-gray-400 mb-2"></i>
-                        <p class="text-[10px] font-black text-gray-500 uppercase">Playmaker</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <main id="tab-media" class="tab-content py-2 px-4">
-            <div class="flex justify-between items-end mb-6">
-                <h2 class="text-3xl font-black text-brandSecondary uppercase mb-1">Court Action</h2>
-            </div>
-            <div class="grid grid-cols-2 gap-3">
-                <div class="col-span-2 rounded-2xl overflow-hidden bg-black shadow-md relative group mb-2 border border-gray-200">
-                    <video id="gallery-video" src="./intro.mp4" class="w-full h-auto object-cover rounded-2xl" controls playsinline preload="metadata" poster="./logo.png"></video>
-                </div>
-                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-md col-span-2 h-48 flex items-center justify-center bg-gradient-to-br from-purple-600 to-pink-500 group cursor-pointer" onclick="window.open('https://www.instagram.com/inspirebasketballclub/', '_blank')">
-                    <div class="text-center group-hover:scale-110 transition-transform">
-                        <i class="fab fa-instagram text-4xl text-white mb-2"></i>
-                        <p class="text-white text-sm font-black uppercase tracking-wider">Follow The Journey</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <main id="tab-news" class="tab-content py-2 px-4">
-            <div class="flex justify-between items-end mb-6">
-                <h2 class="text-3xl font-black text-brandSecondary uppercase mb-1">Live News</h2>
-                <span class="flex h-3 w-3 relative mb-2 mr-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span></span>
-            </div>
-            <div id="news-container" class="space-y-4">
-                <div id="news-loader" class="text-center py-10"><i class="fas fa-circle-notch fa-spin text-3xl text-brandPrimary mb-3"></i><p class="text-gray-400 font-bold text-sm uppercase tracking-wider">Pulling updates...</p></div>
-            </div>
-        </main>
-
-    </div>
-
-    <nav class="fixed bottom-0 w-full bg-white border-t border-gray-100 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] z-40 pb-safe">
-        <div class="flex justify-around items-center h-16 max-w-md mx-auto px-2">
-            <button onclick="switchTab('home')" id="nav-home" class="nav-btn active flex flex-col items-center justify-center w-full h-full text-brandPrimary">
-                <i class="fas fa-home text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Home</span>
+    <!-- NEWS DETAILS MODAL -->
+    <div id="news-modal" class="fixed inset-0 z-50 hidden bg-bpNavyDark/90 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="blueprint-frame bg-bpNavyCard w-full max-w-lg rounded-3xl overflow-hidden relative max-h-[85vh] flex flex-col">
+            <button onclick="closeNewsModal()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-courtOrange transition-colors">
+                <i class="fas fa-times"></i>
             </button>
-            <button onclick="switchTab('book')" id="nav-book" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
-                <i class="fas fa-calendar-alt text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Book</span>
-            </button>
-            <button onclick="switchTab('card')" id="nav-card" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandAccent transition-colors -mt-4">
-                <div class="bg-brandSecondary text-brandAccent w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-4 border-white mb-1">
-                    <i class="fas fa-id-badge text-xl"></i>
-                </div>
-                <span class="text-[9px] font-black uppercase text-brandSecondary">My Card</span>
-            </button>
-            <button onclick="switchTab('media')" id="nav-media" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
-                <i class="fas fa-play-circle text-xl mb-1"></i><span class="text-[9px] font-black uppercase">Media</span>
-            </button>
-            <button onclick="switchTab('news')" id="nav-news" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brandSecondary transition-colors">
-                <i class="fas fa-newspaper text-xl mb-1"></i><span class="text-[9px] font-black uppercase">News</span>
-            </button>
-        </div>
-    </nav>
-
-    <div id="news-modal" class="fixed inset-0 z-50 hidden bg-brandSecondary/90 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="modal-body bg-white w-full max-w-md rounded-3xl overflow-hidden shadow-2xl relative flex flex-col max-h-[85vh]">
-            <button onclick="closeModal('news-modal')" class="absolute top-4 right-4 text-white bg-black/50 w-8 h-8 rounded-full z-10 flex items-center justify-center"><i class="fas fa-times"></i></button>
-            <div id="news-modal-img" class="w-full h-48 bg-gray-200 flex-shrink-0"></div>
-            <div class="p-6 overflow-y-auto">
-                <span id="news-modal-date" class="text-brandPrimary text-[10px] font-black uppercase tracking-wider"></span>
-                <h2 id="news-modal-title" class="text-xl font-black text-brandSecondary mt-1 mb-4 leading-snug"></h2>
-                <div id="news-modal-desc" class="text-sm text-gray-600 font-medium mb-6 space-y-3"></div>
-                <a id="news-modal-link" href="#" target="_blank" class="block text-center w-full bg-gray-100 text-brandSecondary font-bold py-3 rounded-xl hover:bg-brandPrimary hover:text-white transition-colors text-sm uppercase tracking-wider">Read Full Article</a>
+            <div id="news-modal-img" class="w-full h-48 bg-bpNavyDark flex-shrink-0"></div>
+            <div class="p-6 overflow-y-auto space-y-4">
+                <span id="news-modal-date" class="text-[10px] font-mono text-courtOrange uppercase tracking-wider font-bold"></span>
+                <h3 id="news-modal-title" class="text-xl font-bold text-white uppercase font-sans"></h3>
+                <p id="news-modal-desc" class="text-xs text-slate-300 leading-relaxed font-sans"></p>
+                <a id="news-modal-link" href="#" target="_blank" class="inline-block bg-bpNavySurface text-bpCyan border border-bpLine hover:border-bpCyan font-mono text-xs font-bold px-4 py-2.5 rounded-xl uppercase">
+                    Read Full Coverage on ESPN <i class="fas fa-external-link-alt ml-1"></i>
+                </a>
             </div>
         </div>
     </div>
 
+    <!-- CORE LOGIC SCRIPTS -->
     <script>
-        // --- 1. Tab Navigation Logic ---
+        // --- 1. Tab Navigation Routing ---
         function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(btn => { 
-                btn.classList.remove('text-brandPrimary'); 
-                if(btn.id !== 'nav-card') btn.classList.add('text-gray-400'); 
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+            document.querySelectorAll('.nav-desktop-btn').forEach(btn => {
+                btn.classList.remove('text-white', 'bg-bpNavySurface');
+                btn.classList.add('text-slate-400');
             });
-            document.getElementById('tab-' + tabId).classList.add('active');
-            
-            const activeNav = document.getElementById('nav-' + tabId);
-            if(activeNav && tabId !== 'card') {
-                activeNav.classList.remove('text-gray-400');
-                activeNav.classList.add('text-brandPrimary');
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.querySelectorAll('.nav-mobile-btn').forEach(btn => {
+                btn.classList.remove('text-courtOrange');
+                btn.classList.add('text-slate-400');
+            });
 
-            // Video logic
-            const video = document.getElementById('gallery-video');
-            if(video) {
-                if(tabId === 'media') { video.muted = false; video.play().catch(e=>{}); }
-                else { video.pause(); }
+            const activePanel = document.getElementById('tab-panel-' + tabId);
+            if (activePanel) activePanel.classList.add('active');
+
+            const desktopBtn = document.querySelector(`.nav-desktop-btn[data-tab="${tabId}"]`);
+            if (desktopBtn) {
+                desktopBtn.classList.remove('text-slate-400');
+                desktopBtn.classList.add('text-white', 'bg-bpNavySurface');
+            }
+
+            const mobileBtn = document.querySelector(`.nav-mobile-btn[data-tab="${tabId}"]`);
+            if (mobileBtn) {
+                mobileBtn.classList.remove('text-slate-400');
+                mobileBtn.classList.add('text-courtOrange');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- 2. 3D Court Visualizer Controls ---
+        function setCourtHighlight(court) {
+            const bball = document.getElementById('court-mesh-bball');
+            const vball = document.getElementById('court-mesh-vball');
+            const fball = document.getElementById('court-mesh-fball');
+
+            document.querySelectorAll('.court-btn').forEach(btn => {
+                btn.classList.remove('bg-bpLine', 'border-bpCyan/50');
+                btn.classList.add('bg-bpNavyCard');
+            });
+            const activeBtn = document.querySelector(`.court-btn[data-court="${court}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-bpLine', 'border-bpCyan/50');
+                activeBtn.classList.remove('bg-bpNavyCard');
+            }
+
+            if (court === 'all') {
+                bball.style.opacity = '1';
+                vball.style.opacity = '1';
+                fball.style.opacity = '1';
+            } else if (court === 'bball') {
+                bball.style.opacity = '1';
+                vball.style.opacity = '0.3';
+                fball.style.opacity = '0.3';
+            } else if (court === 'vball') {
+                bball.style.opacity = '0.3';
+                vball.style.opacity = '1';
+                fball.style.opacity = '0.3';
+            } else if (court === 'fball') {
+                bball.style.opacity = '0.3';
+                vball.style.opacity = '0.3';
+                fball.style.opacity = '1';
             }
         }
 
-        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
-
-        // --- 2. Google Sheets Schedule Fetching ---
+        // --- 3. Google Sheets Schedules Fetcher ---
         const SCHEDULE_API_URL = 'https://script.google.com/macros/s/AKfycbzSwsOARrbQEznAvEminfPGg3bK8Jx0b4YQ0SrH11FlBG0kVpMzA0BFUSqRtzsZyu4i/exec';
 
         async function fetchSchedules() {
             const container = document.getElementById('schedule-container');
+            container.innerHTML = `
+                <div class="col-span-full text-center py-12 text-slate-400 font-mono text-xs">
+                    <i class="fas fa-circle-notch fa-spin text-courtOrange text-2xl mb-2"></i>
+                    <p>CONNECTING TO SCHEDULE ENGINE...</p>
+                </div>`;
+
             try {
                 const response = await fetch(SCHEDULE_API_URL);
                 const batches = await response.json();
-                container.innerHTML = ''; 
-                batches.forEach(batch => {
-                    let tagColor = 'bg-green-100 text-green-700'; 
-                    if(batch.Status && batch.Status.toLowerCase().includes('fill')) tagColor = 'bg-red-100 text-red-700';
-                    if(batch.Status && batch.Status.toLowerCase().includes('close')) tagColor = 'bg-gray-100 text-gray-700';
+                container.innerHTML = '';
 
-                    const batchHTML = `
-                        <div class="bg-white rounded-3xl p-6 shadow-md border border-gray-100 relative">
-                            <div class="absolute top-4 right-4 ${tagColor} text-[10px] font-black px-3 py-1 rounded-full uppercase">${batch.Status || 'Open'}</div>
-                            <h3 class="text-xl font-black text-brandSecondary mb-1">${batch.BatchName || 'Training Batch'}</h3>
-                            <div class="bg-brandLight p-3 rounded-2xl flex justify-between items-center mb-4 mt-4 border border-gray-100">
-                                <span class="font-black text-brandSecondary text-xs"><i class="far fa-clock text-brandPrimary mr-1"></i> ${batch.Timing || 'TBA'}</span>
-                                <span class="font-bold text-gray-500 text-[10px] uppercase">${batch.Days || 'TBA'}</span>
+                batches.forEach(batch => {
+                    const statusStr = (batch.Status || 'Open').toLowerCase();
+                    let badgeClass = 'bg-green-500/20 text-green-400 border-green-500/40';
+                    if (statusStr.includes('fill') || statusStr.includes('fast')) {
+                        badgeClass = 'bg-amber-500/20 text-amber-400 border-amber-500/40';
+                    } else if (statusStr.includes('close')) {
+                        badgeClass = 'bg-rose-500/20 text-rose-400 border-rose-500/40';
+                    }
+
+                    const card = `
+                        <div class="blueprint-frame bg-bpNavyCard/90 p-6 rounded-2xl space-y-4 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-3">
+                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded border uppercase font-bold ${badgeClass}">
+                                        ${batch.Status || 'Active'}
+                                    </span>
+                                    <i class="fas fa-basketball-ball text-courtOrange text-sm"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-white uppercase font-sans">${batch.BatchName || 'Training Session'}</h3>
+                                <p class="text-xs text-slate-300 font-mono mt-1">${batch.Days || 'Mon - Fri'}</p>
                             </div>
-                            <button onclick="document.getElementById('enroll-modal').classList.remove('hidden')" class="w-full bg-brandSecondary/5 text-brandSecondary text-sm font-black py-3 rounded-xl hover:bg-brandPrimary hover:text-white transition-colors uppercase tracking-wider">Enroll</button>
+                            <div class="pt-4 border-t border-bpLine flex items-center justify-between">
+                                <span class="text-xs font-mono text-bpCyan font-bold">
+                                    <i class="far fa-clock text-courtOrange mr-1"></i> ${batch.Timing || 'TBA'}
+                                </span>
+                                <button onclick="openEnrollModal()" class="bg-courtOrange/20 hover:bg-courtOrange text-courtOrange hover:text-white border border-courtOrange text-xs font-mono font-bold px-3 py-1.5 rounded-lg transition-colors">
+                                    ENROLL
+                                </button>
+                            </div>
                         </div>`;
-                    container.insertAdjacentHTML('beforeend', batchHTML);
+                    container.insertAdjacentHTML('beforeend', card);
                 });
-            } catch (error) {
-                container.innerHTML = '<p class="col-span-full text-center text-red-500 font-bold mt-4">Unable to load schedules.</p>';
+            } catch (err) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-10 bg-bpNavyCard rounded-2xl border border-red-500/30 p-6">
+                        <p class="text-courtOrange font-mono text-xs font-bold mb-2">LIVE SYNC TIMEOUT</p>
+                        <p class="text-slate-300 text-xs">Serving standard regional batches at Vidyagiri Dharwad (6:00 - 8:00 AM & 5:00 - 7:00 PM).</p>
+                    </div>`;
             }
         }
 
-        // --- 3. Live ESPN News Fetching ---
+        // --- 4. Live ESPN NBA News Fetcher & Modal ---
         const RSS_URL = 'https://www.espn.com/espn/rss/nba/news';
         const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
-        let globalNewsData = [];
+        let globalNewsItems = [];
 
         async function fetchSportsNews() {
             const container = document.getElementById('news-container');
             try {
-                const response = await fetch(API_URL);
-                const data = await response.json();
-                if(data.status === 'ok') {
-                    document.getElementById('news-loader').remove();
-                    globalNewsData = data.items.slice(0, 10); 
-                    globalNewsData.forEach((item, index) => {
-                        let imgUrl = 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=500&auto=format&fit=crop'; 
+                const res = await fetch(API_URL);
+                const data = await res.json();
+                if (data.status === 'ok') {
+                    container.innerHTML = '';
+                    globalNewsItems = data.items.slice(0, 9);
+                    globalNewsItems.forEach((item, index) => {
+                        let imgUrl = 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=600&auto=format&fit=crop';
                         if (item.enclosure && item.enclosure.link) imgUrl = item.enclosure.link;
                         else {
                             const match = item.description.match(/<img[^>]+src="([^">]+)"/);
-                            if(match && match[1]) imgUrl = match[1];
+                            if (match && match[1]) imgUrl = match[1];
                         }
-                        const date = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-                        const articleHTML = `
-                            <div onclick="openNewsModal(${index}, '${imgUrl}')" class="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 flex gap-4 items-center cursor-pointer active:scale-95 transition-transform">
-                                <div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100"><img src="${imgUrl}" class="w-full h-full object-cover"></div>
-                                <div class="flex flex-col py-1"><span class="text-brandPrimary text-[10px] font-black uppercase mb-1 tracking-wider">${date}</span><h3 class="text-brandSecondary font-bold text-sm leading-snug line-clamp-2">${item.title}</h3></div>
+                        const cleanDate = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                        
+                        const newsCard = `
+                            <div onclick="openNewsModal(${index}, '${imgUrl}')" class="blueprint-frame bg-bpNavyCard rounded-2xl overflow-hidden cursor-pointer group hover:border-courtOrange transition-all flex flex-col">
+                                <div class="h-44 bg-bpNavySurface overflow-hidden relative">
+                                    <img src="${imgUrl}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                                    <span class="absolute top-3 left-3 bg-bpNavy/90 text-courtOrange font-mono text-[10px] px-2 py-0.5 rounded font-bold uppercase">
+                                        ${cleanDate}
+                                    </span>
+                                </div>
+                                <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                                    <h4 class="text-sm font-bold text-white group-hover:text-bpCyan transition-colors line-clamp-2 uppercase font-sans">
+                                        ${item.title}
+                                    </h4>
+                                    <p class="text-[11px] font-mono text-slate-400 flex items-center justify-between pt-2 border-t border-bpLine/50">
+                                        <span>READ BRIEFING</span>
+                                        <i class="fas fa-arrow-right text-courtOrange"></i>
+                                    </p>
+                                </div>
                             </div>`;
-                        container.insertAdjacentHTML('beforeend', articleHTML);
+                        container.insertAdjacentHTML('beforeend', newsCard);
                     });
                 }
-            } catch (error) {
-                container.innerHTML = "<p class='text-center font-bold text-gray-500'>Error loading news.</p>";
+            } catch (e) {
+                container.innerHTML = `<p class="col-span-full text-center text-xs font-mono text-slate-400">Updates live at Decathlon Hubli & JSS Vidyagiri.</p>`;
             }
         }
 
         function openNewsModal(index, imgUrl) {
-            const item = globalNewsData[index];
+            const item = globalNewsItems[index];
             document.getElementById('news-modal-img').innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover">`;
+            document.getElementById('news-modal-date').innerText = new Date(item.pubDate).toDateString();
             document.getElementById('news-modal-title').innerText = item.title;
+            document.getElementById('news-modal-desc').innerText = item.description.replace(/<\/?[^>]+(>|$)/g, "");
             document.getElementById('news-modal-link').href = item.link;
             document.getElementById('news-modal').classList.remove('hidden');
         }
 
+        function closeNewsModal() { document.getElementById('news-modal').classList.add('hidden'); }
+        function openEnrollModal() { document.getElementById('enroll-modal').classList.remove('hidden'); }
+        function closeEnrollModal() { document.getElementById('enroll-modal').classList.add('hidden'); }
+
+        // --- 5. PWA Install Listener ---
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            const hBtn = document.getElementById('pwa-install-header');
+            const mBanner = document.getElementById('pwa-mobile-banner');
+            if (hBtn) hBtn.classList.remove('hidden');
+            if (mBanner) mBanner.classList.remove('hidden');
+        });
+
+        const triggerPwa = async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    const hBtn = document.getElementById('pwa-install-header');
+                    const mBanner = document.getElementById('pwa-mobile-banner');
+                    if (hBtn) hBtn.classList.add('hidden');
+                    if (mBanner) mBanner.classList.add('hidden');
+                }
+                deferredPrompt = null;
+            }
+        };
+
+        document.getElementById('pwa-install-header').addEventListener('click', triggerPwa);
+        document.getElementById('pwa-mobile-install-btn').addEventListener('click', triggerPwa);
+
+        // --- Init ---
         document.addEventListener('DOMContentLoaded', () => {
-            fetchSportsNews();
             fetchSchedules();
+            fetchSportsNews();
         });
     </script>
 </body>
