@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Inspire Sports Academy | Hubballi-Dharwad</title>
+    <!-- SEO Master Title -->
+    <title>Inspire Sports Academy | Hubballi-Dharwad's Premier Basketball Coaching</title>
+    <meta name="description" content="Inspire Sports Academy is a world-class sports development organization. Home to the Inspire Basketball Academy & Club in Hubballi-Dharwad. Become the best version of yourself.">
     
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="./manifest.json">
@@ -26,11 +28,11 @@
             theme: {
                 extend: {
                     colors: {
-                        obsidian: '#050C1A',      /* 60% Foundation */
-                        deepNavy: '#0A192F',      /* 60% Layering */
-                        blazeOrange: '#FF5500',   /* 10% Action Pulse */
-                        electricCyan: '#00E5FF',  /* Micro-Accent */
-                        champGold: '#FFC72C',     /* Trophy Accent */
+                        obsidian: '#050C1A',      
+                        deepNavy: '#0A192F',      
+                        blazeOrange: '#FF5500',   
+                        electricCyan: '#00E5FF',  
+                        champGold: '#FFC72C',     
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
@@ -41,32 +43,15 @@
         }
     </script>
     <style>
-        body { 
-            background-color: #050C1A; 
-            color: #F8FAFC; 
-            -webkit-font-smoothing: antialiased; 
-        }
+        body { background-color: #050C1A; color: #F8FAFC; -webkit-font-smoothing: antialiased; }
         
-        /* Premium Ambient Background */
-        .ambient-glow {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 0;
-            background: radial-gradient(circle at 15% 50%, rgba(255, 85, 0, 0.04) 0%, transparent 50%),
-                        radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.04) 0%, transparent 50%);
-        }
-
-        /* Glassmorphic Cards */
+        /* Glassmorphic UI */
         .glass-card {
-            background: rgba(10, 25, 47, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            background: rgba(10, 25, 47, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
-        .glass-card:hover {
-            border-color: rgba(255, 85, 0, 0.3);
-            background: rgba(10, 25, 47, 0.6);
-        }
+        .glass-card:hover { border-color: rgba(255, 85, 0, 0.3); background: rgba(10, 25, 47, 0.7); }
 
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: tabFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -75,28 +60,17 @@
             to { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
 
-        #three-canvas-container canvas {
-            display: block; width: 100% !important; height: 100% !important; touch-action: none; outline: none;
-        }
-
-        .modal-body { transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        .active-modal .modal-body { transform: scale(1); }
-        
+        #three-canvas-container canvas { display: block; width: 100% !important; height: 100% !important; outline: none; }
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: #050C1A; }
         ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #FF5500; }
     </style>
 </head>
 <body class="pb-24 md:pb-12 selection:bg-blazeOrange selection:text-white">
 
-    <div class="ambient-glow"></div>
-
     <!-- Top Sticky Header -->
-    <header class="sticky top-0 z-40 bg-obsidian/80 backdrop-blur-xl border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between relative z-10">
-            
-            <!-- Branding -->
+    <header class="sticky top-0 z-50 bg-obsidian/90 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3 cursor-pointer group" onclick="switchTab('home')">
                 <img src="./logo.png" alt="Inspire Logo" class="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(255,85,0,0.4)] transition-transform group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                 <div class="hidden w-10 h-10 bg-blazeOrange rounded-xl items-center justify-center text-white font-black text-xl shadow-[0_0_15px_rgba(255,85,0,0.4)]">I</div>
@@ -107,129 +81,179 @@
                 </div>
             </div>
 
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center gap-1 lg:gap-2 font-bold text-xs uppercase tracking-widest">
-                <button onclick="switchTab('home')" class="nav-link-desktop px-4 py-2 rounded-lg text-white hover:text-blazeOrange transition-colors active" data-tab="home">Overview</button>
-                <button onclick="switchTab('arena')" class="nav-link-desktop px-4 py-2 rounded-lg text-slate-400 hover:text-blazeOrange transition-colors" data-tab="arena">3D Ground</button>
-                <button onclick="switchTab('methodology')" class="nav-link-desktop px-4 py-2 rounded-lg text-slate-400 hover:text-blazeOrange transition-colors" data-tab="methodology">Pathway</button>
-                <button onclick="switchTab('schedules')" class="nav-link-desktop px-4 py-2 rounded-lg text-slate-400 hover:text-blazeOrange transition-colors" data-tab="schedules">Batches</button>
-                <button onclick="switchTab('media')" class="nav-link-desktop px-4 py-2 rounded-lg text-slate-400 hover:text-blazeOrange transition-colors" data-tab="media">Media</button>
-                <button onclick="switchTab('news')" class="nav-link-desktop px-4 py-2 rounded-lg text-slate-400 hover:text-blazeOrange transition-colors" data-tab="news">News</button>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-1 lg:gap-2 font-bold text-[11px] uppercase tracking-widest">
+                <button onclick="switchTab('home')" class="nav-link-desktop px-4 py-2 rounded-lg text-white hover:text-blazeOrange active" data-tab="home">Overview</button>
+                <button onclick="switchTab('arena')" class="nav-link-desktop px-4 py-2 rounded-lg text-slate-400 hover:text-blazeOrange" data-tab="arena">Facility</button>
+                <button onclick="switchTab('methodology')" class="nav-link-desktop px-4 py-2 rounded-lg text-slate-400 hover:text-blazeOrange" data-tab="methodology">Pathway</button>
+                <button onclick="switchTab('schedules')" class="nav-link-desktop px-4 py-2 rounded-lg text-slate-400 hover:text-blazeOrange" data-tab="schedules">Batches</button>
+                <button onclick="switchTab('media')" class="nav-link-desktop px-4 py-2 rounded-lg text-slate-400 hover:text-blazeOrange" data-tab="media">Media</button>
             </nav>
 
-            <!-- CTA Action -->
-            <div class="flex items-center gap-4">
-                <button onclick="openModal('enroll-modal')" class="bg-blazeOrange hover:bg-orange-600 text-white font-black text-xs sm:text-sm px-6 py-2.5 rounded-full uppercase tracking-wider shadow-[0_0_20px_rgba(255,85,0,0.3)] hover:shadow-[0_0_25px_rgba(255,85,0,0.5)] transition-all">
-                    Enroll 2026
-                </button>
-            </div>
+            <button onclick="openModal('enroll-modal')" class="bg-blazeOrange hover:bg-orange-600 text-white font-black text-xs px-6 py-2.5 rounded-full uppercase tracking-wider shadow-[0_0_20px_rgba(255,85,0,0.3)] transition-all hover:scale-105">
+                Enroll 2026
+            </button>
         </div>
     </header>
 
     <!-- Main Content -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 relative z-10">
+    <div class="w-full relative z-10">
 
         <!-- ==================== 1. HOME TAB ==================== -->
-        <main id="tab-home" class="tab-content active space-y-16">
+        <main id="tab-home" class="tab-content active space-y-20 pb-20">
             
-            <!-- Hero Section -->
-            <section class="relative rounded-[2.5rem] overflow-hidden glass-card p-8 sm:p-14 lg:p-20 text-center sm:text-left flex flex-col sm:flex-row items-center gap-10">
-                <div class="flex-1 space-y-6 z-10">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-slate-300 font-mono font-bold text-xs tracking-widest uppercase">
+            <!-- Hero Video Section -->
+            <section class="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+                <!-- Background Video -->
+                <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+                    <source src="./INSPIREtempo.mp4" type="video/mp4">
+                </video>
+                <!-- Obsidian Gradient Overlay for Text Readability -->
+                <div class="absolute inset-0 bg-gradient-to-r from-obsidian/95 via-obsidian/70 to-obsidian/40 z-10"></div>
+                
+                <div class="relative z-20 max-w-7xl mx-auto px-4 w-full flex flex-col items-start justify-center text-left pt-10">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-slate-200 font-mono font-bold text-xs tracking-widest uppercase mb-6">
                         <span class="w-2 h-2 rounded-full bg-blazeOrange animate-pulse"></span> Hubballi-Dharwad Base
                     </div>
 
-                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-white uppercase leading-[0.95]">
+                    <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase leading-[0.9]">
                         INSPIRE <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blazeOrange to-orange-400">ACADEMY</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blazeOrange to-champGold">SPORTS ACADEMY</span>
                     </h1>
-
-                    <p class="text-lg sm:text-xl font-bold text-electricCyan max-w-xl mx-auto sm:mx-0">
+                    <p class="text-xl sm:text-3xl font-bold text-electricCyan mt-4 border-l-4 border-champGold pl-4">
                         Become the best version of yourself.
                     </p>
-
-                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto sm:mx-0">
-                        A world-class athletic and character development platform. We engineer resilient minds, disciplined habits, and elite physical fundamentals on Hubballi's most advanced FIBA-standard courts.
+                    <p class="text-slate-300 text-sm sm:text-lg mt-6 max-w-2xl leading-relaxed font-medium">
+                        A sports-development organization committed to helping people become better through sport. We focus on personal growth, athletic development, and competitive excellence.
                     </p>
-
-                    <div class="flex flex-wrap justify-center sm:justify-start gap-4 pt-4">
-                        <button onclick="switchTab('arena')" class="bg-white text-obsidian font-black text-sm px-8 py-4 rounded-full uppercase tracking-wider hover:scale-105 transition-transform flex items-center gap-2">
-                            <i class="fas fa-cube text-blazeOrange"></i> View 3D Court
+                    <div class="flex flex-wrap gap-4 pt-8">
+                        <button onclick="openModal('enroll-modal')" class="bg-blazeOrange hover:bg-orange-600 text-white font-black text-sm px-8 py-4 rounded-full uppercase tracking-wider transition-transform hover:scale-105">
+                            Join The Academy
                         </button>
-                        <button onclick="switchTab('methodology')" class="border border-white/20 hover:bg-white/5 text-white font-bold text-sm px-8 py-4 rounded-full uppercase tracking-wider transition-colors flex items-center gap-2">
-                            Our Pathway <i class="fas fa-arrow-right text-electricCyan"></i>
+                        <button onclick="switchTab('arena')" class="border border-white/30 hover:bg-white/10 backdrop-blur-sm text-white font-bold text-sm px-8 py-4 rounded-full uppercase tracking-wider transition-colors flex items-center gap-2">
+                            View Facility <i class="fas fa-arrow-right text-blazeOrange"></i>
                         </button>
                     </div>
                 </div>
+            </section>
 
-                <!-- Abstract Hero Graphic -->
-                <div class="hidden lg:block flex-1 relative h-full min-h-[300px]">
-                    <div class="absolute inset-0 bg-gradient-to-bl from-blazeOrange/20 to-transparent rounded-full blur-3xl"></div>
-                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-72 h-72 border-[1px] border-white/10 rounded-full flex items-center justify-center">
-                        <div class="w-48 h-48 border-[1px] border-electricCyan/30 rounded-full flex items-center justify-center">
-                            <i class="fas fa-basketball-ball text-9xl text-white/5 drop-shadow-[0_0_30px_rgba(255,85,0,0.2)]"></i>
+            <!-- SEO TARGETING: Flagship Basketball Vertical -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card rounded-[2.5rem] p-10 sm:p-16 border-t-4 border-t-blazeOrange bg-gradient-to-br from-obsidian to-deepNavy relative overflow-hidden">
+                    <i class="fas fa-basketball-ball absolute -right-10 -top-10 text-9xl text-white/5 rotate-12"></i>
+                    <div class="relative z-10 flex flex-col md:flex-row gap-10 items-center">
+                        <div class="flex-1 space-y-6">
+                            <span class="text-xs font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Flagship Program</span>
+                            <h2 class="text-3xl sm:text-5xl font-black text-white uppercase leading-tight">
+                                INSPIRE BASKETBALL <br>ACADEMY & CLUB
+                            </h2>
+                            <p class="text-slate-400 leading-relaxed text-sm sm:text-base">
+                                The premier destination for <strong>Basketball Coaching in Hubballi-Dharwad</strong>. 
+                                We deliver structured basketball classes for kids, high-intensity training in Hubli, and elite athlete development pathways.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="bg-white/5 border border-white/10 text-white/80 text-[10px] uppercase font-bold px-3 py-1.5 rounded-lg">Beginners</span>
+                                <span class="bg-white/5 border border-white/10 text-white/80 text-[10px] uppercase font-bold px-3 py-1.5 rounded-lg">Foundation</span>
+                                <span class="bg-white/5 border border-white/10 text-white/80 text-[10px] uppercase font-bold px-3 py-1.5 rounded-lg">Competitive</span>
+                                <span class="bg-white/5 border border-white/10 text-white/80 text-[10px] uppercase font-bold px-3 py-1.5 rounded-lg">Tournaments</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 3 Core Pillars -->
-            <section class="space-y-8">
-                <div class="text-center max-w-2xl mx-auto">
-                    <h2 class="text-3xl font-black text-white uppercase tracking-tight">The Inspire Standard</h2>
-                    <p class="text-slate-400 text-sm mt-2">More than just drills. A comprehensive architectural blueprint for youth athletic mastery.</p>
+            <!-- WHO WE ARE: 3 Pillars -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-black text-white uppercase tracking-tight">What Is INSPIRE?</h2>
+                    <p class="text-slate-400 text-sm mt-3">We deliver an integrated sports development ecosystem through professional coaching, structured programs, and progressive pathways.</p>
                 </div>
-
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="glass-card p-8 rounded-3xl group">
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white text-2xl mb-6 group-hover:bg-blazeOrange transition-colors">
+                    <div class="glass-card p-8 rounded-3xl text-center group">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white text-2xl mb-6 group-hover:bg-blazeOrange transition-colors">
                             <i class="fas fa-shield-halved"></i>
                         </div>
-                        <h3 class="text-lg font-black text-white uppercase tracking-wider mb-2">Character Engine</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Developing discipline, respect, mental toughness, and core human values through the crucible of team sport.</p>
+                        <h3 class="text-lg font-black text-white uppercase mb-2">Personal Growth</h3>
+                        <p class="text-slate-400 text-sm">Building confidence, character, and crucial life skills.</p>
                     </div>
-
-                    <div class="glass-card p-8 rounded-3xl group">
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white text-2xl mb-6 group-hover:bg-electricCyan group-hover:text-obsidian transition-colors">
+                    <div class="glass-card p-8 rounded-3xl text-center group">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white text-2xl mb-6 group-hover:bg-electricCyan group-hover:text-obsidian transition-colors">
                             <i class="fas fa-bolt"></i>
                         </div>
-                        <h3 class="text-lg font-black text-white uppercase tracking-wider mb-2">Athletic Mastery</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Bio-mechanics, spatial vision, explosive physical fitness, and physiological conditioning built age-appropriately.</p>
+                        <h3 class="text-lg font-black text-white uppercase mb-2">Athletic Development</h3>
+                        <p class="text-slate-400 text-sm">Professional coaching, structured training, and physical performance.</p>
                     </div>
-
-                    <div class="glass-card p-8 rounded-3xl group">
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white text-2xl mb-6 group-hover:bg-champGold group-hover:text-obsidian transition-colors">
+                    <div class="glass-card p-8 rounded-3xl text-center group">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white text-2xl mb-6 group-hover:bg-champGold group-hover:text-obsidian transition-colors">
                             <i class="fas fa-medal"></i>
                         </div>
-                        <h3 class="text-lg font-black text-white uppercase tracking-wider mb-2">Competitive Edge</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Direct pathways to tournament leagues. Proud 2024 Dharwad District Runners-Up & C-Division Qualifiers.</p>
+                        <h3 class="text-lg font-black text-white uppercase mb-2">Competitive Excellence</h3>
+                        <p class="text-slate-400 text-sm">Creating clear pathways to compete and excel at higher levels.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WHY WE EXIST & HOW WE DO IT -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <!-- Why We Exist -->
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-black text-white uppercase tracking-tight">Why We Exist</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        To unlock every child's potential through sport. We believe sport is more than a game. Every child deserves the opportunity to discover their abilities and experience the joy and transformative power of sport.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="border border-white/10 rounded-xl p-4 bg-white/5"><i class="fas fa-heartbeat text-blazeOrange mb-2"></i><h4 class="text-white font-bold text-sm uppercase">Healthier Bodies</h4></div>
+                        <div class="border border-white/10 rounded-xl p-4 bg-white/5"><i class="fas fa-brain text-electricCyan mb-2"></i><h4 class="text-white font-bold text-sm uppercase">Stronger Minds</h4></div>
+                        <div class="border border-white/10 rounded-xl p-4 bg-white/5"><i class="fas fa-gem text-champGold mb-2"></i><h4 class="text-white font-bold text-sm uppercase">Stronger Character</h4></div>
+                        <div class="border border-white/10 rounded-xl p-4 bg-white/5"><i class="fas fa-users text-blue-400 mb-2"></i><h4 class="text-white font-bold text-sm uppercase">Stronger Communities</h4></div>
+                    </div>
+                </div>
+
+                <!-- How We Do It -->
+                <div class="glass-card rounded-[2rem] p-8 border-t-4 border-t-electricCyan">
+                    <span class="text-xs font-mono font-bold text-electricCyan uppercase tracking-widest">How We Do It</span>
+                    <h3 class="text-2xl font-black text-white uppercase mt-2 mb-6 leading-tight">We develop the child first. <br>The athlete second.</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-white font-bold text-sm uppercase mb-3 border-b border-white/10 pb-2">On The Court</h4>
+                            <ul class="space-y-2 text-xs text-slate-400 font-mono">
+                                <li><span class="text-blazeOrange mr-2">■</span>Professional coaching</li>
+                                <li><span class="text-blazeOrange mr-2">■</span>Character development</li>
+                                <li><span class="text-blazeOrange mr-2">■</span>Opportunities to compete</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm uppercase mb-3 border-b border-white/10 pb-2">Off The Court</h4>
+                            <ul class="space-y-2 text-xs text-slate-400 font-mono">
+                                <li><span class="text-electricCyan mr-2">■</span>Structured training</li>
+                                <li><span class="text-electricCyan mr-2">■</span>Progressive learning</li>
+                                <li><span class="text-electricCyan mr-2">■</span>Habits & confidence</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
 
-        <!-- ==================== 2. 3D ARENA TAB ==================== -->
-        <main id="tab-arena" class="tab-content space-y-6">
-            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-4">
-                <div>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">Interactive Facility</h2>
-                    <p class="text-slate-400 font-medium text-sm mt-1">Drag to rotate 360°. Pinch or scroll to zoom. Explore the master plan.</p>
+        <!-- ==================== 2. 3D ARENA & FLAGSHIP FACILITY TAB ==================== -->
+        <main id="tab-arena" class="tab-content space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+            
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6">
+                <div class="max-w-2xl">
+                    <span class="font-mono text-xs font-bold uppercase tracking-widest text-blazeOrange">Our Flagship Facility</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight mt-1">What Are We Creating?</h2>
+                    <p class="text-slate-400 font-medium text-sm mt-3 leading-relaxed">
+                        Our own FIBA-standard basketball court—a dedicated space for children to learn, train, play, compete, and grow. 
+                        Supporting grassroots basketball development, skill practice, and community engagement.
+                    </p>
                 </div>
                 
                 <div class="flex flex-wrap items-center gap-2">
-                    <button onclick="orbitToView('overview')" id="cam-overview" class="cam-btn px-4 py-2 rounded-full text-xs font-bold uppercase border border-electricCyan text-electricCyan bg-electricCyan/10">
-                        Overview
-                    </button>
-                    <button onclick="orbitToView('bball')" id="cam-bball" class="cam-btn px-4 py-2 rounded-full text-xs font-bold uppercase border border-white/10 text-slate-300 hover:border-blazeOrange hover:text-blazeOrange transition-colors">
-                        Basketball
-                    </button>
-                    <button onclick="orbitToView('vball')" id="cam-vball" class="cam-btn px-4 py-2 rounded-full text-xs font-bold uppercase border border-white/10 text-slate-300 hover:border-electricCyan hover:text-electricCyan transition-colors">
-                        Volleyball
-                    </button>
-                    <button onclick="orbitToView('football')" id="cam-football" class="cam-btn px-4 py-2 rounded-full text-xs font-bold uppercase border border-white/10 text-slate-300 hover:border-emerald-400 hover:text-emerald-400 transition-colors">
-                        Football
-                    </button>
-                    <button onclick="toggleNightLighting()" id="btn-night-light" class="px-4 py-2 rounded-full text-xs font-bold uppercase border border-champGold/50 bg-champGold/10 text-champGold hover:bg-champGold/20 ml-auto sm:ml-0 transition-colors">
+                    <button onclick="orbitToView('overview')" id="cam-overview" class="cam-btn px-4 py-2 rounded-full text-xs font-bold uppercase border border-electricCyan text-electricCyan bg-electricCyan/10">Overview</button>
+                    <button onclick="orbitToView('bball')" id="cam-bball" class="cam-btn px-4 py-2 rounded-full text-xs font-bold uppercase border border-white/10 text-slate-300">Basketball</button>
+                    <button onclick="orbitToView('vball')" id="cam-vball" class="cam-btn px-4 py-2 rounded-full text-xs font-bold uppercase border border-white/10 text-slate-300">Volleyball</button>
+                    <button onclick="orbitToView('football')" id="cam-football" class="cam-btn px-4 py-2 rounded-full text-xs font-bold uppercase border border-white/10 text-slate-300">Football</button>
+                    <button onclick="toggleNightLighting()" id="btn-night-light" class="px-4 py-2 rounded-full text-xs font-bold uppercase border border-champGold/50 bg-champGold/10 text-champGold ml-auto sm:ml-0 transition-colors">
                         <i class="fas fa-moon mr-1"></i> Cinematic Lighting
                     </button>
                 </div>
@@ -239,8 +263,7 @@
             <div class="relative w-full rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] bg-obsidian">
                 <div id="three-canvas-container" class="absolute inset-0 cursor-grab active:cursor-grabbing"></div>
 
-                <!-- HUD -->
-                <div class="absolute top-6 left-6 pointer-events-none">
+                <div class="absolute top-6 left-6 pointer-events-none hidden sm:block">
                     <div class="bg-obsidian/80 backdrop-blur-md border border-white/10 rounded-2xl px-4 py-3 shadow-2xl">
                         <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest flex items-center gap-2 mb-1">
                             <span class="w-1.5 h-1.5 rounded-full bg-blazeOrange animate-pulse"></span> Active View
@@ -248,71 +271,68 @@
                         <h4 id="hud-court-title" class="text-sm font-black text-white uppercase tracking-wider">Master Complex</h4>
                     </div>
                 </div>
-
-                <!-- Details Card -->
-                <div class="absolute bottom-6 left-6 right-6 sm:left-auto sm:w-80 bg-obsidian/90 backdrop-blur-xl border border-white/10 rounded-3xl p-5 shadow-2xl">
-                    <div class="flex items-center justify-between mb-2">
-                        <span id="court-badge-status" class="bg-blue-500/20 text-blue-400 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
-                            Hubballi-Dharwad
-                        </span>
-                        <span id="court-badge-dim" class="font-mono text-slate-400 text-[10px] font-bold">Multi-Sport</span>
-                    </div>
-                    <h3 id="court-detail-name" class="font-black text-base text-white uppercase tracking-tight mb-2">INSPIRE SPORTS PLATFORM</h3>
-                    <p id="court-detail-desc" class="text-slate-400 text-xs leading-relaxed mb-4">
-                        Our integrated blueprint supporting grassroots basketball, volleyball, and football. Drag to orbit freely or select a court to inspect professional specifications.
-                    </p>
-                    <button onclick="openModal('enroll-modal')" class="w-full bg-white hover:bg-slate-200 text-obsidian font-black text-xs uppercase py-3 rounded-xl tracking-wider transition-colors">
-                        Book Facility / Enroll
-                    </button>
-                </div>
             </div>
         </main>
 
-        <!-- ==================== 3. METHODOLOGY TAB ==================== -->
-        <main id="tab-methodology" class="tab-content space-y-12">
-            <div class="glass-card p-10 sm:p-16 rounded-[2.5rem] text-center max-w-4xl mx-auto">
-                <span class="text-xs font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Guiding Principle</span>
+        <!-- ==================== 3. METHODOLOGY TAB (WHAT WE DO) ==================== -->
+        <main id="tab-methodology" class="tab-content space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+            
+            <div class="glass-card p-10 sm:p-16 rounded-[2.5rem] text-center max-w-4xl mx-auto border-t-4 border-t-blazeOrange">
+                <span class="text-xs font-mono font-bold text-blazeOrange uppercase tracking-widest">What We Do</span>
                 <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter mt-4 leading-[1.1]">
-                    "We develop the child first. <br> The athlete second."
+                    Create pathways to discover, develop, compete, and excel.
                 </h2>
-                <p class="text-slate-400 text-sm sm:text-base mt-6 max-w-2xl mx-auto leading-relaxed">
-                    Personal growth is the absolute foundation of sporting excellence. Through structured, rigorous habit-building, we guide athletes across a unified 4-stage development pathway.
-                </p>
             </div>
 
-            <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="glass-card border-t-4 border-t-electricCyan p-8 rounded-3xl">
-                    <span class="text-[10px] font-mono text-electricCyan font-bold tracking-widest uppercase">Stage 01</span>
-                    <h4 class="text-2xl font-black text-white uppercase mt-2">Discover</h4>
-                    <p class="text-xs text-white/60 font-bold uppercase tracking-widest mt-1 mb-4">Child Phase</p>
-                    <p class="text-sm text-slate-400 leading-relaxed">Experiencing sport, fundamental movement, pure enjoyment, and safely discovering raw athletic potential.</p>
-                </div>
+            <!-- The Ecosystem -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="border border-white/10 rounded-2xl p-6 bg-white/5"><i class="fas fa-clipboard-list text-blazeOrange text-2xl mb-4"></i><h4 class="font-bold text-white uppercase mb-2">Sports Coaching</h4><p class="text-xs text-slate-400">Structured training programs designed for all skill levels.</p></div>
+                <div class="border border-white/10 rounded-2xl p-6 bg-white/5"><i class="fas fa-building text-electricCyan text-2xl mb-4"></i><h4 class="font-bold text-white uppercase mb-2">Sporting Infrastructure</h4><p class="text-xs text-slate-400">Anchored by our very own FIBA-standard basketball court.</p></div>
+                <div class="border border-white/10 rounded-2xl p-6 bg-white/5"><i class="fas fa-school text-champGold text-2xl mb-4"></i><h4 class="font-bold text-white uppercase mb-2">School Partnerships</h4><p class="text-xs text-slate-400">Bringing quality sports development directly to children.</p></div>
+                <div class="border border-white/10 rounded-2xl p-6 bg-white/5"><i class="fas fa-trophy text-blue-400 text-2xl mb-4"></i><h4 class="font-bold text-white uppercase mb-2">Competitions & Leagues</h4><p class="text-xs text-slate-400">Providing real tournament opportunities and game experience.</p></div>
+                <div class="border border-white/10 rounded-2xl p-6 bg-white/5"><i class="fas fa-level-up-alt text-blazeOrange text-2xl mb-4"></i><h4 class="font-bold text-white uppercase mb-2">Talent Development</h4><p class="text-xs text-slate-400">Progressive athlete pathways for elite performance.</p></div>
+                <div class="border border-white/10 rounded-2xl p-6 bg-white/5"><i class="fas fa-expand-arrows-alt text-electricCyan text-2xl mb-4"></i><h4 class="font-bold text-white uppercase mb-2">Multi-Sport Expansion</h4><p class="text-xs text-slate-400">Building an integrated sporting platform for the future.</p></div>
+            </div>
 
-                <div class="glass-card border-t-4 border-t-blue-500 p-8 rounded-3xl">
-                    <span class="text-[10px] font-mono text-blue-400 font-bold tracking-widest uppercase">Stage 02</span>
-                    <h4 class="text-2xl font-black text-white uppercase mt-2">Develop</h4>
-                    <p class="text-xs text-white/60 font-bold uppercase tracking-widest mt-1 mb-4">Habit Phase</p>
-                    <p class="text-sm text-slate-400 leading-relaxed">Ingraining skill mechanics, spatial awareness, physical fitness, game intuition, and mental discipline.</p>
+            <!-- What Makes Us Different (Comparison Table) -->
+            <div class="glass-card rounded-3xl overflow-hidden mt-12 border border-white/10">
+                <div class="p-8 bg-obsidian border-b border-white/10 text-center">
+                    <h3 class="text-2xl font-black text-white uppercase tracking-tight">What Makes INSPIRE Different?</h3>
+                    <p class="text-slate-400 text-sm mt-2 font-bold uppercase tracking-widest">Not just a coaching class. A development pathway.</p>
                 </div>
-
-                <div class="glass-card border-t-4 border-t-blazeOrange p-8 rounded-3xl">
-                    <span class="text-[10px] font-mono text-blazeOrange font-bold tracking-widest uppercase">Stage 03</span>
-                    <h4 class="text-2xl font-black text-white uppercase mt-2">Compete</h4>
-                    <p class="text-xs text-white/60 font-bold uppercase tracking-widest mt-1 mb-4">Athlete Phase</p>
-                    <p class="text-sm text-slate-400 leading-relaxed">Executing under pressure, rapid tactical decision-making, in-game resilience, and cohesive teamwork.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-8 space-y-4">
+                        <h4 class="font-mono text-sm font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-white/5">
+                            <i class="fas fa-times text-red-500"></i> Traditional Coaching
+                        </h4>
+                        <ul class="space-y-4 text-sm text-slate-400">
+                            <li>• Individual training sessions</li>
+                            <li>• Mainly technical skills</li>
+                            <li>• Short-term participation</li>
+                            <li>• Limited measurement</li>
+                            <li>• Competition as an endpoint</li>
+                            <li>• Performance-focused success</li>
+                        </ul>
+                    </div>
+                    <div class="p-8 space-y-4 bg-white/5">
+                        <h4 class="font-mono text-sm font-bold text-electricCyan uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-white/5">
+                            <i class="fas fa-check text-blazeOrange"></i> INSPIRE Development Focus
+                        </h4>
+                        <ul class="space-y-4 text-sm text-white font-medium">
+                            <li><span class="text-blazeOrange mr-2">➤</span> Long-term development</li>
+                            <li><span class="text-blazeOrange mr-2">➤</span> Personal development plus athletic ability</li>
+                            <li><span class="text-blazeOrange mr-2">➤</span> Progressive pathway</li>
+                            <li><span class="text-blazeOrange mr-2">➤</span> Measurable development</li>
+                            <li><span class="text-blazeOrange mr-2">➤</span> Competition as part of learning</li>
+                            <li><span class="text-blazeOrange mr-2">➤</span> Growth and performance together</li>
+                        </ul>
+                    </div>
                 </div>
-
-                <div class="glass-card border-t-4 border-t-champGold p-8 rounded-3xl">
-                    <span class="text-[10px] font-mono text-champGold font-bold tracking-widest uppercase">Stage 04</span>
-                    <h4 class="text-2xl font-black text-white uppercase mt-2">Excel</h4>
-                    <p class="text-xs text-white/60 font-bold uppercase tracking-widest mt-1 mb-4">Excellence Phase</p>
-                    <p class="text-sm text-slate-400 leading-relaxed">Elite technical refinement, district/state tournament domination, and continuous compounding personal growth.</p>
-                </div>
-            </section>
+            </div>
         </main>
 
         <!-- ==================== 4. SCHEDULES TAB ==================== -->
-        <main id="tab-schedules" class="tab-content space-y-8">
+        <main id="tab-schedules" class="tab-content space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4">
                 <div>
                     <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">Active Rosters</h2>
@@ -322,70 +342,46 @@
                     <i class="fas fa-rotate"></i> Sync Data
                 </button>
             </div>
-
-            <div id="schedule-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="col-span-full py-20 text-center">
-                    <i class="fas fa-circle-notch fa-spin text-4xl text-blazeOrange mb-4"></i>
-                    <p class="font-mono text-xs uppercase tracking-widest text-slate-400">Loading Databank...</p>
-                </div>
-            </div>
+            <div id="schedule-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </main>
 
         <!-- ==================== 5. MEDIA TAB ==================== -->
-        <main id="tab-media" class="tab-content space-y-8">
+        <main id="tab-media" class="tab-content space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
             <div>
                 <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">Action Reel</h2>
                 <p class="text-slate-400 text-sm mt-1">The intensity of Inspire Academy in motion.</p>
             </div>
-
+            <!-- Standard Video Player (Not Background) -->
             <div class="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl max-w-5xl mx-auto bg-black">
-                <video id="gallery-video" src="./intro.mp4" class="w-full h-auto max-h-[600px] object-cover" controls playsinline preload="metadata" poster="./logo.png"></video>
+                <video src="./INSPIREtempo.mp4" class="w-full h-auto max-h-[600px] object-cover" controls playsinline preload="metadata" poster="./logo.png"></video>
             </div>
         </main>
-
-        <!-- ==================== 6. NEWS TAB ==================== -->
-        <main id="tab-news" class="tab-content space-y-8">
-            <div class="flex items-center justify-between pb-4">
-                <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">Court Intel</h2>
-                <div class="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                    <span class="w-2 h-2 rounded-full bg-blazeOrange animate-pulse"></span> ESPN Feed Live
-                </div>
-            </div>
-            <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-        </main>
-
     </div>
 
     <!-- Mobile Bottom Navigation Bar -->
-    <nav class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-obsidian/95 backdrop-blur-xl border-t border-white/5">
+    <nav class="fixed bottom-0 inset-x-0 z-50 md:hidden bg-obsidian/95 backdrop-blur-xl border-t border-white/5">
         <div class="flex items-center justify-around h-16 px-2">
             <button onclick="switchTab('home')" class="nav-btn-mobile active flex flex-col items-center text-blazeOrange" data-tab="home">
-                <i class="fas fa-house text-lg mb-1"></i>
-                <span class="text-[9px] font-bold uppercase tracking-wider">Home</span>
+                <i class="fas fa-house text-lg mb-1"></i><span class="text-[9px] font-bold uppercase tracking-wider">Home</span>
             </button>
             <button onclick="switchTab('arena')" class="nav-btn-mobile flex flex-col items-center text-slate-500" data-tab="arena">
-                <i class="fas fa-cube text-lg mb-1"></i>
-                <span class="text-[9px] font-bold uppercase tracking-wider">3D</span>
+                <i class="fas fa-cube text-lg mb-1"></i><span class="text-[9px] font-bold uppercase tracking-wider">Facility</span>
             </button>
             <button onclick="switchTab('methodology')" class="nav-btn-mobile flex flex-col items-center text-slate-500" data-tab="methodology">
-                <i class="fas fa-route text-lg mb-1"></i>
-                <span class="text-[9px] font-bold uppercase tracking-wider">Path</span>
+                <i class="fas fa-route text-lg mb-1"></i><span class="text-[9px] font-bold uppercase tracking-wider">Path</span>
             </button>
             <button onclick="switchTab('schedules')" class="nav-btn-mobile flex flex-col items-center text-slate-500" data-tab="schedules">
-                <i class="fas fa-calendar-days text-lg mb-1"></i>
-                <span class="text-[9px] font-bold uppercase tracking-wider">Batches</span>
+                <i class="fas fa-calendar-days text-lg mb-1"></i><span class="text-[9px] font-bold uppercase tracking-wider">Batches</span>
             </button>
         </div>
     </nav>
 
     <!-- Enrolment Modal -->
-    <div id="enroll-modal" class="fixed inset-0 z-50 hidden bg-obsidian/90 backdrop-blur-md flex items-center justify-center p-4">
+    <div id="enroll-modal" class="fixed inset-0 z-[60] hidden bg-obsidian/90 backdrop-blur-md flex items-center justify-center p-4">
         <div class="modal-body glass-card w-full max-w-lg rounded-[2rem] p-8 shadow-2xl relative text-white border-white/20">
-            <button onclick="closeModal('enroll-modal')" class="absolute top-6 right-6 text-slate-400 hover:text-white text-xl transition-colors">
-                <i class="fas fa-xmark"></i>
-            </button>
+            <button onclick="closeModal('enroll-modal')" class="absolute top-6 right-6 text-slate-400 hover:text-white text-xl transition-colors"><i class="fas fa-xmark"></i></button>
 
-            <h3 class="text-3xl font-black uppercase text-white tracking-tight">Join The Squad</h3>
+            <h3 class="text-3xl font-black uppercase text-white tracking-tight">Join The Academy</h3>
             <p class="text-xs text-slate-400 mt-2 font-bold uppercase tracking-widest">Hubballi-Dharwad Campus</p>
 
             <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5 mt-8">
@@ -397,7 +393,6 @@
                     <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Athlete Name</label>
                     <input type="text" name="player_name" required class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors">
                 </div>
-
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Age</label>
@@ -408,16 +403,13 @@
                         <input type="tel" name="phone" required class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors">
                     </div>
                 </div>
-
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Sport Discipline</label>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Program Selection</label>
                     <select name="sport_program" required class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors appearance-none">
-                        <option value="Basketball">🏀 Basketball (FIBA Court)</option>
-                        <option value="Volleyball">🏐 Volleyball</option>
-                        <option value="Football">⚽ Football Turf</option>
+                        <option value="Basketball Coaching">🏀 Inspire Basketball Academy</option>
+                        <option value="Multi-Sport/Other">🏅 Multi-Sport Development</option>
                     </select>
                 </div>
-
                 <button type="submit" class="w-full bg-white hover:bg-slate-200 text-obsidian font-black py-4 rounded-xl uppercase tracking-widest text-sm mt-4 transition-transform hover:scale-[1.02]">
                     Submit Application
                 </button>
@@ -425,27 +417,9 @@
         </div>
     </div>
 
-    <!-- News Modal -->
-    <div id="news-modal" class="fixed inset-0 z-50 hidden bg-obsidian/90 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="modal-body glass-card w-full max-w-lg rounded-[2rem] overflow-hidden shadow-2xl relative text-white flex flex-col max-h-[85vh] border-white/20">
-            <button onclick="closeModal('news-modal')" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-obsidian/80 text-white flex items-center justify-center hover:bg-white hover:text-obsidian transition-colors">
-                <i class="fas fa-xmark"></i>
-            </button>
-            <div id="news-modal-img" class="w-full h-56 bg-obsidian"></div>
-            <div class="p-8 overflow-y-auto space-y-4">
-                <span id="news-modal-date" class="font-mono text-xs text-blazeOrange font-bold tracking-widest uppercase"></span>
-                <h3 id="news-modal-title" class="text-2xl font-black tracking-tight leading-tight"></h3>
-                <p id="news-modal-desc" class="text-sm text-slate-400 leading-relaxed"></p>
-                <a id="news-modal-link" href="#" target="_blank" class="inline-block pt-4 text-xs font-bold text-white hover:text-blazeOrange uppercase tracking-widest transition-colors">
-                    Read Full Coverage <i class="fas fa-arrow-right ml-1"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
     <!-- JAVASCRIPT -->
     <script>
-        // --- 1. Tab Routing ---
+        // --- Tab Routing ---
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             
@@ -470,9 +444,9 @@
         function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
         function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-        // --- 2. PREMIUM THREE.JS 3D ENGINE ---
+        // --- THREE.JS 3D ENGINE ---
         let scene, camera, renderer, controls;
-        let isNightMode = true; // Default to Cinematic Lighting for premium look
+        let isNightMode = true; 
         let dirLight, ambientLight, floodlights = [];
         let targetLookAt = new THREE.Vector3(0, 0, 0);
         let targetCameraPos = new THREE.Vector3(38, 30, 48);
@@ -482,7 +456,7 @@
             if (!container) return;
 
             scene = new THREE.Scene();
-            scene.background = new THREE.Color(0x050C1A); // Obsidian Background
+            scene.background = new THREE.Color(0x050C1A); 
 
             camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.5, 500);
             camera.position.set(38, 30, 48);
@@ -500,7 +474,6 @@
             controls.maxPolarAngle = Math.PI / 2 - 0.05;
             controls.minDistance = 15; controls.maxDistance = 120;
 
-            // Lighting Setup
             ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
             scene.add(ambientLight);
 
@@ -508,9 +481,6 @@
             dirLight.position.set(30, 50, 30);
             dirLight.castShadow = true;
             dirLight.shadow.mapSize.width = 2048; dirLight.shadow.mapSize.height = 2048;
-            dirLight.shadow.camera.near = 10; dirLight.shadow.camera.far = 150;
-            dirLight.shadow.camera.left = -40; dirLight.shadow.camera.right = 40;
-            dirLight.shadow.camera.top = 40; dirLight.shadow.camera.bottom = -40;
             scene.add(dirLight);
 
             buildFacilityBase();
@@ -533,124 +503,75 @@
         function buildBasketballCourt() {
             const bballGroup = new THREE.Group();
             bballGroup.position.set(-12, 0.05, 10);
-            const courtW = 26, courtL = 14;
-
             const canvas = document.createElement('canvas');
             canvas.width = 1024; canvas.height = 512;
             const ctx = canvas.getContext('2d');
-
-            // Vivid Orange Surface & Navy Apron
             ctx.fillStyle = '#E64A00'; ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = '#0B2347'; 
             ctx.fillRect(0, 0, 50, canvas.height); ctx.fillRect(canvas.width - 50, 0, 50, canvas.height);
             ctx.fillRect(0, 0, canvas.width, 30); ctx.fillRect(0, canvas.height - 30, canvas.width, 30);
-
-            // Lines
             ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 6;
             ctx.strokeRect(50, 30, canvas.width - 100, canvas.height - 60);
             ctx.beginPath(); ctx.moveTo(canvas.width / 2, 30); ctx.lineTo(canvas.width / 2, canvas.height - 30); ctx.stroke();
             ctx.beginPath(); ctx.arc(canvas.width / 2, canvas.height / 2, 60, 0, Math.PI * 2); ctx.stroke();
-            
             ctx.fillStyle = '#C0392B';
             ctx.fillRect(50, (canvas.height/2)-80, 150, 160); ctx.strokeRect(50, (canvas.height/2)-80, 150, 160);
             ctx.fillRect(canvas.width-200, (canvas.height/2)-80, 150, 160); ctx.strokeRect(canvas.width-200, (canvas.height/2)-80, 150, 160);
-            
             ctx.beginPath(); ctx.arc(200, canvas.height/2, 60, -Math.PI/2, Math.PI/2); ctx.stroke();
             ctx.beginPath(); ctx.arc(canvas.width-200, canvas.height/2, 60, Math.PI/2, -Math.PI/2); ctx.stroke();
             ctx.beginPath(); ctx.arc(100, canvas.height/2, 170, -Math.PI/2.5, Math.PI/2.5); ctx.stroke();
             ctx.beginPath(); ctx.arc(canvas.width-100, canvas.height/2, 170, Math.PI-Math.PI/2.5, Math.PI+Math.PI/2.5); ctx.stroke();
 
-            const courtMat = new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(canvas), roughness: 0.4 });
-            const courtMesh = new THREE.Mesh(new THREE.PlaneGeometry(courtW, courtL), courtMat);
-            courtMesh.rotation.x = -Math.PI / 2; courtMesh.receiveShadow = true;
-            bballGroup.add(courtMesh);
+            const courtMesh = new THREE.Mesh(new THREE.PlaneGeometry(26, 14), new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(canvas), roughness: 0.4 }));
+            courtMesh.rotation.x = -Math.PI / 2; courtMesh.receiveShadow = true; bballGroup.add(courtMesh);
 
-            createBasketballHoop(bballGroup, -(courtW / 2) + 0.8, 0, Math.PI / 2);
-            createBasketballHoop(bballGroup, (courtW / 2) - 0.8, 0, -Math.PI / 2);
+            createBasketballHoop(bballGroup, -12.2, 0, Math.PI / 2);
+            createBasketballHoop(bballGroup, 12.2, 0, -Math.PI / 2);
             scene.add(bballGroup);
         }
 
         function createBasketballHoop(parent, x, z, rotY) {
-            const group = new THREE.Group();
-            group.position.set(x, 0, z); group.rotation.y = rotY;
-
+            const group = new THREE.Group(); group.position.set(x, 0, z); group.rotation.y = rotY;
             const poleMat = new THREE.MeshStandardMaterial({ color: 0x1E293B, roughness: 0.4, metalness: 0.6 });
             const base = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 4.2, 12), poleMat);
             base.position.set(-0.8, 2.1, 0); base.castShadow = true; group.add(base);
-
             const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 1.3, 8), poleMat);
             arm.rotation.z = Math.PI / 3; arm.position.set(-0.35, 3.8, 0); group.add(arm);
-
-            const boardMat = new THREE.MeshPhysicalMaterial({ color: 0xffffff, transparent: true, opacity: 0.6, roughness: 0.1, transmission: 0.9 });
-            const board = new THREE.Mesh(new THREE.BoxGeometry(0.08, 1.2, 1.8), boardMat);
+            const board = new THREE.Mesh(new THREE.BoxGeometry(0.08, 1.2, 1.8), new THREE.MeshPhysicalMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 }));
             board.position.set(0.2, 3.6, 0); board.castShadow = true; group.add(board);
-
             const rim = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.035, 8, 24), new THREE.MeshStandardMaterial({ color: 0xFF5500 }));
             rim.rotation.x = Math.PI / 2; rim.position.set(0.55, 3.25, 0); group.add(rim);
-
             parent.add(group);
         }
 
         function buildVolleyballCourt() {
-            const vballGroup = new THREE.Group();
-            vballGroup.position.set(-12, 0.05, -12);
-            const canvas = document.createElement('canvas');
-            canvas.width = 512; canvas.height = 256; const ctx = canvas.getContext('2d');
+            const vballGroup = new THREE.Group(); vballGroup.position.set(-12, 0.05, -12);
+            const canvas = document.createElement('canvas'); canvas.width = 512; canvas.height = 256; const ctx = canvas.getContext('2d');
             ctx.fillStyle = '#0B2347'; ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = '#FF5500'; ctx.fillRect(40, 25, canvas.width - 80, canvas.height - 50);
-            ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 5;
-            ctx.strokeRect(40, 25, canvas.width - 80, canvas.height - 50);
+            ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 5; ctx.strokeRect(40, 25, canvas.width - 80, canvas.height - 50);
             ctx.beginPath(); ctx.moveTo(canvas.width / 2, 25); ctx.lineTo(canvas.width / 2, canvas.height - 25); ctx.stroke();
-            ctx.beginPath(); ctx.moveTo(canvas.width/2 - 65, 25); ctx.lineTo(canvas.width/2 - 65, canvas.height - 25); ctx.stroke();
-            ctx.beginPath(); ctx.moveTo(canvas.width/2 + 65, 25); ctx.lineTo(canvas.width/2 + 65, canvas.height - 25); ctx.stroke();
-
             const courtMesh = new THREE.Mesh(new THREE.PlaneGeometry(18, 10), new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(canvas), roughness: 0.5 }));
             courtMesh.rotation.x = -Math.PI / 2; courtMesh.receiveShadow = true; vballGroup.add(courtMesh);
-
-            const postMat = new THREE.MeshStandardMaterial({ color: 0x00E5FF, metalness: 0.7 });
-            const p1 = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 3.2, 12), postMat);
-            p1.position.set(0, 1.6, -5.5); p1.castShadow = true; vballGroup.add(p1);
-            const p2 = p1.clone(); p2.position.set(0, 1.6, 5.5); vballGroup.add(p2);
-            const net = new THREE.Mesh(new THREE.PlaneGeometry(11, 1), new THREE.MeshBasicMaterial({ color: 0xFFFFFF, wireframe: true, transparent: true, opacity: 0.7 }));
-            net.position.set(0, 2.2, 0); net.rotation.y = Math.PI / 2; vballGroup.add(net);
             scene.add(vballGroup);
         }
 
         function buildFootballTurf() {
             const turfGroup = new THREE.Group(); turfGroup.position.set(15, 0.05, 0);
             const canvas = document.createElement('canvas'); canvas.width = 512; canvas.height = 768; const ctx = canvas.getContext('2d');
-            for (let i = 0; i < 12; i++) { ctx.fillStyle = i % 2 === 0 ? '#104A2A' : '#145A32'; ctx.fillRect(0, i * (768/12), 512, 768/12); }
-            ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 5;
-            ctx.strokeRect(30, 30, 452, 708);
+            for (let i = 0; i < 12; i++) { ctx.fillStyle = i % 2 === 0 ? '#104A2A' : '#145A32'; ctx.fillRect(0, i * 64, 512, 64); }
+            ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 5; ctx.strokeRect(30, 30, 452, 708);
             ctx.beginPath(); ctx.moveTo(30, 384); ctx.lineTo(482, 384); ctx.stroke();
-            ctx.beginPath(); ctx.arc(256, 384, 50, 0, Math.PI * 2); ctx.stroke();
-            ctx.strokeRect(156, 30, 200, 100); ctx.strokeRect(206, 30, 100, 40);
-            ctx.strokeRect(156, 638, 200, 100); ctx.strokeRect(206, 698, 100, 40);
-
             const turfMesh = new THREE.Mesh(new THREE.PlaneGeometry(24, 36), new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(canvas), roughness: 0.9 }));
             turfMesh.rotation.x = -Math.PI / 2; turfMesh.receiveShadow = true; turfGroup.add(turfMesh);
-
-            function addGoal(z, rot) {
-                const g = new THREE.Group(); g.position.set(0, 0, z); g.rotation.y = rot;
-                const mat = new THREE.MeshStandardMaterial({ color: 0xFFFFFF });
-                const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 4.2), mat); bar.rotation.z = Math.PI/2; bar.position.set(0, 2.2, 0); g.add(bar);
-                const lp = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 2.2), mat); lp.position.set(-2.1, 1.1, 0); g.add(lp);
-                const rp = lp.clone(); rp.position.set(2.1, 1.1, 0); g.add(rp);
-                const net = new THREE.Mesh(new THREE.BoxGeometry(4.2, 2.2, 1.2), new THREE.MeshBasicMaterial({ color: 0xDDDDDD, wireframe: true, transparent: true, opacity: 0.5 }));
-                net.position.set(0, 1.1, -0.6); g.add(net); turfGroup.add(g);
-            }
-            addGoal(-17.7, 0); addGoal(17.7, Math.PI); scene.add(turfGroup);
+            scene.add(turfGroup);
         }
 
         function buildStadiumFloodlights() {
             [[-28, -22], [-28, 22], [28, -22], [28, 22]].forEach(([x, z]) => {
                 const tower = new THREE.Group(); tower.position.set(x, 0, z);
-                const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.65, 14, 8), new THREE.MeshStandardMaterial({ color: 0x1E293B, metalness: 0.8 }));
-                mast.position.y = 7; mast.castShadow = true; tower.add(mast);
-                const rig = new THREE.Mesh(new THREE.BoxGeometry(3.5, 1.2, 0.4), new THREE.MeshStandardMaterial({ color: 0x050C1A }));
-                rig.position.set(0, 14, 0); rig.lookAt(0, 0, 0); tower.add(rig);
-                rig.add(new THREE.Mesh(new THREE.BoxGeometry(3.3, 1.0, 0.1), new THREE.MeshBasicMaterial({ color: 0xFFFFEE }))).position.set(0, 0, 0.2);
-                
+                const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.65, 14, 8), new THREE.MeshStandardMaterial({ color: 0x1E293B }));
+                mast.position.y = 7; tower.add(mast);
                 const spot = new THREE.SpotLight(0xFFF5E6, 1.8, 80, Math.PI / 4.5, 0.6, 1);
                 spot.position.set(0, 14, 0); spot.target.position.set(x > 0 ? 10 : -10, 0, 0);
                 scene.add(spot.target); spot.castShadow = true; tower.add(spot);
@@ -658,20 +579,16 @@
             });
         }
 
-        function toggleNightLighting() {
-            isNightMode = !isNightMode; applyLightingState();
-        }
+        function toggleNightLighting() { isNightMode = !isNightMode; applyLightingState(); }
 
         function applyLightingState() {
             const btn = document.getElementById('btn-night-light');
             if (isNightMode) {
-                scene.background.set(0x050C1A);
-                ambientLight.intensity = 0.2; dirLight.intensity = 0.1;
+                scene.background.set(0x050C1A); ambientLight.intensity = 0.2; dirLight.intensity = 0.1;
                 floodlights.forEach(fl => fl.intensity = 2.0);
                 if(btn) btn.innerHTML = '<i class="fas fa-moon mr-2"></i> Cinematic Lighting';
             } else {
-                scene.background.set(0x3B82F6);
-                ambientLight.intensity = 0.8; dirLight.intensity = 1.0;
+                scene.background.set(0x3B82F6); ambientLight.intensity = 0.8; dirLight.intensity = 1.0;
                 floodlights.forEach(fl => fl.intensity = 0);
                 if(btn) btn.innerHTML = '<i class="fas fa-sun mr-2"></i> Daylight Mode';
             }
@@ -688,41 +605,10 @@
                 activeBtn.classList.add('border-electricCyan', 'bg-electricCyan/10', 'text-electricCyan');
             }
 
-            const title = document.getElementById('hud-court-title');
-            const detailName = document.getElementById('court-detail-name');
-            const detailDesc = document.getElementById('court-detail-desc');
-            const statusBadge = document.getElementById('court-badge-status');
-            const dimBadge = document.getElementById('court-badge-dim');
-
-            if (target === 'bball') {
-                targetCameraPos.set(-12, 14, 25); targetLookAt.set(-12, 0, 10);
-                title.innerText = "FIBA Basketball Court";
-                statusBadge.className = "bg-blazeOrange/20 text-blazeOrange text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider";
-                statusBadge.innerText = "Completed"; dimBadge.innerText = "28m × 15m";
-                detailName.innerText = "FIBA Hardwood Arena";
-                detailDesc.innerText = "Completed and operational. Outfitted with high-traction acrylic polyurethane cushioning, dual cantilever glass hoops, and cinematic floodlights.";
-            } else if (target === 'vball') {
-                targetCameraPos.set(-12, 12, -2); targetLookAt.set(-12, 0, -12);
-                title.innerText = "Volleyball Court";
-                statusBadge.className = "bg-electricCyan/20 text-electricCyan text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider";
-                statusBadge.innerText = "Phase 2"; dimBadge.innerText = "18m × 9m";
-                detailName.innerText = "Volleyball Pitch";
-                detailDesc.innerText = "Upcoming high-impact agility and vertical power development court. Engineered with shock-absorbing sub-layers and tournament-grade netting.";
-            } else if (target === 'football') {
-                targetCameraPos.set(16, 20, 24); targetLookAt.set(15, 0, 0);
-                title.innerText = "Football Turf";
-                statusBadge.className = "bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider";
-                statusBadge.innerText = "Planned"; dimBadge.innerText = "24m × 36m";
-                detailName.innerText = "Synthetic Turf";
-                detailDesc.innerText = "Planned all-weather turf with monofilament grass fibers, rubber infill shock pads, and tubular steel cage fencing for high-paced training.";
-            } else {
-                targetCameraPos.set(38, 30, 48); targetLookAt.set(0, 0, 0);
-                title.innerText = "Master Complex";
-                statusBadge.className = "bg-blue-500/20 text-blue-400 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider";
-                statusBadge.innerText = "Hubballi-Dharwad"; dimBadge.innerText = "Multi-Sport";
-                detailName.innerText = "INSPIRE SPORTS PLATFORM";
-                detailDesc.innerText = "Our integrated blueprint supporting grassroots basketball, volleyball, and football. Drag to orbit freely or select a court to inspect professional specifications.";
-            }
+            if (target === 'bball') { targetCameraPos.set(-12, 14, 25); targetLookAt.set(-12, 0, 10); } 
+            else if (target === 'vball') { targetCameraPos.set(-12, 12, -2); targetLookAt.set(-12, 0, -12); } 
+            else if (target === 'football') { targetCameraPos.set(16, 20, 24); targetLookAt.set(15, 0, 0); } 
+            else { targetCameraPos.set(38, 30, 48); targetLookAt.set(0, 0, 0); }
         }
 
         function animateThree() {
@@ -738,9 +624,8 @@
             renderer.setSize(container.clientWidth, container.clientHeight);
         }
 
-        // --- 3. GOOGLE SHEETS LIVE BATCHES ---
+        // --- GOOGLE SHEETS LIVE BATCHES ---
         const SCHEDULE_API_URL = 'https://script.google.com/macros/s/AKfycbzSwsOARrbQEznAvEminfPGg3bK8Jx0b4YQ0SrH11FlBG0kVpMzA0BFUSqRtzsZyu4i/exec';
-
         async function fetchSchedules() {
             const container = document.getElementById('schedule-container');
             try {
@@ -759,55 +644,15 @@
                                 <span class="text-[10px] font-mono text-slate-400 font-bold tracking-widest">${b.Days || 'MON-FRI'}</span>
                             </div>
                             <h3 class="text-xl font-black text-white uppercase tracking-tight mb-2">${b.BatchName || 'Session'}</h3>
-                            <p class="text-xs text-electricCyan font-bold flex items-center gap-2 mb-6">
-                                <i class="far fa-clock"></i> ${b.Timing || 'TBA'}
-                            </p>
-                            <button onclick="openModal('enroll-modal')" class="w-full bg-white/5 border border-white/10 hover:bg-white text-white hover:text-obsidian text-xs font-black uppercase py-3 rounded-xl transition-colors">
-                                Select Batch
-                            </button>
+                            <p class="text-xs text-electricCyan font-bold flex items-center gap-2 mb-6"><i class="far fa-clock"></i> ${b.Timing || 'TBA'}</p>
+                            <button onclick="openModal('enroll-modal')" class="w-full bg-white/5 border border-white/10 hover:bg-white text-white hover:text-obsidian text-xs font-black uppercase py-3 rounded-xl transition-colors">Select Batch</button>
                         </div>
                     `);
                 });
             } catch (e) { container.innerHTML = `<p class="col-span-full text-center text-slate-400">Batches currently offline.</p>`; }
         }
 
-        // --- 4. ESPN RSS NEWS ---
-        async function fetchNews() {
-            const container = document.getElementById('news-container');
-            try {
-                const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://www.espn.com/espn/rss/nba/news')}`);
-                const data = await res.json();
-                if (data.status === 'ok') {
-                    globalNews = data.items.slice(0, 6); container.innerHTML = '';
-                    globalNews.forEach((item, idx) => {
-                        let img = 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=600&auto=format&fit=crop';
-                        if (item.enclosure?.link) img = item.enclosure.link;
-                        else { const match = item.description.match(/<img[^>]+src="([^">]+)"/); if (match) img = match[1]; }
-                        
-                        container.insertAdjacentHTML('beforeend', `
-                            <div onclick="openNewsDetail(${idx}, '${img}')" class="glass-card rounded-3xl overflow-hidden cursor-pointer group">
-                                <div class="h-48 overflow-hidden"><img src="${img}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"></div>
-                                <div class="p-6">
-                                    <span class="text-[10px] font-mono text-blazeOrange font-bold tracking-widest uppercase mb-2 block">${new Date(item.pubDate).toLocaleDateString()}</span>
-                                    <h4 class="font-bold text-sm text-white leading-relaxed group-hover:text-electricCyan transition-colors">${item.title}</h4>
-                                </div>
-                            </div>
-                        `);
-                    });
-                }
-            } catch (e) {}
-        }
-
-        function openNewsDetail(idx, img) {
-            const item = globalNews[idx];
-            document.getElementById('news-modal-img').innerHTML = `<img src="${img}" class="w-full h-full object-cover">`;
-            document.getElementById('news-modal-date').innerText = new Date(item.pubDate).toDateString();
-            document.getElementById('news-modal-title').innerText = item.title;
-            document.getElementById('news-modal-desc').innerText = item.description.replace(/<\/?[^>]+(>|$)/g, "");
-            document.getElementById('news-modal-link').href = item.link; openModal('news-modal');
-        }
-
-        document.addEventListener('DOMContentLoaded', () => { initThreeArena(); fetchSchedules(); fetchNews(); });
+        document.addEventListener('DOMContentLoaded', () => { initThreeArena(); fetchSchedules(); });
     </script>
 </body>
 </html>
