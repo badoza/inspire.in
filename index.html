@@ -152,7 +152,7 @@
         <main id="tab-home" class="tab-content active space-y-20 pb-10">
             
             <!-- Hero Video Section -->
-            <section class="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+            <section class="relative w-full h-[85vh] min-h-[600px] flex items-start justify-center overflow-hidden pt-12 sm:pt-20">
                 <!-- Background Video -->
                 <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
                     <source src="./INSPIREtempo.mp4" type="video/mp4">
@@ -160,24 +160,29 @@
                 <!-- Obsidian Gradient Overlay for Text Readability -->
                 <div class="absolute inset-0 bg-gradient-to-r from-obsidian/95 via-obsidian/70 to-obsidian/40 z-10"></div>
                 
-                <div class="relative z-20 max-w-7xl mx-auto px-4 w-full flex flex-col items-start justify-center text-left pt-10">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-slate-200 font-mono font-bold text-xs tracking-widest uppercase mb-6">
-                        <span class="w-2 h-2 rounded-full bg-blazeOrange animate-pulse"></span> Hubballi-Dharwad Base
-                    </div>
-
-                    <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase leading-[0.9]">
+                <div class="relative z-20 max-w-7xl mx-auto px-4 w-full flex flex-col items-start justify-start text-left">
+                    
+                    <!-- Modified Order: Title -> Badge -> Tagline -->
+                    <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase leading-[0.9] mb-5">
                         INSPIRE <br>
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-blazeOrange to-champGold">SPORTS ACADEMY</span>
                     </h1>
-                    <p class="text-xl sm:text-3xl font-bold text-electricCyan mt-4 border-l-4 border-champGold pl-4">
+
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-slate-200 font-mono font-bold text-xs tracking-widest uppercase mb-6 shadow-md">
+                        <span class="w-2 h-2 rounded-full bg-blazeOrange animate-pulse"></span> Hubballi-Dharwad Base
+                    </div>
+
+                    <p class="text-xl sm:text-3xl font-bold text-electricCyan border-l-4 border-champGold pl-4">
                         Become the best version of yourself.
                     </p>
+
                     <p class="text-slate-300 text-sm sm:text-lg mt-6 max-w-2xl leading-relaxed font-medium">
-                        A sports-development organization committed to helping people become better through sport. WE FOUCUS ON PERSONAL GROWTH, ATHLETIC DEVELOPMENT, and COMPETITIVE EXCELLENCE, through professional coaching, structured programs and progessive pathways.
+                        A sports-development organization committed to helping people become better through sport. WE FOCUS ON PERSONAL GROWTH, ATHLETIC DEVELOPMENT, and COMPETITIVE EXCELLENCE, through professional coaching, structured programs and progressive pathways.
                     </p>
+
                     <div class="flex flex-wrap gap-4 pt-8">
-                        <button onclick="openModal('enroll-modal')" class="bg-blazeOrange hover:bg-orange-600 text-white font-black text-sm px-8 py-4 rounded-full uppercase tracking-wider transition-transform hover:scale-105">
-                            Join The fastest growing Academy
+                        <button onclick="openModal('enroll-modal')" class="bg-blazeOrange hover:bg-orange-600 text-white font-black text-sm px-8 py-4 rounded-full uppercase tracking-wider transition-transform hover:scale-105 shadow-[0_0_15px_rgba(255,85,0,0.4)]">
+                            Join The Fastest Growing Academy
                         </button>
                         <button onclick="switchTab('arena')" class="border border-white/30 hover:bg-white/10 backdrop-blur-sm text-white font-bold text-sm px-8 py-4 rounded-full uppercase tracking-wider transition-colors flex items-center gap-2">
                             View Facility <i class="fas fa-arrow-right text-blazeOrange"></i>
@@ -214,6 +219,8 @@
             <!-- WHO WE ARE: 3 Pillars -->
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-black text-white uppercase tracking-tight">What Is INSPIRE?</h2>
+                    <p class="text-slate-400 text-sm mt-3">We deliver an integrated sports development ecosystem through professional coaching, structured programs, and progressive pathways.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="glass-card p-8 rounded-3xl text-center group">
