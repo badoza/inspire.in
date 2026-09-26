@@ -151,28 +151,31 @@
         <!-- ==================== 1. HOME TAB ==================== -->
         <main id="tab-home" class="tab-content active space-y-20 pb-10">
             
-            <!-- Hero Video Section -->
-            <section class="relative w-full h-[85vh] min-h-[600px] flex items-start justify-center overflow-hidden pt-12 sm:pt-20">
+            <!-- Hero Video Section (Reduced padding pulls content right beneath header) -->
+            <section class="relative w-full min-h-[580px] sm:min-h-[640px] lg:h-[82vh] flex items-start justify-center overflow-hidden pt-4 sm:pt-6 lg:pt-8">
                 <!-- Background Video -->
                 <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
                     <source src="./INSPIREtempo.mp4" type="video/mp4">
                 </video>
                 <!-- Obsidian Gradient Overlay for Text Readability -->
-                <div class="absolute inset-0 bg-gradient-to-r from-obsidian/95 via-obsidian/70 to-obsidian/40 z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-obsidian/95 via-obsidian/75 to-obsidian/45 z-10"></div>
                 
-                <div class="relative z-20 max-w-7xl mx-auto px-4 w-full flex flex-col items-start justify-start text-left">
+                <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-start justify-start text-left">
                     
-                    <!-- Modified Order: Title -> Badge -> Tagline -->
-                    <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase leading-[0.9] mb-5">
-                        INSPIRE <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blazeOrange to-champGold">SPORTS ACADEMY</span>
-                    </h1>
+                    <!-- Title & Badge Container: Badge is right-aligned exactly below DEMY / EMY -->
+                    <div class="inline-flex flex-col items-end mb-4">
+                        <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase leading-[0.88] text-left">
+                            INSPIRE <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blazeOrange to-champGold">SPORTS ACADEMY</span>
+                        </h1>
 
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-slate-200 font-mono font-bold text-xs tracking-widest uppercase mb-6 shadow-md">
-                        <span class="w-2 h-2 rounded-full bg-blazeOrange animate-pulse"></span> Hubballi-Dharwad Base
+                        <!-- Exactly placed below DEMY / EMY of ACADEMY -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-slate-200 font-mono font-bold text-[10px] sm:text-xs tracking-widest uppercase mt-2 shadow-md">
+                            <span class="w-2 h-2 rounded-full bg-blazeOrange animate-pulse"></span> Hubballi-Dharwad Base
+                        </div>
                     </div>
 
-                    <p class="text-xl sm:text-3xl font-bold text-electricCyan border-l-4 border-champGold pl-4">
+                    <p class="text-xl sm:text-3xl font-bold text-electricCyan border-l-4 border-champGold pl-4 mt-2">
                         Become the best version of yourself.
                     </p>
 
