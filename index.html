@@ -5,27 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <!-- ==================== CORE SEO & LLMO PAYLOAD ==================== -->
-    <title>Inspire Basketball Academy & Club | Hubballi-Dharwad Sports</title>
-    <meta name="description" content="Inspire Sports Academy is the premier sports development platform in Hubballi-Dharwad. Home to the Inspire Basketball Academy & Club, featuring FIBA-standard courts and elite coaching.">
+    <title>Inspire Sports Academy | Hubballi-Dharwad</title>
+    <meta name="description" content="At Inspire Sports Academy, children discover their potential, develop their basketball skills and build confidence through dedicated coaching, structured training and our own FIBA-standard basketball court in Hubballi–Dharwad.">
     <meta name="keywords" content="Basketball academy Hubballi, Sports coaching Dharwad, Turf booking Hubli, Inspire Sports Academy, Kids basketball classes Hubballi, Inspire Basketball Academy & Club">
     <meta name="author" content="Inspire Foundation">
     <link rel="canonical" href="https://inspiresportshd.in/">
 
-    <!-- Open Graph (Facebook/WhatsApp/LinkedIn Share Tags) -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://inspiresportshd.in/">
-    <meta property="og:title" content="Inspire Basketball Academy & Club | Hubballi-Dharwad">
-    <meta property="og:description" content="Become the best version of yourself. Elite basketball coaching and multi-sport development on FIBA-standard courts.">
+    <meta property="og:title" content="Inspire Sports Academy | Basketball Hubballi-Dharwad">
+    <meta property="og:description" content="We develop the child first. The athlete second. Elite basketball coaching and multi-sport development.">
     <meta property="og:image" content="https://badoza.github.io/inspire.in/logo.png">
 
-    <!-- Twitter Cards -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://inspiresportshd.in/">
-    <meta property="twitter:title" content="Inspire Basketball Academy & Club">
-    <meta property="twitter:description" content="Elite basketball coaching and multi-sport development in Hubballi-Dharwad.">
-    <meta property="twitter:image" content="https://badoza.github.io/inspire.in/logo.png">
-
-    <!-- JSON-LD Schema Markup (For AI Bots & Google Rich Results) -->
+    <!-- JSON-LD Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -35,37 +28,32 @@
       "url": "https://inspiresportshd.in/",
       "logo": "https://badoza.github.io/inspire.in/logo.png",
       "image": "https://badoza.github.io/inspire.in/logo.png",
-      "description": "Hubballi-Dharwad's high-performance sports development organization focusing on grassroots to elite basketball training on FIBA-standard courts.",
+      "description": "Inspire Sports Academy is a sports-development organisation committed to helping people become better through sport.",
       "telephone": "+91-9019073197",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "JSS Banashankari College Campus, Vidyagiri",
-        "addressLocality": "Dharwad",
+        "streetAddress": "Opp. Radha Krishna Lawns, Shree Shakthpeet Nagar, Unkal Lake South End",
+        "addressLocality": "Hubballi",
         "addressRegion": "Karnataka",
-        "postalCode": "580004",
+        "postalCode": "580031",
         "addressCountry": "IN"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "15.4355", 
-        "longitude": "75.0152"
+        "latitude": "15.3647", 
+        "longitude": "75.1240"
       },
-      "sport": "Basketball",
-      "slogan": "Play. Become."
+      "sport": "Basketball"
     }
     </script>
-    <!-- ================================================================ -->
     
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#050C1A">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Inspire">
+    <meta name="theme-color" content="#030712">
     
     <!-- Tailwind CSS, Google Fonts, FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&family=Space+Grotesk:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Three.js 3D Engine & OrbitControls via CDN -->
@@ -77,319 +65,426 @@
             theme: {
                 extend: {
                     colors: {
-                        obsidian: '#050C1A',      
-                        deepNavy: '#0A192F',      
+                        obsidian: '#030712',      
+                        deepNavy: '#0F172A',      
                         blazeOrange: '#FF5500',   
                         electricCyan: '#00E5FF',  
-                        champGold: '#FFC72C',     
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
-                        mono: ['Space Grotesk', 'monospace'],
+                        mono: ['Space Grotesk', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #050C1A; color: #F8FAFC; -webkit-font-smoothing: antialiased; }
+        body { background-color: #030712; color: #F8FAFC; -webkit-font-smoothing: antialiased; }
+        
+        .huge-text { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.04em; line-height: 0.9; }
         
         /* Glassmorphic UI */
         .glass-card {
-            background: rgba(10, 25, 47, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease;
         }
-        .glass-card:hover { border-color: rgba(255, 85, 0, 0.3); background: rgba(10, 25, 47, 0.7); }
+        .glass-card:hover { border-color: rgba(255, 85, 0, 0.3); background: rgba(15, 23, 42, 0.8); }
 
         .tab-content { display: none; }
-        .tab-content.active { display: block; animation: tabFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .tab-content.active { display: block; animation: tabFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         @keyframes tabFadeIn {
-            from { opacity: 0; transform: translateY(12px); filter: blur(4px); }
+            from { opacity: 0; transform: translateY(20px); filter: blur(8px); }
             to { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
 
         #three-canvas-container canvas { display: block; width: 100% !important; height: 100% !important; outline: none; }
         ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #050C1A; }
-        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #FF5500; }
+        
+        /* Pitch-style text hover */
+        .hover-text-outline { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.5); transition: all 0.3s; }
+        .hover-text-outline:hover { color: #FF5500; -webkit-text-stroke: 1px #FF5500; }
     </style>
 </head>
-<body class="pb-24 md:pb-12 selection:bg-blazeOrange selection:text-white">
+<body class="pb-24 md:pb-0 selection:bg-blazeOrange selection:text-white">
 
-    <!-- Top Sticky Header -->
-    <header class="sticky top-0 z-50 bg-obsidian/90 backdrop-blur-xl border-b border-white/5">
+    <!-- Top Navigation -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-obsidian/90 backdrop-blur-xl border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3 cursor-pointer group" onclick="switchTab('home')">
                 <img src="./logo.png" alt="Inspire Logo" class="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(255,85,0,0.4)] transition-transform group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                 <div class="hidden w-10 h-10 bg-blazeOrange rounded-xl items-center justify-center text-white font-black text-xl shadow-[0_0_15px_rgba(255,85,0,0.4)]">I</div>
-                
                 <div class="flex flex-col">
-                    <span class="font-extrabold text-xl tracking-tight text-white leading-none uppercase font-mono">INSPIRE SPORTS ACADEMY</span>
-                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1 group-hover:text-electricCyan transition-colors">PLAY.BECOME</span>
+                    <span class="font-extrabold text-xl tracking-tight text-white leading-none uppercase huge-text">INSPIRE</span>
+                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1 group-hover:text-blazeOrange transition-colors">Sports Academy</span>
                 </div>
             </div>
 
             <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-1 lg:gap-2 font-bold text-[11px] uppercase tracking-widest">
-                <button onclick="switchTab('home')" class="nav-link-desktop px-4 py-2 rounded-lg text-white hover:text-blazeOrange active" data-tab="home">Overview</button>
-                <button onclick="switchTab('arena')" class="nav-link-desktop px-4 py-2 rounded-lg text-slate-400 hover:text-blazeOrange" data-tab="arena">Facility</button>
-                <button onclick="switchTab('methodology')" class="nav-link-desktop px-4 py-2 rounded-lg text-slate-400 hover:text-blazeOrange" data-tab="methodology">Pathway</button>
-                <button onclick="switchTab('schedules')" class="nav-link-desktop px-4 py-2 rounded-lg text-slate-400 hover:text-blazeOrange" data-tab="schedules">Batches</button>
-                <button onclick="switchTab('media')" class="nav-link-desktop px-4 py-2 rounded-lg text-slate-400 hover:text-blazeOrange" data-tab="media">Media</button>
+            <nav class="hidden md:flex items-center gap-6 font-bold text-xs uppercase tracking-widest">
+                <button onclick="switchTab('home')" class="nav-link-desktop text-white hover:text-blazeOrange transition-colors active" data-tab="home">Home</button>
+                <button onclick="switchTab('about')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="about">About Us</button>
+                <button onclick="switchTab('programmes')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="programmes">Programmes</button>
+                <button onclick="switchTab('pathway')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="pathway">Pathway</button>
+                <button onclick="switchTab('facility')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="facility">Facility</button>
+                <button onclick="switchTab('contact')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="contact">Contact</button>
             </nav>
 
-            <button onclick="openModal('enroll-modal')" class="bg-blazeOrange hover:bg-orange-600 text-white font-black text-xs px-6 py-2.5 rounded-full uppercase tracking-wider shadow-[0_0_20px_rgba(255,85,0,0.3)] transition-all hover:scale-105">
-                Enroll 2026
+            <button onclick="switchTab('contact')" class="hidden md:block bg-white hover:bg-blazeOrange text-obsidian hover:text-white font-black text-xs px-6 py-3 rounded-none uppercase tracking-widest transition-all">
+                Enrol Now
             </button>
         </div>
     </header>
 
     <!-- Main Content -->
-    <div class="w-full relative z-10">
+    <div class="w-full relative z-10 pt-20">
 
         <!-- ==================== 1. HOME TAB ==================== -->
-        <main id="tab-home" class="tab-content active space-y-20 pb-10">
+        <main id="tab-home" class="tab-content active space-y-32 pb-20">
             
-            <!-- Hero Video Section (Reduced padding pulls content right beneath header) -->
-            <section class="relative w-full min-h-[580px] sm:min-h-[640px] lg:h-[82vh] flex items-start justify-center overflow-hidden pt-4 sm:pt-6 lg:pt-8">
-                <!-- Background Video -->
-                <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <!-- Hero Video Section -->
+            <section class="relative w-full h-[90vh] flex items-center justify-center overflow-hidden">
+                <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-60">
                     <source src="./INSPIREtempo.mp4" type="video/mp4">
                 </video>
-                <!-- Obsidian Gradient Overlay for Text Readability -->
-                <div class="absolute inset-0 bg-gradient-to-r from-obsidian/95 via-obsidian/75 to-obsidian/45 z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent z-10"></div>
                 
-                <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-start justify-start text-left">
-                    
-                    <!-- Title & Badge Container: Badge is right-aligned exactly below DEMY / EMY -->
-                    <div class="inline-flex flex-col items-end mb-4">
-                        <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase leading-[0.88] text-left">
-                            INSPIRE <br>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blazeOrange to-champGold">SPORTS ACADEMY</span>
-                        </h1>
-                    </div>
-
-                    <p class="text-xl sm:text-3xl font-bold text-electricCyan border-l-4 border-champGold pl-4 mt-2">
-                        Become the best version of yourself.
+                <div class="relative z-20 max-w-7xl mx-auto px-4 w-full flex flex-col items-center justify-center text-center">
+                    <h1 class="text-6xl sm:text-8xl lg:text-[9rem] font-black text-white uppercase huge-text mb-6 drop-shadow-2xl">
+                        MORE THAN<br><span class="text-blazeOrange">A GAME.</span><span style="display:none;">[cite: 4]</span>
+                    </h1>
+                    <p class="text-xl sm:text-3xl font-bold text-white max-w-3xl mb-8 uppercase tracking-wide">
+                        A PLACE TO GROW.<span style="display:none;">[cite: 4]</span>
                     </p>
-
-                    <p class="text-slate-300 text-sm sm:text-lg mt-6 max-w-2xl leading-relaxed font-medium">
-                        A sports-development organization committed to helping people become better through sport. WE FOCUS ON PERSONAL GROWTH, ATHLETIC DEVELOPMENT, and COMPETITIVE EXCELLENCE, through professional coaching, structured programs and progressive pathways.
+                    <p class="text-slate-300 text-sm sm:text-base max-w-2xl leading-relaxed font-medium mb-10">
+                        At Inspire Sports Academy, children discover their potential, develop their basketball skills and build confidence through dedicated coaching, structured training and our own FIBA-standard basketball court in Hubballi–Dharwad.<span style="display:none;">[cite: 4]</span>
                     </p>
-
-                    <div class="flex flex-wrap gap-4 pt-8">
-                        <button onclick="openModal('enroll-modal')" class="bg-blazeOrange hover:bg-orange-600 text-white font-black text-sm px-8 py-4 rounded-full uppercase tracking-wider transition-transform hover:scale-105 shadow-[0_0_15px_rgba(255,85,0,0.4)]">
-                            Join The Fastest Growing Academy
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <button onclick="switchTab('contact')" class="bg-blazeOrange text-white font-black text-sm px-10 py-5 uppercase tracking-widest hover:bg-white hover:text-obsidian transition-colors">
+                            Enrol Now <span style="display:none;">[cite: 4]</span>
                         </button>
-                        <button onclick="switchTab('arena')" class="border border-white/30 hover:bg-white/10 backdrop-blur-sm text-white font-bold text-sm px-8 py-4 rounded-full uppercase tracking-wider transition-colors flex items-center gap-2">
-                            View Facility <i class="fas fa-arrow-right text-blazeOrange"></i>
+                        <button onclick="switchTab('programmes')" class="bg-transparent border border-white/30 text-white font-black text-sm px-10 py-5 uppercase tracking-widest hover:border-white transition-colors">
+                            Explore The Academy <span style="display:none;">[cite: 4]</span>
                         </button>
                     </div>
                 </div>
             </section>
 
-            <!-- SEO TARGETING: Flagship Basketball Vertical -->
-            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="glass-card rounded-[2.5rem] p-10 sm:p-16 border-t-4 border-t-blazeOrange bg-gradient-to-br from-obsidian to-deepNavy relative overflow-hidden">
-                    <i class="fas fa-basketball-ball absolute -right-10 -top-10 text-9xl text-white/5 rotate-12"></i>
-                    <div class="relative z-10 flex flex-col md:flex-row gap-10 items-center">
-                        <div class="flex-1 space-y-6">
-                            <span class="text-xs font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Flagship Program</span>
-                            <h2 class="text-3xl sm:text-5xl font-black text-white uppercase leading-tight">
-                                INSPIRE BASKETBALL <br>ACADEMY & CLUB
-                            </h2>
-                            <p class="text-slate-400 leading-relaxed text-sm sm:text-base">
-                                The premier destination for <strong>Basketball Coaching in Hubballi-Dharwad</strong>. 
-                                We deliver structured basketball classes for kids, high-intensity training in Hubli, and elite athlete development pathways.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-2">
-                                <span class="bg-white/5 border border-white/10 text-white/80 text-[10px] uppercase font-bold px-3 py-1.5 rounded-lg">Beginners</span>
-                                <span class="bg-white/5 border border-white/10 text-white/80 text-[10px] uppercase font-bold px-3 py-1.5 rounded-lg">Foundation</span>
-                                <span class="bg-white/5 border border-white/10 text-white/80 text-[10px] uppercase font-bold px-3 py-1.5 rounded-lg">Competitive</span>
-                                <span class="bg-white/5 border border-white/10 text-white/80 text-[10px] uppercase font-bold px-3 py-1.5 rounded-lg">Tournaments</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Belief & Flagship -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <span class="text-xs font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Belief</span>
+                    <h2 class="text-4xl sm:text-6xl font-black text-white uppercase huge-text mt-4 mb-6">EVERY CHILD HAS POTENTIAL.<span style="display:none;">[cite: 4]</span></h2>
+                    <p class="text-slate-400 leading-relaxed text-lg mb-6">
+                        We believe sport is one of the most powerful ways to help children grow.<span style="display:none;">[cite: 4]</span> Beyond the game, sport teaches confidence, discipline, resilience, teamwork and respect.<span style="display:none;">[cite: 4]</span>
+                    </p>
+                    <p class="text-white font-bold text-xl uppercase tracking-wider border-l-4 border-blazeOrange pl-4">
+                        We develop the child first and the athlete second.<span style="display:none;">[cite: 4]</span>
+                    </p>
+                </div>
+                <div class="glass-card p-10 sm:p-14 border-t-4 border-t-blazeOrange">
+                    <span class="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">Our Flagship Programme</span><span style="display:none;">[cite: 4]</span>
+                    <h3 class="text-3xl sm:text-4xl font-black text-white uppercase huge-text mt-4 mb-6">INSPIRE BASKETBALL ACADEMY<span style="display:none;">[cite: 4]</span></h3>
+                    <p class="text-blazeOrange font-bold uppercase tracking-wider mb-6">Discover. Develop. Build. Compete. Excel.<span style="display:none;">[cite: 4]</span></p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-8">
+                        Every player starts somewhere. Every player has potential. Through professional coaching, structured training and progressive development programmes, we help children learn basketball, improve their skills and experience the joy of the game.<span style="display:none;">[cite: 4]</span>
+                    </p>
+                    <button onclick="switchTab('programmes')" class="text-xs font-bold text-white uppercase tracking-widest hover:text-blazeOrange transition-colors flex items-center gap-2">
+                        Explore Basketball Academy <i class="fas fa-arrow-right"></i><span style="display:none;">[cite: 4]</span>
+                    </button>
                 </div>
             </section>
 
-            <!-- WHY WE EXIST & HOW WE DO IT -->
-            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <!-- Why We Exist -->
-                <div class="space-y-6">
-                    <h2 class="text-3xl font-black text-white uppercase tracking-tight">Why We Exist</h2>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        To unlock every child's potential through sport. We believe sport is more than a game. Every child deserves the opportunity to discover their abilities and experience the joy and transformative power of sport.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="border border-white/10 rounded-xl p-4 bg-white/5"><i class="fas fa-heartbeat text-blazeOrange mb-2"></i><h4 class="text-white font-bold text-sm uppercase">Healthier Bodies</h4></div>
-                        <div class="border border-white/10 rounded-xl p-4 bg-white/5"><i class="fas fa-brain text-electricCyan mb-2"></i><h4 class="text-white font-bold text-sm uppercase">Stronger Minds</h4></div>
-                        <div class="border border-white/10 rounded-xl p-4 bg-white/5"><i class="fas fa-gem text-champGold mb-2"></i><h4 class="text-white font-bold text-sm uppercase">Stronger Character</h4></div>
-                        <div class="border border-white/10 rounded-xl p-4 bg-white/5"><i class="fas fa-users text-blue-400 mb-2"></i><h4 class="text-white font-bold text-sm uppercase">Stronger Communities</h4></div>
-                    </div>
-                </div>
-
-                <!-- How We Do It -->
-                <div class="glass-card rounded-[2rem] p-8 border-t-4 border-t-electricCyan">
-                    <span class="text-xs font-mono font-bold text-electricCyan uppercase tracking-widest">How We Do It</span>
-                    <h3 class="text-2xl font-black text-white uppercase mt-2 mb-6 leading-tight">We develop the child first. <br>The athlete second.</h3>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="text-white font-bold text-sm uppercase mb-3 border-b border-white/10 pb-2">On The Court</h4>
-                            <ul class="space-y-2 text-xs text-slate-400 font-mono">
-                                <li><span class="text-blazeOrange mr-2">■</span>Professional coaching</li>
-                                <li><span class="text-blazeOrange mr-2">■</span>Character development</li>
-                                <li><span class="text-blazeOrange mr-2">■</span>Opportunities to compete</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-bold text-sm uppercase mb-3 border-b border-white/10 pb-2">Off The Court</h4>
-                            <ul class="space-y-2 text-xs text-slate-400 font-mono">
-                                <li><span class="text-electricCyan mr-2">■</span>Structured training</li>
-                                <li><span class="text-electricCyan mr-2">■</span>Progressive learning</li>
-                                <li><span class="text-electricCyan mr-2">■</span>Habits & confidence</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <!-- Home Page Closing -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-10">
+                <h2 class="text-4xl sm:text-7xl font-black text-white uppercase huge-text mb-6 hover-text-outline cursor-default">
+                    EVERY GREAT JOURNEY BEGINS WITH AN OPPORTUNITY.<span style="display:none;">[cite: 4]</span>
+                </h2>
+                <p class="text-slate-400 text-lg sm:text-xl mb-10 max-w-3xl mx-auto">
+                    Give your child the opportunity to discover what they are capable of becoming. Let their basketball journey begin at Inspire.<span style="display:none;">[cite: 4]</span>
+                </p>
+                <button onclick="switchTab('contact')" class="bg-white text-obsidian font-black text-sm px-10 py-5 uppercase tracking-widest hover:bg-blazeOrange hover:text-white transition-colors">
+                    Join The Inspire Family <span style="display:none;">[cite: 4]</span>
+                </button>
             </section>
-
-            <!-- Creative Footer Signature -->
-            <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-                <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] font-mono text-slate-500 uppercase tracking-widest text-center md:text-left">
-                    <p>&copy; 2026 Inspire Foundation. All rights reserved.</p>
-                    <p>
-                        Digital Architecture by 
-                        <a href="https://badoza.store" target="_blank" class="text-electricCyan hover:text-blazeOrange transition-colors font-bold inline-flex items-center gap-1">
-                            Badoza <i class="fas fa-arrow-right -rotate-45 text-[8px]"></i>
-                        </a>
-                    </p>
-                </div>
-            </footer>
         </main>
 
-        <!-- ==================== 2. 3D ARENA & FLAGSHIP FACILITY TAB ==================== -->
-        <main id="tab-arena" class="tab-content space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-            
-            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6">
-                <div class="max-w-2xl">
-                    <span class="font-mono text-xs font-bold uppercase tracking-widest text-blazeOrange">Our Flagship Facility</span>
-                    <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight mt-1">What Are We Creating?</h2>
-                    <p class="text-slate-400 font-medium text-sm mt-3 leading-relaxed">
-                        Our own FIBA-standard basketball court—a dedicated space for children to learn, train, play, compete, and grow. 
-                        Supporting grassroots basketball development, skill practice, and community engagement.
+        <!-- ==================== 2. ABOUT US TAB ==================== -->
+        <main id="tab-about" class="tab-content space-y-24 pb-20 pt-10">
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="text-xs font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Story</span><span style="display:none;">[cite: 4]</span>
+                <h2 class="text-5xl sm:text-8xl font-black text-white uppercase huge-text mt-4 mb-8">IT STARTED WITH A BASKETBALL AND A BELIEF.<span style="display:none;">[cite: 4]</span></h2>
+                <div class="max-w-4xl mx-auto text-slate-400 text-lg leading-relaxed space-y-6 text-left sm:text-center">
+                    <p>Founded by Santosh and Manjunath Hullur in January 2022, Inspire Basketball Academy & Club was built on one simple belief: every child deserves the opportunity to discover and develop their potential.<span style="display:none;">[cite: 4]</span></p>
+                    <p>Our journey began with the belief that sport is about much more than winning. Basketball can help children build confidence, discipline, resilience, character and lifelong friendships.<span style="display:none;">[cite: 4]</span></p>
+                    <p class="text-white font-bold text-xl uppercase tracking-wider text-center pt-6 border-t border-white/10">
+                        At Inspire, we are not just building basketball players. We are helping build people for life.<span style="display:none;">[cite: 4]</span>
                     </p>
                 </div>
-                
-                <div class="flex flex-wrap items-center gap-2">
-                    <button onclick="orbitToView('overview')" id="cam-overview" class="cam-btn px-4 py-2 rounded-full text-xs font-bold uppercase border border-electricCyan text-electricCyan bg-electricCyan/10">Overview</button>
-                    <button onclick="orbitToView('bball')" id="cam-bball" class="cam-btn px-4 py-2 rounded-full text-xs font-bold uppercase border border-white/10 text-slate-300">Basketball</button>
-                    <button onclick="orbitToView('vball')" id="cam-vball" class="cam-btn px-4 py-2 rounded-full text-xs font-bold uppercase border border-white/10 text-slate-300">Volleyball</button>
-                    <button onclick="orbitToView('football')" id="cam-football" class="cam-btn px-4 py-2 rounded-full text-xs font-bold uppercase border border-white/10 text-slate-300">Football</button>
-                    <button onclick="toggleNightLighting()" id="btn-night-light" class="px-4 py-2 rounded-full text-xs font-bold uppercase border border-champGold/50 bg-champGold/10 text-champGold ml-auto sm:ml-0 transition-colors">
-                        <i class="fas fa-moon mr-1"></i> Cinematic Lighting
-                    </button>
+            </section>
+
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-10 border-l-4 border-l-electricCyan">
+                    <h3 class="text-3xl font-black text-white uppercase huge-text mb-4">Our Vision<span style="display:none;">[cite: 4]</span></h3>
+                    <p class="text-slate-400">To inspire every child to discover, develop and cultivate their sporting potential from an early age.<span style="display:none;">[cite: 4]</span></p>
+                </div>
+                <div class="glass-card p-10 border-l-4 border-l-blazeOrange">
+                    <h3 class="text-3xl font-black text-white uppercase huge-text mb-4">Our Mission<span style="display:none;">[cite: 4]</span></h3>
+                    <p class="text-slate-400">To provide every child with the opportunity, environment and pathway to discover, develop, compete and excel in sport and life.<span style="display:none;">[cite: 4]</span></p>
+                </div>
+            </section>
+        </main>
+
+        <!-- ==================== 3. PROGRAMMES TAB ==================== -->
+        <main id="tab-programmes" class="tab-content space-y-20 pb-20 pt-10">
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-5xl sm:text-7xl font-black text-white uppercase huge-text mb-6">FIVE PROGRAMMES.<br>ONE LOVE FOR BASKETBALL.<span style="display:none;">[cite: 4]</span></h2>
+                <p class="text-slate-400 text-lg max-w-3xl mx-auto mb-16">
+                    Our programmes give children and young adults opportunities to learn, improve and compete. Age groups are guidelines. Programme placement and progression depend on each player's ability, experience and readiness.<span style="display:none;">[cite: 4]</span>
+                </p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-left">
+                    
+                    <!-- Rookie -->
+                    <div class="glass-card p-8 sm:p-12 hover:-translate-y-2 transition-transform">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-4xl font-black text-white/10 huge-text">01</span>
+                            <span class="bg-white/10 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">6–9 Years</span><span style="display:none;">[cite: 4]</span>
+                        </div>
+                        <h3 class="text-3xl font-black text-white uppercase huge-text mb-2">ROOKIE | PRE-BEGINNER<span style="display:none;">[cite: 4]</span></h3>
+                        <p class="text-blazeOrange font-bold text-sm uppercase tracking-widest mb-6">Discover. Move. Play.<span style="display:none;">[cite: 4]</span></p>
+                        <p class="text-slate-400 text-sm mb-6">A fun introduction to basketball for young children beginning their sporting journey. Through age-appropriate activities, children become comfortable with the ball, enjoy movement and develop confidence.<span style="display:none;">[cite: 4]</span></p>
+                        <ul class="text-sm text-slate-300 space-y-2 font-mono mb-6">
+                            <li><i class="fas fa-check text-blazeOrange mr-2"></i> Movement, balance and coordination.<span style="display:none;">[cite: 4]</span></li>
+                            <li><i class="fas fa-check text-blazeOrange mr-2"></i> Ball familiarity and basic ball control.<span style="display:none;">[cite: 4]</span></li>
+                            <li><i class="fas fa-check text-blazeOrange mr-2"></i> Listening, sharing and following instructions.<span style="display:none;">[cite: 4]</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Rising Star -->
+                    <div class="glass-card p-8 sm:p-12 hover:-translate-y-2 transition-transform">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-4xl font-black text-white/10 huge-text">02</span>
+                            <span class="bg-white/10 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">10–12 Years</span><span style="display:none;">[cite: 4]</span>
+                        </div>
+                        <h3 class="text-3xl font-black text-white uppercase huge-text mb-2">RISING STAR | BEGINNER<span style="display:none;">[cite: 4]</span></h3>
+                        <p class="text-blazeOrange font-bold text-sm uppercase tracking-widest mb-6">Learn. Practise. Improve.<span style="display:none;">[cite: 4]</span></p>
+                        <p class="text-slate-400 text-sm mb-6">A structured introduction to the essential skills and habits of basketball. Through consistent practice, players develop sound techniques and a better understanding of the game.<span style="display:none;">[cite: 4]</span></p>
+                        <ul class="text-sm text-slate-300 space-y-2 font-mono mb-6">
+                            <li><i class="fas fa-check text-blazeOrange mr-2"></i> Dribbling, ball control and passing.<span style="display:none;">[cite: 4]</span></li>
+                            <li><i class="fas fa-check text-blazeOrange mr-2"></i> Shooting technique and basic finishing.<span style="display:none;">[cite: 4]</span></li>
+                            <li><i class="fas fa-check text-blazeOrange mr-2"></i> Teamwork, communication and sportsmanship.<span style="display:none;">[cite: 4]</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Pro -->
+                    <div class="glass-card p-8 sm:p-12 hover:-translate-y-2 transition-transform">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-4xl font-black text-white/10 huge-text">03</span>
+                            <span class="bg-white/10 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">13–16 Years</span><span style="display:none;">[cite: 4]</span>
+                        </div>
+                        <h3 class="text-3xl font-black text-white uppercase huge-text mb-2">PRO | INTERMEDIATE<span style="display:none;">[cite: 4]</span></h3>
+                        <p class="text-blazeOrange font-bold text-sm uppercase tracking-widest mb-6">Understand. Adapt. Compete.<span style="display:none;">[cite: 4]</span></p>
+                        <p class="text-slate-400 text-sm mb-6">Players progress to more challenging training that connects individual skills with team play. The focus is on applying techniques, making decisions and responding to different game situations.<span style="display:none;">[cite: 4]</span></p>
+                        <ul class="text-sm text-slate-300 space-y-2 font-mono mb-6">
+                            <li><i class="fas fa-check text-blazeOrange mr-2"></i> Advanced ball-handling and shooting consistency.<span style="display:none;">[cite: 4]</span></li>
+                            <li><i class="fas fa-check text-blazeOrange mr-2"></i> Game reading and decision-making.<span style="display:none;">[cite: 4]</span></li>
+                            <li><i class="fas fa-check text-blazeOrange mr-2"></i> Match situations and competitive experience.<span style="display:none;">[cite: 4]</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Elite -->
+                    <div class="glass-card p-8 sm:p-12 hover:-translate-y-2 transition-transform">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-4xl font-black text-white/10 huge-text">04</span>
+                            <span class="bg-white/10 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">17–22 Years</span><span style="display:none;">[cite: 4]</span>
+                        </div>
+                        <h3 class="text-3xl font-black text-white uppercase huge-text mb-2">ELITE | ADVANCED<span style="display:none;">[cite: 4]</span></h3>
+                        <p class="text-blazeOrange font-bold text-sm uppercase tracking-widest mb-6">Prepare. Perform. Progress.<span style="display:none;">[cite: 4]</span></p>
+                        <p class="text-slate-400 text-sm mb-6">A focused development programme for committed and suitably prepared players aspiring to take their basketball performance to a higher level. Training emphasises technical skills, tactical understanding, physical preparation and competitive readiness.<span style="display:none;">[cite: 4]</span></p>
+                        <ul class="text-sm text-slate-300 space-y-2 font-mono mb-6">
+                            <li><i class="fas fa-check text-blazeOrange mr-2"></i> Advanced technical and tactical development.<span style="display:none;">[cite: 4]</span></li>
+                            <li><i class="fas fa-check text-blazeOrange mr-2"></i> Position-specific skills and game responsibilities.<span style="display:none;">[cite: 4]</span></li>
+                            <li><i class="fas fa-check text-blazeOrange mr-2"></i> Competitive mindset, leadership and responsibility.<span style="display:none;">[cite: 4]</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Basketball For Life -->
+                    <div class="glass-card p-8 sm:p-12 hover:-translate-y-2 transition-transform lg:col-span-2 border border-white/20 bg-white/5">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-4xl font-black text-white/10 huge-text">05</span>
+                            <span class="bg-blazeOrange text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">All Ages</span><span style="display:none;">[cite: 4]</span>
+                        </div>
+                        <h3 class="text-3xl font-black text-white uppercase huge-text mb-2">BASKETBALL FOR LIFE<span style="display:none;">[cite: 4]</span></h3>
+                        <p class="text-white font-bold text-sm uppercase tracking-widest mb-6">Play. Move. Connect. Enjoy.<span style="display:none;">[cite: 4]</span></p>
+                        <p class="text-slate-400 text-sm mb-6 max-w-3xl">Basketball is for everyone. Whether you are a beginner, former player, working professional, parent or simply someone who loves the game, there is a place for you at Inspire. Enjoy basketball at your own pace, stay active and connect with others who share your passion.<span style="display:none;">[cite: 4]</span></p>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <!-- ==================== 4. PATHWAY TAB ==================== -->
+        <main id="tab-pathway" class="tab-content space-y-20 pb-20 pt-10">
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="text-xs font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Player Development Pathway</span><span style="display:none;">[cite: 4]</span>
+                <h2 class="text-5xl sm:text-7xl font-black text-white uppercase huge-text mt-4 mb-16">
+                    DISCOVER. DEVELOP. BUILD. COMPETE. EXCEL.<span style="display:none;">[cite: 4]</span>
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-left">
+                    <div class="glass-card p-6 border-t-4 border-t-white">
+                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">DISCOVER<span style="display:none;">[cite: 4]</span></h4>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Fall in love with the game.<span style="display:none;">[cite: 4]</span></p>
+                        <p class="text-xs text-slate-300">Discover basketball through fun and engaging activities. Build confidence and a positive attitude.<span style="display:none;">[cite: 4]</span></p>
+                    </div>
+                    <div class="glass-card p-6 border-t-4 border-t-electricCyan">
+                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">DEVELOP<span style="display:none;">[cite: 4]</span></h4>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Build strong fundamentals.<span style="display:none;">[cite: 4]</span></p>
+                        <p class="text-xs text-slate-300">Learn dribbling, passing, shooting and footwork. Develop consistency through structured practice.<span style="display:none;">[cite: 4]</span></p>
+                    </div>
+                    <div class="glass-card p-6 border-t-4 border-t-blue-500">
+                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">BUILD<span style="display:none;">[cite: 4]</span></h4>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Become a stronger athlete.<span style="display:none;">[cite: 4]</span></p>
+                        <p class="text-xs text-slate-300">Develop strength, speed, agility and coordination. Build discipline, resilience, confidence and teamwork.<span style="display:none;">[cite: 4]</span></p>
+                    </div>
+                    <div class="glass-card p-6 border-t-4 border-t-blazeOrange">
+                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">COMPETE<span style="display:none;">[cite: 4]</span></h4>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Put skills into action.<span style="display:none;">[cite: 4]</span></p>
+                        <p class="text-xs text-slate-300">Apply skills in real-game situations. Develop decision-making and team strategies. Gain match experience.<span style="display:none;">[cite: 4]</span></p>
+                    </div>
+                    <div class="glass-card p-6 border-t-4 border-t-champGold">
+                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">EXCEL<span style="display:none;">[cite: 4]</span></h4>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Strive for your potential.<span style="display:none;">[cite: 4]</span></p>
+                        <p class="text-xs text-slate-300">Pursue advanced technical and tactical development. Explore club, district, state and national opportunities.<span style="display:none;">[cite: 4]</span></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ==================== 5. FACILITY TAB (Three.js Court) ==================== -->
+        <main id="tab-facility" class="tab-content space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-10">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-white/10">
+                <div class="max-w-3xl">
+                    <span class="font-mono text-xs font-bold uppercase tracking-widest text-blazeOrange">Our Basketball Facility</span><span style="display:none;">[cite: 4]</span>
+                    <h2 class="text-4xl sm:text-6xl font-black text-white uppercase huge-text mt-2 mb-4">A DEDICATED HOME FOR BASKETBALL.<span style="display:none;">[cite: 4]</span></h2>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Our own FIBA-standard basketball court in Hubballi–Dharwad is a reflection of our long-term commitment to the game. It gives our players a dedicated place to train, develop their skills and experience basketball. We are not just building a court. We are investing in the future of basketball.<span style="display:none;">[cite: 4]</span>
+                    </p>
                 </div>
             </div>
 
             <!-- 3D Canvas -->
-            <div class="relative w-full rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] bg-obsidian">
+            <div class="relative w-full overflow-hidden min-h-[500px] sm:min-h-[700px] bg-obsidian">
                 <div id="three-canvas-container" class="absolute inset-0 cursor-grab active:cursor-grabbing"></div>
 
-                <div class="absolute top-6 left-6 pointer-events-none hidden sm:block">
-                    <div class="bg-obsidian/80 backdrop-blur-md border border-white/10 rounded-2xl px-4 py-3 shadow-2xl">
-                        <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest flex items-center gap-2 mb-1">
-                            <span class="w-1.5 h-1.5 rounded-full bg-blazeOrange animate-pulse"></span> Active View
-                        </p>
-                        <h4 id="hud-court-title" class="text-sm font-black text-white uppercase tracking-wider">Master Complex</h4>
+                <div class="absolute bottom-6 left-6 right-6 sm:left-auto sm:w-80 bg-obsidian/90 backdrop-blur-xl border border-white/10 p-6 shadow-2xl">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="bg-white/10 text-white text-[10px] font-bold px-2.5 py-1 uppercase tracking-wider">Hubballi-Dharwad</span>
                     </div>
+                    <h3 class="font-black text-xl text-white uppercase tracking-tight mb-2 huge-text">INSPIRE SPORTS PLATFORM</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                        Explore our FIBA-standard setup. Drag to orbit freely.
+                    </p>
+                    <button onclick="switchTab('contact')" class="w-full bg-white hover:bg-blazeOrange hover:text-white text-obsidian font-black text-xs uppercase py-4 tracking-widest transition-colors">
+                        Enquire About Training <span style="display:none;">[cite: 4]</span>
+                    </button>
                 </div>
             </div>
         </main>
 
-        <!-- ==================== 3. METHODOLOGY TAB (WHAT WE DO) ==================== -->
-        <main id="tab-methodology" class="tab-content space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <!-- ==================== 6. CONTACT / JOIN TAB ==================== -->
+        <main id="tab-contact" class="tab-content space-y-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-10">
             
-            <div class="glass-card p-10 sm:p-16 rounded-[2.5rem] text-center max-w-4xl mx-auto border-t-4 border-t-blazeOrange">
-                <span class="text-xs font-mono font-bold text-blazeOrange uppercase tracking-widest">What We Do</span>
-                <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter mt-4 leading-[1.1]">
-                    Create pathways to discover, develop, compete, and excel.
-                </h2>
-            </div>
+            <section class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <h2 class="text-5xl sm:text-7xl font-black text-white uppercase huge-text mb-4 leading-tight">
+                        GIVE YOUR CHILD THE OPPORTUNITY TO GROW.<span style="display:none;">[cite: 4]</span>
+                    </h2>
+                    <p class="text-slate-400 text-lg leading-relaxed">
+                        Whether your child is a beginner or an experienced player, Inspire provides a place to learn, improve and grow. Join the Inspire family.<span style="display:none;">[cite: 4]</span>
+                    </p>
 
-            <!-- The Ecosystem -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="border border-white/10 rounded-2xl p-6 bg-white/5"><i class="fas fa-clipboard-list text-blazeOrange text-2xl mb-4"></i><h4 class="font-bold text-white uppercase mb-2">Sports Coaching</h4><p class="text-xs text-slate-400">Structured training programs designed for all skill levels.</p></div>
-                <div class="border border-white/10 rounded-2xl p-6 bg-white/5"><i class="fas fa-building text-electricCyan text-2xl mb-4"></i><h4 class="font-bold text-white uppercase mb-2">Sporting Infrastructure</h4><p class="text-xs text-slate-400">Anchored by our very own FIBA-standard basketball court.</p></div>
-                <div class="border border-white/10 rounded-2xl p-6 bg-white/5"><i class="fas fa-school text-champGold text-2xl mb-4"></i><h4 class="font-bold text-white uppercase mb-2">School Partnerships</h4><p class="text-xs text-slate-400">Bringing quality sports development directly to children.</p></div>
-                <div class="border border-white/10 rounded-2xl p-6 bg-white/5"><i class="fas fa-trophy text-blue-400 text-2xl mb-4"></i><h4 class="font-bold text-white uppercase mb-2">Competitions & Leagues</h4><p class="text-xs text-slate-400">Providing real tournament opportunities and game experience.</p></div>
-                <div class="border border-white/10 rounded-2xl p-6 bg-white/5"><i class="fas fa-level-up-alt text-blazeOrange text-2xl mb-4"></i><h4 class="font-bold text-white uppercase mb-2">Talent Development</h4><p class="text-xs text-slate-400">Progressive athlete pathways for elite performance.</p></div>
-                <div class="border border-white/10 rounded-2xl p-6 bg-white/5"><i class="fas fa-expand-arrows-alt text-electricCyan text-2xl mb-4"></i><h4 class="font-bold text-white uppercase mb-2">Multi-Sport Expansion</h4><p class="text-xs text-slate-400">Building an integrated sporting platform for the future.</p></div>
-            </div>
-
-            <!-- What Makes Us Different (Comparison Table) -->
-            <div class="glass-card rounded-3xl overflow-hidden mt-12 border border-white/10">
-                <div class="p-8 bg-obsidian border-b border-white/10 text-center">
-                    <h3 class="text-2xl font-black text-white uppercase tracking-tight">What Makes INSPIRE Different?</h3>
-                    <p class="text-slate-400 text-sm mt-2 font-bold uppercase tracking-widest">Not just a coaching class. A development pathway.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2">
-                    <div class="p-8 space-y-4">
-                        <h4 class="font-mono text-sm font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-white/5">
-                            <i class="fas fa-times text-red-500"></i> Traditional Coaching
-                        </h4>
-                        <ul class="space-y-4 text-sm text-slate-400">
-                            <li>• Individual training sessions</li>
-                            <li>• Mainly technical skills</li>
-                            <li>• Short-term participation</li>
-                            <li>• Limited measurement</li>
-                            <li>• Competition as an endpoint</li>
-                            <li>• Performance-focused success</li>
-                        </ul>
-                    </div>
-                    <div class="p-8 space-y-4 bg-white/5">
-                        <h4 class="font-mono text-sm font-bold text-electricCyan uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-white/5">
-                            <i class="fas fa-check text-blazeOrange"></i> INSPIRE Development Focus
-                        </h4>
-                        <ul class="space-y-4 text-sm text-white font-medium">
-                            <li><span class="text-blazeOrange mr-2">➤</span> Long-term development</li>
-                            <li><span class="text-blazeOrange mr-2">➤</span> Personal development plus athletic ability</li>
-                            <li><span class="text-blazeOrange mr-2">➤</span> Progressive pathway</li>
-                            <li><span class="text-blazeOrange mr-2">➤</span> Measurable development</li>
-                            <li><span class="text-blazeOrange mr-2">➤</span> Competition as part of learning</li>
-                            <li><span class="text-blazeOrange mr-2">➤</span> Growth and performance together</li>
-                        </ul>
+                    <div class="glass-card p-8 border-l-4 border-l-blazeOrange">
+                        <h3 class="text-2xl font-black text-white uppercase huge-text mb-4">INSPIRE BASKETBALL ACADEMY<span style="display:none;">[cite: 4]</span></h3>
+                        <p class="text-slate-300 font-mono text-sm leading-relaxed mb-6">
+                            Opp. Radha Krishna Lawns,<br>Shree Shakthpeet Nagar,<br>Unkal Lake South End,<br>Hubballi – 580031, Karnataka, India.<span style="display:none;">[cite: 4]</span>
+                        </p>
+                        <div class="space-y-3 font-mono text-sm text-slate-400">
+                            <p><i class="fas fa-phone w-6 text-blazeOrange"></i> +91 90190 73197</p>
+                            <p><i class="fab fa-whatsapp w-6 text-blazeOrange"></i> +91 90190 73197</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
 
-        <!-- ==================== 4. SCHEDULES TAB ==================== -->
-        <main id="tab-schedules" class="tab-content space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4">
-                <div>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">Active Rosters</h2>
-                    <p class="text-slate-400 text-sm mt-1">Live synchronisation from the Inspire Database.</p>
+                <!-- Web3Forms Application Form -->
+                <div class="glass-card p-8 sm:p-12">
+                    <h3 class="text-2xl font-black text-white uppercase huge-text mb-8">SUBMIT APPLICATION</h3>
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                        <input type="hidden" name="access_key" value="40048b50-84fd-48a9-bb4f-61a66846d43d">
+                        <input type="hidden" name="subject" value="New Academy Enrollment - Inspire">
+                        <input type="hidden" name="redirect" value="https://badoza.github.io/inspire.in/">
+
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Athlete Name</label>
+                            <input type="text" name="player_name" required class="w-full bg-obsidian border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Age</label>
+                                <input type="number" name="age" required class="w-full bg-obsidian border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Phone</label>
+                                <input type="tel" name="phone" required class="w-full bg-obsidian border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Programme Interest</label>
+                            <select name="sport_program" required class="w-full bg-obsidian border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors appearance-none">
+                                <option value="Rookie (6-9)">Rookie (6–9 Years)</option>
+                                <option value="Rising Star (10-12)">Rising Star (10–12 Years)</option>
+                                <option value="Pro (13-16)">Pro (13–16 Years)</option>
+                                <option value="Elite (17-22)">Elite (17–22 Years)</option>
+                                <option value="Basketball For Life">Basketball For Life (All Ages)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-blazeOrange hover:bg-white text-white hover:text-obsidian font-black py-5 uppercase tracking-widest text-sm transition-colors mt-4">
+                            Enrol Now <span style="display:none;">[cite: 4]</span>
+                        </button>
+                    </form>
                 </div>
-                <button onclick="fetchSchedules()" class="text-xs font-bold text-white bg-white/10 hover:bg-white/20 px-4 py-2.5 rounded-full flex items-center gap-2 transition-colors">
-                    <i class="fas fa-rotate"></i> Sync Data
-                </button>
-            </div>
-            <div id="schedule-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </section>
+
+            <!-- Google Sheets Live Batches (Keeping technical utility) -->
+            <section class="pt-10 border-t border-white/10">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8">
+                    <div>
+                        <h2 class="text-3xl font-black text-white uppercase huge-text">LIVE BATCH ROSTERS</h2>
+                        <p class="text-slate-400 text-sm mt-2 font-mono">Synchronised directly from Inspire Admin Database.</p>
+                    </div>
+                    <button onclick="fetchSchedules()" class="text-xs font-bold text-obsidian bg-white hover:bg-blazeOrange hover:text-white px-6 py-3 uppercase tracking-widest transition-colors">
+                        Refresh Data
+                    </button>
+                </div>
+                <div id="schedule-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </section>
         </main>
 
-        <!-- ==================== 5. MEDIA TAB ==================== -->
-        <main id="tab-media" class="tab-content space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-            <div>
-                <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">Action Reel</h2>
-                <p class="text-slate-400 text-sm mt-1">The intensity of Inspire Academy in motion.</p>
+        <!-- Digital Signature -->
+        <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] font-mono text-slate-500 uppercase tracking-widest text-center md:text-left">
+                <p>&copy; 2026 Inspire Foundation. All rights reserved.</p>
+                <p>
+                    Digital Architecture by 
+                    <a href="https://badoza.store" target="_blank" class="text-white hover:text-blazeOrange transition-colors font-bold inline-flex items-center gap-1">
+                        Badoza <i class="fas fa-arrow-right -rotate-45 text-[8px]"></i>
+                    </a>
+                </p>
             </div>
-            <!-- Standard Video Player (Not Background) -->
-            <div class="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl max-w-5xl mx-auto bg-black">
-                <video src="./INSPIREtempo.mp4" class="w-full h-auto max-h-[600px] object-cover" controls playsinline preload="metadata" poster="./logo.png"></video>
-            </div>
-        </main>
+        </footer>
     </div>
 
     <!-- Mobile Bottom Navigation Bar -->
@@ -398,58 +493,17 @@
             <button onclick="switchTab('home')" class="nav-btn-mobile active flex flex-col items-center text-blazeOrange" data-tab="home">
                 <i class="fas fa-house text-lg mb-1"></i><span class="text-[9px] font-bold uppercase tracking-wider">Home</span>
             </button>
-            <button onclick="switchTab('arena')" class="nav-btn-mobile flex flex-col items-center text-slate-500" data-tab="arena">
-                <i class="fas fa-cube text-lg mb-1"></i><span class="text-[9px] font-bold uppercase tracking-wider">Facility</span>
+            <button onclick="switchTab('programmes')" class="nav-btn-mobile flex flex-col items-center text-slate-500" data-tab="programmes">
+                <i class="fas fa-basketball-ball text-lg mb-1"></i><span class="text-[9px] font-bold uppercase tracking-wider">Progs</span>
             </button>
-            <button onclick="switchTab('methodology')" class="nav-btn-mobile flex flex-col items-center text-slate-500" data-tab="methodology">
-                <i class="fas fa-route text-lg mb-1"></i><span class="text-[9px] font-bold uppercase tracking-wider">Path</span>
+            <button onclick="switchTab('facility')" class="nav-btn-mobile flex flex-col items-center text-slate-500" data-tab="facility">
+                <i class="fas fa-cube text-lg mb-1"></i><span class="text-[9px] font-bold uppercase tracking-wider">Court</span>
             </button>
-            <button onclick="switchTab('schedules')" class="nav-btn-mobile flex flex-col items-center text-slate-500" data-tab="schedules">
-                <i class="fas fa-calendar-days text-lg mb-1"></i><span class="text-[9px] font-bold uppercase tracking-wider">Batches</span>
+            <button onclick="switchTab('contact')" class="nav-btn-mobile flex flex-col items-center text-slate-500" data-tab="contact">
+                <i class="fas fa-envelope text-lg mb-1"></i><span class="text-[9px] font-bold uppercase tracking-wider">Contact</span>
             </button>
         </div>
     </nav>
-
-    <!-- Enrolment Modal -->
-    <div id="enroll-modal" class="fixed inset-0 z-[60] hidden bg-obsidian/90 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="modal-body glass-card w-full max-w-lg rounded-[2rem] p-8 shadow-2xl relative text-white border-white/20">
-            <button onclick="closeModal('enroll-modal')" class="absolute top-6 right-6 text-slate-400 hover:text-white text-xl transition-colors"><i class="fas fa-xmark"></i></button>
-
-            <h3 class="text-3xl font-black uppercase text-white tracking-tight">Join The Academy</h3>
-            <p class="text-xs text-slate-400 mt-2 font-bold uppercase tracking-widest">Hubballi-Dharwad Campus</p>
-
-            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5 mt-8">
-                <input type="hidden" name="access_key" value="40048b50-84fd-48a9-bb4f-61a66846d43d">
-                <input type="hidden" name="subject" value="New Academy Enrollment - Inspire">
-                <input type="hidden" name="redirect" value="https://badoza.github.io/inspire.in/">
-
-                <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Athlete Name</label>
-                    <input type="text" name="player_name" required class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors">
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Age</label>
-                        <input type="number" name="age" required class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Phone</label>
-                        <input type="tel" name="phone" required class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Program Selection</label>
-                    <select name="sport_program" required class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors appearance-none">
-                        <option value="Basketball Coaching">🏀 Inspire Basketball Academy</option>
-                        <option value="Multi-Sport/Other">🏅 Multi-Sport Development</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full bg-white hover:bg-slate-200 text-obsidian font-black py-4 rounded-xl uppercase tracking-widest text-sm mt-4 transition-transform hover:scale-[1.02]">
-                    Submit Application
-                </button>
-            </form>
-        </div>
-    </div>
 
     <!-- JAVASCRIPT -->
     <script>
@@ -472,18 +526,13 @@
             if (target) target.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            if (tabId === 'arena') setTimeout(onThreeWindowResize, 50);
+            if (tabId === 'facility') setTimeout(onThreeWindowResize, 50);
         }
 
-        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
-        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
-
-        // --- THREE.JS 3D ENGINE ---
+        // --- THREE.JS 3D ENGINE (Facility Tab) ---
         let scene, camera, renderer, controls;
-        let isNightMode = true; 
-        let dirLight, ambientLight, floodlights = [];
-        let targetLookAt = new THREE.Vector3(0, 0, 0);
         let targetCameraPos = new THREE.Vector3(38, 30, 48);
+        let targetLookAt = new THREE.Vector3(0, 0, 0);
 
         function initThreeArena() {
             const container = document.getElementById('three-canvas-container');
@@ -499,8 +548,6 @@
             renderer.setSize(container.clientWidth, container.clientHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             renderer.shadowMap.enabled = true;
-            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-            renderer.outputEncoding = THREE.sRGBEncoding;
             container.appendChild(renderer.domElement);
 
             controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -508,42 +555,33 @@
             controls.maxPolarAngle = Math.PI / 2 - 0.05;
             controls.minDistance = 15; controls.maxDistance = 120;
 
-            ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
             scene.add(ambientLight);
-
-            dirLight = new THREE.DirectionalLight(0xffeedd, 0.8);
-            dirLight.position.set(30, 50, 30);
-            dirLight.castShadow = true;
-            dirLight.shadow.mapSize.width = 2048; dirLight.shadow.mapSize.height = 2048;
+            const dirLight = new THREE.DirectionalLight(0xffeedd, 0.6);
+            dirLight.position.set(30, 50, 30); dirLight.castShadow = true;
             scene.add(dirLight);
 
             buildFacilityBase();
             buildBasketballCourt();
-            buildVolleyballCourt();
-            buildFootballTurf();
-            buildStadiumFloodlights();
-            applyLightingState();
+            
+            // Set Pitch-Style Dark Lighting
+            scene.background.set(0x030712); 
+            
             animateThree();
             window.addEventListener('resize', onThreeWindowResize);
         }
 
         function buildFacilityBase() {
-            const slabGeo = new THREE.BoxGeometry(64, 2, 54);
-            const slabMat = new THREE.MeshStandardMaterial({ color: 0x0A192F, roughness: 0.9, metalness: 0.1 });
-            const baseSlab = new THREE.Mesh(slabGeo, slabMat);
+            const baseSlab = new THREE.Mesh(new THREE.BoxGeometry(64, 2, 54), new THREE.MeshStandardMaterial({ color: 0x0F172A, roughness: 0.9 }));
             baseSlab.position.y = -1; baseSlab.receiveShadow = true; scene.add(baseSlab);
         }
 
         function buildBasketballCourt() {
             const bballGroup = new THREE.Group();
-            bballGroup.position.set(-12, 0.05, 10);
-            const canvas = document.createElement('canvas');
-            canvas.width = 1024; canvas.height = 512;
-            const ctx = canvas.getContext('2d');
+            bballGroup.position.set(0, 0.05, 0);
+            const canvas = document.createElement('canvas'); canvas.width = 1024; canvas.height = 512; const ctx = canvas.getContext('2d');
             ctx.fillStyle = '#E64A00'; ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#0B2347'; 
-            ctx.fillRect(0, 0, 50, canvas.height); ctx.fillRect(canvas.width - 50, 0, 50, canvas.height);
-            ctx.fillRect(0, 0, canvas.width, 30); ctx.fillRect(0, canvas.height - 30, canvas.width, 30);
+            ctx.fillStyle = '#0B2347'; ctx.fillRect(0, 0, 50, canvas.height); ctx.fillRect(canvas.width - 50, 0, 50, canvas.height); ctx.fillRect(0, 0, canvas.width, 30); ctx.fillRect(0, canvas.height - 30, canvas.width, 30);
             ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 6;
             ctx.strokeRect(50, 30, canvas.width - 100, canvas.height - 60);
             ctx.beginPath(); ctx.moveTo(canvas.width / 2, 30); ctx.lineTo(canvas.width / 2, canvas.height - 30); ctx.stroke();
@@ -556,93 +594,9 @@
             ctx.beginPath(); ctx.arc(100, canvas.height/2, 170, -Math.PI/2.5, Math.PI/2.5); ctx.stroke();
             ctx.beginPath(); ctx.arc(canvas.width-100, canvas.height/2, 170, Math.PI-Math.PI/2.5, Math.PI+Math.PI/2.5); ctx.stroke();
 
-            const courtMesh = new THREE.Mesh(new THREE.PlaneGeometry(26, 14), new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(canvas), roughness: 0.4 }));
+            const courtMesh = new THREE.Mesh(new THREE.PlaneGeometry(36, 20), new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(canvas), roughness: 0.4 }));
             courtMesh.rotation.x = -Math.PI / 2; courtMesh.receiveShadow = true; bballGroup.add(courtMesh);
-
-            createBasketballHoop(bballGroup, -12.2, 0, Math.PI / 2);
-            createBasketballHoop(bballGroup, 12.2, 0, -Math.PI / 2);
             scene.add(bballGroup);
-        }
-
-        function createBasketballHoop(parent, x, z, rotY) {
-            const group = new THREE.Group(); group.position.set(x, 0, z); group.rotation.y = rotY;
-            const poleMat = new THREE.MeshStandardMaterial({ color: 0x1E293B, roughness: 0.4, metalness: 0.6 });
-            const base = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 4.2, 12), poleMat);
-            base.position.set(-0.8, 2.1, 0); base.castShadow = true; group.add(base);
-            const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 1.3, 8), poleMat);
-            arm.rotation.z = Math.PI / 3; arm.position.set(-0.35, 3.8, 0); group.add(arm);
-            const board = new THREE.Mesh(new THREE.BoxGeometry(0.08, 1.2, 1.8), new THREE.MeshPhysicalMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 }));
-            board.position.set(0.2, 3.6, 0); board.castShadow = true; group.add(board);
-            const rim = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.035, 8, 24), new THREE.MeshStandardMaterial({ color: 0xFF5500 }));
-            rim.rotation.x = Math.PI / 2; rim.position.set(0.55, 3.25, 0); group.add(rim);
-            parent.add(group);
-        }
-
-        function buildVolleyballCourt() {
-            const vballGroup = new THREE.Group(); vballGroup.position.set(-12, 0.05, -12);
-            const canvas = document.createElement('canvas'); canvas.width = 512; canvas.height = 256; const ctx = canvas.getContext('2d');
-            ctx.fillStyle = '#0B2347'; ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#FF5500'; ctx.fillRect(40, 25, canvas.width - 80, canvas.height - 50);
-            ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 5; ctx.strokeRect(40, 25, canvas.width - 80, canvas.height - 50);
-            ctx.beginPath(); ctx.moveTo(canvas.width / 2, 25); ctx.lineTo(canvas.width / 2, canvas.height - 25); ctx.stroke();
-            const courtMesh = new THREE.Mesh(new THREE.PlaneGeometry(18, 10), new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(canvas), roughness: 0.5 }));
-            courtMesh.rotation.x = -Math.PI / 2; courtMesh.receiveShadow = true; vballGroup.add(courtMesh);
-            scene.add(vballGroup);
-        }
-
-        function buildFootballTurf() {
-            const turfGroup = new THREE.Group(); turfGroup.position.set(15, 0.05, 0);
-            const canvas = document.createElement('canvas'); canvas.width = 512; canvas.height = 768; const ctx = canvas.getContext('2d');
-            for (let i = 0; i < 12; i++) { ctx.fillStyle = i % 2 === 0 ? '#104A2A' : '#145A32'; ctx.fillRect(0, i * 64, 512, 64); }
-            ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 5; ctx.strokeRect(30, 30, 452, 708);
-            ctx.beginPath(); ctx.moveTo(30, 384); ctx.lineTo(482, 384); ctx.stroke();
-            const turfMesh = new THREE.Mesh(new THREE.PlaneGeometry(24, 36), new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(canvas), roughness: 0.9 }));
-            turfMesh.rotation.x = -Math.PI / 2; turfMesh.receiveShadow = true; turfGroup.add(turfMesh);
-            scene.add(turfGroup);
-        }
-
-        function buildStadiumFloodlights() {
-            [[-28, -22], [-28, 22], [28, -22], [28, 22]].forEach(([x, z]) => {
-                const tower = new THREE.Group(); tower.position.set(x, 0, z);
-                const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.65, 14, 8), new THREE.MeshStandardMaterial({ color: 0x1E293B }));
-                mast.position.y = 7; tower.add(mast);
-                const spot = new THREE.SpotLight(0xFFF5E6, 1.8, 80, Math.PI / 4.5, 0.6, 1);
-                spot.position.set(0, 14, 0); spot.target.position.set(x > 0 ? 10 : -10, 0, 0);
-                scene.add(spot.target); spot.castShadow = true; tower.add(spot);
-                floodlights.push(spot); scene.add(tower);
-            });
-        }
-
-        function toggleNightLighting() { isNightMode = !isNightMode; applyLightingState(); }
-
-        function applyLightingState() {
-            const btn = document.getElementById('btn-night-light');
-            if (isNightMode) {
-                scene.background.set(0x050C1A); ambientLight.intensity = 0.2; dirLight.intensity = 0.1;
-                floodlights.forEach(fl => fl.intensity = 2.0);
-                if(btn) btn.innerHTML = '<i class="fas fa-moon mr-2"></i> Cinematic Lighting';
-            } else {
-                scene.background.set(0x3B82F6); ambientLight.intensity = 0.8; dirLight.intensity = 1.0;
-                floodlights.forEach(fl => fl.intensity = 0);
-                if(btn) btn.innerHTML = '<i class="fas fa-sun mr-2"></i> Daylight Mode';
-            }
-        }
-
-        function orbitToView(target) {
-            document.querySelectorAll('.cam-btn').forEach(btn => {
-                btn.classList.remove('border-electricCyan', 'bg-electricCyan/10', 'text-electricCyan');
-                btn.classList.add('border-white/10', 'text-slate-300');
-            });
-            const activeBtn = document.getElementById('cam-' + target);
-            if(activeBtn) {
-                activeBtn.classList.remove('border-white/10', 'text-slate-300');
-                activeBtn.classList.add('border-electricCyan', 'bg-electricCyan/10', 'text-electricCyan');
-            }
-
-            if (target === 'bball') { targetCameraPos.set(-12, 14, 25); targetLookAt.set(-12, 0, 10); } 
-            else if (target === 'vball') { targetCameraPos.set(-12, 12, -2); targetLookAt.set(-12, 0, -12); } 
-            else if (target === 'football') { targetCameraPos.set(16, 20, 24); targetLookAt.set(15, 0, 0); } 
-            else { targetCameraPos.set(38, 30, 48); targetLookAt.set(0, 0, 0); }
         }
 
         function animateThree() {
@@ -662,28 +616,27 @@
         const SCHEDULE_API_URL = 'https://script.google.com/macros/s/AKfycbzSwsOARrbQEznAvEminfPGg3bK8Jx0b4YQ0SrH11FlBG0kVpMzA0BFUSqRtzsZyu4i/exec';
         async function fetchSchedules() {
             const container = document.getElementById('schedule-container');
+            container.innerHTML = '<p class="text-slate-500 font-mono text-xs">Loading batches...</p>';
             try {
                 const res = await fetch(SCHEDULE_API_URL); const batches = await res.json();
                 container.innerHTML = '';
                 batches.forEach(b => {
                     const stat = b.Status || 'Open';
-                    let col = 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30';
-                    if (stat.toLowerCase().includes('fill')) col = 'text-red-400 bg-red-500/10 border-red-500/30';
-                    if (stat.toLowerCase().includes('close')) col = 'text-slate-400 bg-slate-500/10 border-slate-500/30';
+                    let col = 'text-white border-white/20 bg-white/5';
+                    if (stat.toLowerCase().includes('fill')) col = 'text-blazeOrange border-blazeOrange bg-blazeOrange/10';
 
                     container.insertAdjacentHTML('beforeend', `
-                        <div class="glass-card p-6 rounded-3xl group">
+                        <div class="glass-card p-6 border-l-2 border-l-white">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="text-[9px] font-bold uppercase px-3 py-1 rounded-full border ${col}">${stat}</span>
+                                <span class="text-[9px] font-bold uppercase px-3 py-1 border ${col}">${stat}</span>
                                 <span class="text-[10px] font-mono text-slate-400 font-bold tracking-widest">${b.Days || 'MON-FRI'}</span>
                             </div>
-                            <h3 class="text-xl font-black text-white uppercase tracking-tight mb-2">${b.BatchName || 'Session'}</h3>
-                            <p class="text-xs text-electricCyan font-bold flex items-center gap-2 mb-6"><i class="far fa-clock"></i> ${b.Timing || 'TBA'}</p>
-                            <button onclick="openModal('enroll-modal')" class="w-full bg-white/5 border border-white/10 hover:bg-white text-white hover:text-obsidian text-xs font-black uppercase py-3 rounded-xl transition-colors">Select Batch</button>
+                            <h3 class="text-xl font-black text-white uppercase huge-text mb-2">${b.BatchName || 'Session'}</h3>
+                            <p class="text-xs text-slate-300 font-bold flex items-center gap-2 font-mono"><i class="far fa-clock text-blazeOrange"></i> ${b.Timing || 'TBA'}</p>
                         </div>
                     `);
                 });
-            } catch (e) { container.innerHTML = `<p class="col-span-full text-center text-slate-400">Batches currently offline.</p>`; }
+            } catch (e) { container.innerHTML = `<p class="col-span-full text-left text-slate-500 font-mono">Batches currently offline.</p>`; }
         }
 
         document.addEventListener('DOMContentLoaded', () => { initThreeArena(); fetchSchedules(); });
