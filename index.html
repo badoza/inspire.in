@@ -85,7 +85,7 @@
         /* Brutalist Typography */
         .huge-text { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.05em; line-height: 0.85; }
         
-        /* Brutalist Glassmorphic UI */
+        /* Brutalist Glassmorphic UI (Sharp Edges Only) */
         .glass-card {
             background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; border-radius: 0 !important; 
@@ -128,10 +128,10 @@
             <nav class="hidden md:flex items-center gap-6 font-bold text-xs uppercase tracking-widest">
                 <button onclick="switchTab('home')" class="nav-link-desktop text-white hover:text-blazeOrange transition-colors active" data-tab="home">Home</button>
                 <button onclick="switchTab('about')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="about">About</button>
+                <button onclick="switchTab('team')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="team">Team</button>
                 <button onclick="switchTab('programmes')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="programmes">Programmes</button>
                 <button onclick="switchTab('pathway')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="pathway">Pathway</button>
                 <button onclick="switchTab('facility')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="facility">Facility</button>
-                <button onclick="switchTab('contact')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="contact">Contact</button>
             </nav>
 
             <button onclick="switchTab('contact')" class="hidden md:block bg-white hover:bg-blazeOrange text-obsidian hover:text-white font-black text-xs px-8 py-3.5 rounded-none uppercase tracking-widest transition-all">
@@ -146,13 +146,14 @@
     </header>
 
     <!-- Full Screen Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-obsidian z-[100] hidden flex-col justify-center items-center opacity-0 transition-opacity duration-300 backdrop-blur-xl">
+    <div id="mobile-menu" class="fixed inset-0 bg-obsidian z-[100] hidden flex-col justify-center items-center opacity-0 transition-opacity duration-300 backdrop-blur-xl overflow-y-auto py-10">
         <button onclick="closeMobileMenu()" class="absolute top-6 right-6 text-white text-3xl p-2 hover:text-blazeOrange transition-colors">
             <i class="fas fa-times"></i>
         </button>
-        <div class="flex flex-col gap-6 text-center w-full px-4">
+        <div class="flex flex-col gap-6 text-center w-full px-4 my-auto">
             <button onclick="switchTab('home'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Home</button>
             <button onclick="switchTab('about'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">About Us</button>
+            <button onclick="switchTab('team'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Leadership Team</button>
             <button onclick="switchTab('programmes'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Programmes</button>
             <button onclick="switchTab('pathway'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Pathway</button>
             <button onclick="switchTab('facility'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Facility</button>
@@ -194,11 +195,12 @@
                         Helping children discover their potential through basketball. Sport shapes more than athletes: it builds healthier bodies, stronger minds, stronger character and stronger communities. At Inspire Sports Academy, children discover their potential, develop their basketball skills and build confidence through dedicated coaching, structured training and our own FIBA-standard court in Hubballi–Dharwad.<span style="display:none;">[cite: 6]</span>
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-start pt-8">
-                        <button onclick="switchTab('contact')" class="w-full sm:w-auto bg-blazeOrange text-white font-black text-sm px-10 py-5 uppercase tracking-widest rounded-none border-2 border-blazeOrange hover:bg-transparent hover:text-blazeOrange transition-all">
+                    <!-- PERFECTLY ALIGNED DESKTOP/MOBILE BUTTONS -->
+                    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-start pt-10">
+                        <button onclick="switchTab('contact')" class="w-full sm:w-auto inline-block text-center bg-blazeOrange text-white font-black text-sm px-10 py-5 uppercase tracking-widest rounded-none border-2 border-blazeOrange hover:bg-transparent hover:text-blazeOrange transition-all whitespace-nowrap">
                             Enrol Now <span style="display:none;">[cite: 6]</span>
                         </button>
-                        <button onclick="switchTab('programmes')" class="w-full sm:w-auto bg-transparent border-2 border-white/30 text-white font-black text-sm px-10 py-5 uppercase tracking-widest rounded-none hover:border-white transition-colors">
+                        <button onclick="switchTab('programmes')" class="w-full sm:w-auto inline-block text-center bg-transparent border-2 border-white/30 text-white font-black text-sm px-10 py-5 uppercase tracking-widest rounded-none hover:border-white hover:bg-white/5 transition-colors whitespace-nowrap">
                             Explore The Academy <span style="display:none;">[cite: 6]</span>
                         </button>
                     </div>
@@ -243,7 +245,7 @@
             </section>
         </main>
 
-        <!-- ==================== 2. ABOUT US & LEADERSHIP TAB ==================== -->
+        <!-- ==================== 2. ABOUT US TAB ==================== -->
         <main id="tab-about" class="tab-content space-y-20 pb-20 pt-10">
             
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -286,67 +288,69 @@
                     </p>
                 </div>
             </section>
+        </main>
 
-            <!-- LEADERSHIP TEAM SECTION -->
-            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 border-t border-white/10">
-                <div class="text-center mb-12">
-                    <span class="text-[10px] font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Leadership Team</span><span style="display:none;">[cite: 6]</span>
-                    <h2 class="text-4xl sm:text-6xl font-black text-white uppercase huge-text mt-4">ONE DREAM. ONE TEAM. ONE PURPOSE.<span style="display:none;">[cite: 6]</span></h2>
-                    <p class="text-slate-400 text-sm max-w-2xl mx-auto mt-4">
-                        Behind Inspire is a team of individuals who believed in a shared vision and came together to make it a reality. Their trust, commitment, expertise and backing have strengthened our foundation.<span style="display:none;">[cite: 6]</span>
-                    </p>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <!-- ==================== 3. LEADERSHIP TEAM TAB (DEDICATED SECTION) ==================== -->
+        <main id="tab-team" class="tab-content space-y-20 pb-20 pt-10">
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center border-b border-white/10 pb-16">
+                <span class="text-[10px] font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Leadership Team</span><span style="display:none;">[cite: 6]</span>
+                <h2 class="text-4xl sm:text-7xl font-black text-white uppercase huge-text mt-4">ONE DREAM. ONE TEAM. ONE PURPOSE.<span style="display:none;">[cite: 6]</span></h2>
+                <p class="text-slate-400 text-sm sm:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
+                    Behind Inspire is a team of individuals who believed in a shared vision and came together to make it a reality. Their trust, commitment, expertise and backing have strengthened our foundation and opened opportunities for young athletes.<span style="display:none;">[cite: 6]</span>
+                </p>
+            </section>
+            
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                     <!-- Leader 1 -->
-                    <div class="glass-card p-4 text-center">
-                        <div class="w-20 h-20 mx-auto rounded-full bg-slate-800 border-2 border-white/10 mb-3 overflow-hidden">
-                            <i class="fas fa-user text-3xl text-slate-500 mt-4"></i>
+                    <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform">
+                        <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60">
+                            <i class="fas fa-user text-4xl text-slate-500"></i>
                         </div>
-                        <h4 class="text-sm font-bold text-white uppercase tracking-wider">Dr. Nagesh D. Jakaraddi<span style="display:none;">[cite: 6]</span></h4>
-                        <p class="text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-1">Leadership Team</p>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Dr. Nagesh D. Jakaraddi<span style="display:none;">[cite: 6]</span></h4>
+                        <p class="text-[9px] sm:text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Leadership Team</p>
                     </div>
                     <!-- Leader 2 -->
-                    <div class="glass-card p-4 text-center">
-                        <div class="w-20 h-20 mx-auto rounded-full bg-slate-800 border-2 border-white/10 mb-3 overflow-hidden"><i class="fas fa-user text-3xl text-slate-500 mt-4"></i></div>
-                        <h4 class="text-sm font-bold text-white uppercase tracking-wider">Girish Patil<span style="display:none;">[cite: 6]</span></h4>
-                        <p class="text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-1">Leadership Team</p>
+                    <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform">
+                        <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60"><i class="fas fa-user text-4xl text-slate-500"></i></div>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Girish Patil<span style="display:none;">[cite: 6]</span></h4>
+                        <p class="text-[9px] sm:text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Leadership Team</p>
                     </div>
                     <!-- Leader 3 -->
-                    <div class="glass-card p-4 text-center">
-                        <div class="w-20 h-20 mx-auto rounded-full bg-slate-800 border-2 border-white/10 mb-3 overflow-hidden"><i class="fas fa-user text-3xl text-slate-500 mt-4"></i></div>
-                        <h4 class="text-sm font-bold text-white uppercase tracking-wider">Rohit D’Souza<span style="display:none;">[cite: 6]</span></h4>
-                        <p class="text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-1">Leadership Team</p>
+                    <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform">
+                        <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60"><i class="fas fa-user text-4xl text-slate-500"></i></div>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Rohit D’Souza<span style="display:none;">[cite: 6]</span></h4>
+                        <p class="text-[9px] sm:text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Leadership Team</p>
                     </div>
                     <!-- Leader 4 -->
-                    <div class="glass-card p-4 text-center">
-                        <div class="w-20 h-20 mx-auto rounded-full bg-slate-800 border-2 border-white/10 mb-3 overflow-hidden"><i class="fas fa-user text-3xl text-slate-500 mt-4"></i></div>
-                        <h4 class="text-sm font-bold text-white uppercase tracking-wider">Umesh Badiger<span style="display:none;">[cite: 6]</span></h4>
-                        <p class="text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-1">Leadership Team</p>
+                    <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform">
+                        <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60"><i class="fas fa-user text-4xl text-slate-500"></i></div>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Umesh Badiger<span style="display:none;">[cite: 6]</span></h4>
+                        <p class="text-[9px] sm:text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Leadership Team</p>
                     </div>
                     <!-- Leader 5 -->
-                    <div class="glass-card p-4 text-center">
-                        <div class="w-20 h-20 mx-auto rounded-full bg-slate-800 border-2 border-white/10 mb-3 overflow-hidden"><i class="fas fa-user text-3xl text-slate-500 mt-4"></i></div>
-                        <h4 class="text-sm font-bold text-white uppercase tracking-wider">Parsuram Churamari<span style="display:none;">[cite: 6]</span></h4>
-                        <p class="text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-1">Leadership Team</p>
+                    <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform">
+                        <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60"><i class="fas fa-user text-4xl text-slate-500"></i></div>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Parsuram Churamari<span style="display:none;">[cite: 6]</span></h4>
+                        <p class="text-[9px] sm:text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Leadership Team</p>
                     </div>
                     <!-- Leader 6 -->
-                    <div class="glass-card p-4 text-center">
-                        <div class="w-20 h-20 mx-auto rounded-full bg-slate-800 border-2 border-white/10 mb-3 overflow-hidden"><i class="fas fa-user text-3xl text-slate-500 mt-4"></i></div>
-                        <h4 class="text-sm font-bold text-white uppercase tracking-wider">Santosh Hullur<span style="display:none;">[cite: 6]</span></h4>
-                        <p class="text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-1">Founder / Leadership</p>
+                    <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform">
+                        <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60"><i class="fas fa-user text-4xl text-slate-500"></i></div>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Santosh Hullur<span style="display:none;">[cite: 6]</span></h4>
+                        <p class="text-[9px] sm:text-[10px] text-electricCyan font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Founder / Leadership</p>
                     </div>
                     <!-- Leader 7 -->
-                    <div class="glass-card p-4 text-center md:col-span-2 lg:col-span-1">
-                        <div class="w-20 h-20 mx-auto rounded-full bg-slate-800 border-2 border-white/10 mb-3 overflow-hidden"><i class="fas fa-user text-3xl text-slate-500 mt-4"></i></div>
-                        <h4 class="text-sm font-bold text-white uppercase tracking-wider">Manjunath Hullur<span style="display:none;">[cite: 6]</span></h4>
-                        <p class="text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-1">Founder / Leadership</p>
+                    <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform lg:col-start-2">
+                        <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60"><i class="fas fa-user text-4xl text-slate-500"></i></div>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Manjunath Hullur<span style="display:none;">[cite: 6]</span></h4>
+                        <p class="text-[9px] sm:text-[10px] text-electricCyan font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Founder / Leadership</p>
                     </div>
                 </div>
             </section>
         </main>
 
-        <!-- ==================== 3. PROGRAMMES TAB ==================== -->
+        <!-- ==================== 4. PROGRAMMES TAB ==================== -->
         <main id="tab-programmes" class="tab-content space-y-20 pb-20 pt-10">
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white uppercase huge-text mb-6">FIVE PROGRAMMES.<br>ONE LOVE FOR BASKETBALL.<span style="display:none;">[cite: 6]</span></h2>
@@ -424,7 +428,7 @@
             </section>
         </main>
 
-        <!-- ==================== 4. PATHWAY TAB ==================== -->
+        <!-- ==================== 5. PATHWAY TAB ==================== -->
         <main id="tab-pathway" class="tab-content space-y-20 pb-20 pt-10">
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <span class="text-[10px] font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Player Development Pathway</span><span style="display:none;">[cite: 6]</span>
@@ -494,7 +498,7 @@
             </section>
         </main>
 
-        <!-- ==================== 5. FACILITY TAB (Three.js Court) ==================== -->
+        <!-- ==================== 6. FACILITY TAB (Three.js Court) ==================== -->
         <main id="tab-facility" class="tab-content space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-10">
             <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-white/10">
                 <div class="max-w-3xl">
@@ -525,7 +529,7 @@
             </div>
         </main>
 
-        <!-- ==================== 6. CONTACT / JOIN TAB ==================== -->
+        <!-- ==================== 7. CONTACT / JOIN TAB ==================== -->
         <main id="tab-contact" class="tab-content space-y-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-10">
             
             <section class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
