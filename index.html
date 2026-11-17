@@ -108,26 +108,26 @@
         .hover-text-outline { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.7); transition: all 0.3s; }
         .hover-text-outline:hover { color: #FF5500; -webkit-text-stroke: 1px #FF5500; }
 
-        /* Leadership Grid Centering Fix for Orphan Items */
+        /* Leadership Grid Centering Fix */
         .auto-center-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
+            gap: 1.5rem;
         }
-        @media (min-width: 768px) {
-            .auto-center-grid {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+        .auto-center-grid > div {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        @media (min-width: 640px) {
             .auto-center-grid > div {
-                flex: 0 0 calc(33.333% - 1rem); /* 3 items per row on tablet */
-                max-width: calc(33.333% - 1rem);
+                flex: 0 0 calc(50% - 0.75rem);
+                max-width: calc(50% - 0.75rem);
             }
         }
         @media (min-width: 1024px) {
             .auto-center-grid > div {
-                flex: 0 0 calc(25% - 1.125rem); /* 4 items per row on desktop */
+                flex: 0 0 calc(25% - 1.125rem);
                 max-width: calc(25% - 1.125rem);
             }
         }
@@ -149,9 +149,10 @@
             </div>
 
             <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-6 font-bold text-xs uppercase tracking-widest">
+            <nav class="hidden md:flex items-center gap-6 font-bold text-[10px] lg:text-xs uppercase tracking-widest">
                 <button onclick="switchTab('home')" class="nav-link-desktop text-white hover:text-blazeOrange transition-colors active" data-tab="home">Home</button>
                 <button onclick="switchTab('about')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="about">About</button>
+                <button onclick="switchTab('story')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="story">Story</button>
                 <button onclick="switchTab('team')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="team">Team</button>
                 <button onclick="switchTab('programmes')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="programmes">Programmes</button>
                 <button onclick="switchTab('pathway')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="pathway">Pathway</button>
@@ -177,6 +178,7 @@
         <div class="flex flex-col gap-6 text-center w-full px-4 my-auto">
             <button onclick="switchTab('home'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Home</button>
             <button onclick="switchTab('about'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">About Us</button>
+            <button onclick="switchTab('story'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Our Story</button>
             <button onclick="switchTab('team'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Leadership Team</button>
             <button onclick="switchTab('programmes'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Programmes</button>
             <button onclick="switchTab('pathway'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Pathway</button>
@@ -195,6 +197,7 @@
         <main id="tab-home" class="tab-content active space-y-24 sm:space-y-32 pb-20">
             
             <section class="relative w-full min-h-[580px] sm:min-h-[640px] lg:h-[85vh] flex items-start justify-center overflow-hidden pt-4 sm:pt-6 lg:pt-8">
+                <!-- Video Layer z-0 -->
                 <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-60">
                     <source src="./INSPIREtempo.mp4" type="video/mp4">
                 </video>
@@ -204,7 +207,7 @@
                     <div class="inline-flex flex-col items-end mb-4">
                         <h1 class="text-5xl sm:text-7xl lg:text-[8.5rem] font-black tracking-tighter text-white uppercase huge-text text-left drop-shadow-2xl">
                             INSPIRE <br>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blazeOrange to-champGold">SPORTS ACADEMY</span><span style="display:none;">[cite: 6]</span>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blazeOrange to-champGold">SPORTS ACADEMY</span>
                         </h1>
                         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-none border border-white/20 bg-white/10 backdrop-blur-md text-slate-200 font-mono font-bold text-[10px] sm:text-xs tracking-widest uppercase mt-2 shadow-md">
                             <span class="w-2 h-2 rounded-full bg-blazeOrange animate-pulse"></span> Hubballi-Dharwad Base
@@ -212,20 +215,19 @@
                     </div>
 
                     <p class="text-xl sm:text-3xl font-bold text-white border-l-4 border-blazeOrange pl-4 mt-2 uppercase tracking-wide">
-                        MORE THAN A GAME. A PLACE TO GROW.<span style="display:none;">[cite: 6]</span>
+                        MORE THAN A GAME. A PLACE TO GROW.
                     </p>
 
                     <p class="text-slate-300 text-sm sm:text-lg mt-6 max-w-2xl leading-relaxed font-medium">
-                        Helping children discover their potential through basketball. Sport shapes more than athletes: it builds healthier bodies, stronger minds, stronger character and stronger communities. At Inspire Sports Academy, children discover their potential, develop their basketball skills and build confidence through dedicated coaching, structured training and our own FIBA-standard court in Hubballi–Dharwad.<span style="display:none;">[cite: 6]</span>
+                        Helping children discover their potential through basketball. Sport shapes more than athletes: it builds healthier bodies, stronger minds, stronger character and stronger communities. At Inspire Sports Academy, children discover their potential, develop their basketball skills and build confidence through dedicated coaching, structured training and our own FIBA-standard court in Hubballi–Dharwad.
                     </p>
 
-                    <!-- Buttons z-index and flex fix -->
-                    <div class="relative z-[30] flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-start pt-8">
+                    <div class="relative z-[50] flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-start pt-10 pb-10">
                         <button onclick="switchTab('contact')" class="w-full sm:w-auto inline-block text-center bg-blazeOrange text-white font-black text-sm px-10 py-5 uppercase tracking-widest rounded-none border-2 border-blazeOrange hover:bg-obsidian hover:text-blazeOrange transition-all whitespace-nowrap">
-                            Enrol Now <span style="display:none;">[cite: 6]</span>
+                            Enrol Now
                         </button>
                         <button onclick="switchTab('programmes')" class="w-full sm:w-auto inline-block text-center bg-transparent border-2 border-white/30 text-white font-black text-sm px-10 py-5 uppercase tracking-widest rounded-none hover:border-white hover:bg-white/5 transition-colors whitespace-nowrap">
-                            Explore The Academy <span style="display:none;">[cite: 6]</span>
+                            Explore The Academy
                         </button>
                     </div>
                 </div>
@@ -234,20 +236,23 @@
             <!-- Belief & Flagship -->
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
                 <div>
-                    <span class="text-[10px] font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Flagship Programme</span><span style="display:none;">[cite: 6]</span>
-                    <h2 class="text-4xl sm:text-6xl font-black text-white uppercase huge-text mt-4 mb-6">INSPIRE BASKETBALL ACADEMY<span style="display:none;">[cite: 6]</span></h2>
+                    <span class="text-[10px] font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Flagship Programme</span>
+                    <h2 class="text-4xl sm:text-6xl font-black text-white uppercase huge-text mt-4 mb-6">INSPIRE BASKETBALL ACADEMY</h2>
                     <p class="text-slate-400 leading-relaxed text-sm sm:text-lg mb-6">
-                        Every player starts somewhere. Each one has potential. Through professional coaching, structured training and progressive programmes, we help children learn basketball, improve their skills and enjoy the game.<span style="display:none;">[cite: 6]</span>
+                        Every player starts somewhere. Each one has potential. Through professional coaching, structured training and progressive programmes, we help children learn basketball, improve their skills and enjoy the game.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed text-sm sm:text-lg mb-6">
+                        From beginners taking their first steps to committed players preparing for higher levels of competition, we provide opportunities to learn, grow and progress.
                     </p>
                     <p class="text-white font-bold text-lg sm:text-xl uppercase tracking-wider border-l-4 border-blazeOrange pl-4">
-                        Discover. Develop. Build. Compete. Excel.<span style="display:none;">[cite: 6]</span>
+                        Discover. Develop. Build. Compete. Excel.
                     </p>
                 </div>
                 <div class="glass-card p-8 sm:p-14 border-t-4 border-t-electricCyan">
-                    <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">Our Home Court</span><span style="display:none;">[cite: 6]</span>
-                    <h3 class="text-3xl sm:text-4xl font-black text-white uppercase huge-text mt-4 mb-6">A BIGGER COURT. A BIGGER PURPOSE.<span style="display:none;">[cite: 6]</span></h3>
+                    <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">Our Home Court</span>
+                    <h3 class="text-3xl sm:text-4xl font-black text-white uppercase huge-text mt-4 mb-6">A BIGGER COURT. A BIGGER PURPOSE.</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-8">
-                        Our own FIBA-standard court in Hubballi–Dharwad reflects our commitment to developing the sport and creating lasting opportunities for the next generation. We haven’t just built a court. We’ve invested in the future of basketball.<span style="display:none;">[cite: 6]</span>
+                        Our own FIBA-standard court in Hubballi–Dharwad reflects our commitment to developing the sport and creating lasting opportunities for the next generation. We haven’t just built a court. We’ve invested in the future of basketball.
                     </p>
                     <button onclick="switchTab('facility')" class="text-[10px] sm:text-xs font-bold text-white uppercase tracking-widest hover:text-blazeOrange transition-colors flex items-center gap-2">
                         View Our Facility <i class="fas fa-arrow-right"></i>
@@ -258,10 +263,10 @@
             <!-- Home Page Closing -->
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-10">
                 <h2 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white uppercase huge-text mb-6 hover-text-outline cursor-default transition-all duration-500">
-                    EVERY GREAT JOURNEY BEGINS WITH AN OPPORTUNITY.<span style="display:none;">[cite: 6]</span>
+                    EVERY GREAT JOURNEY BEGINS WITH AN OPPORTUNITY.
                 </h2>
                 <p class="text-slate-400 text-sm sm:text-xl mb-10 max-w-3xl mx-auto px-4">
-                    Give your child the chance to discover what they are capable of becoming, and let their basketball journey begin at Inspire.<span style="display:none;">[cite: 6]</span>
+                    Give your child the chance to discover what they are capable of becoming, and let their basketball journey begin at Inspire.
                 </p>
                 <button onclick="switchTab('contact')" class="w-full sm:w-auto bg-white text-obsidian font-black text-sm px-10 py-5 uppercase tracking-widest rounded-none hover:bg-blazeOrange hover:text-white transition-colors inline-block">
                     Join The Inspire Family
@@ -273,114 +278,204 @@
         <main id="tab-about" class="tab-content space-y-20 pb-20 pt-10">
             
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <span class="text-[10px] font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Story</span><span style="display:none;">[cite: 6]</span>
-                <h2 class="text-4xl sm:text-7xl lg:text-8xl font-black text-white uppercase huge-text mt-4 mb-8">IT STARTED WITH A BASKETBALL AND A BELIEF.<span style="display:none;">[cite: 6]</span></h2>
+                <span class="text-[10px] font-mono font-bold text-blazeOrange uppercase tracking-widest">About Inspire</span>
+                <h2 class="text-4xl sm:text-7xl lg:text-8xl font-black text-white uppercase huge-text mt-4 mb-8">WHO WE ARE</h2>
                 <div class="max-w-4xl mx-auto text-slate-400 text-sm sm:text-lg leading-relaxed space-y-6 text-left sm:text-center px-2">
-                    <p>Founded by Santosh and Manjunath Hullur in January 2022, Inspire Basketball Academy & Club was built on one simple belief: every child deserves the chance to discover and develop their potential.<span style="display:none;">[cite: 6]</span></p>
-                    <p>Our journey began with the conviction that sport is about much more than winning. Basketball can help children build confidence, discipline, resilience, character and lifelong friendships. Along the way, a committed leadership team backed our vision and contributed their time, experience and support. Their trust helped turn a shared dream into reality.<span style="display:none;">[cite: 6]</span></p>
+                    <p>INSPIRE Sports Academy is a sports-development organisation committed to helping people become better through sport. We focus on personal growth, athletic development and competitive excellence through professional coaching, structured programmes and progressive pathways.</p>
+                    <p>We bring together players, coaches, families and institutions to create a strong, inclusive and sustainable sporting ecosystem.</p>
                     <p class="text-white font-bold text-base sm:text-xl uppercase tracking-wider text-center pt-6 border-t border-white/10">
-                        The court is ready. The dreams are bigger. Our journey is just beginning. At Inspire, we are not just building basketball players, but helping build people for life.<span style="display:none;">[cite: 6]</span>
+                        Our flagship programme is Inspire Basketball Academy. Our long-term ambition is to grow into a broader sports-development ecosystem covering multiple sports.
                     </p>
                 </div>
             </section>
 
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="glass-card p-8 sm:p-10 border-l-4 border-l-electricCyan">
-                    <h3 class="text-3xl font-black text-white uppercase huge-text mb-4">Our Vision<span style="display:none;">[cite: 6]</span></h3>
-                    <p class="text-slate-400 text-sm sm:text-base">To inspire every child to discover, develop and cultivate their sporting potential from an early age.<span style="display:none;">[cite: 6]</span></p>
+                    <h3 class="text-3xl font-black text-white uppercase huge-text mb-4">Our Vision</h3>
+                    <p class="text-slate-400 text-sm sm:text-base">To inspire every child to discover, develop and cultivate their sporting potential from an early age.</p>
                 </div>
                 <div class="glass-card p-8 sm:p-10 border-l-4 border-l-blazeOrange">
-                    <h3 class="text-3xl font-black text-white uppercase huge-text mb-4">Our Mission<span style="display:none;">[cite: 6]</span></h3>
-                    <p class="text-slate-400 text-sm sm:text-base">To provide every child with the opportunity, environment and pathway to discover, develop, build, compete and excel in sport and life.<span style="display:none;">[cite: 6]</span></p>
+                    <h3 class="text-3xl font-black text-white uppercase huge-text mb-4">Our Mission</h3>
+                    <p class="text-slate-400 text-sm sm:text-base">To provide every child with the opportunity, environment and pathway to discover, develop, build, compete and excel in sport and life.</p>
                 </div>
             </section>
 
             <!-- WHY WE EXIST & HOW WE DO IT -->
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <div class="space-y-6">
-                    <h2 class="text-3xl font-black text-white uppercase tracking-tight huge-text">OUR PURPOSE — WHY WE EXIST<span style="display:none;">[cite: 6]</span></h2>
-                    <p class="text-white font-bold uppercase tracking-widest border-l-4 border-blazeOrange pl-3 text-sm">TO UNLOCK EVERY CHILD'S POTENTIAL THROUGH SPORT.<span style="display:none;">[cite: 6]</span></p>
+                    <h2 class="text-3xl font-black text-white uppercase tracking-tight huge-text">OUR PURPOSE — WHY WE EXIST</h2>
+                    <p class="text-white font-bold uppercase tracking-widest border-l-4 border-blazeOrange pl-3 text-sm">TO UNLOCK EVERY CHILD'S POTENTIAL THROUGH SPORT.</p>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        We believe sport is more than a game. It is a powerful way to build healthier bodies, stronger minds, stronger character and stronger communities. Every child deserves the chance to discover their abilities, build confidence, develop discipline and experience the joy and transformative power of sport.<span style="display:none;">[cite: 6]</span>
+                        We believe sport is more than a game. It is a powerful way to build healthier bodies, stronger minds, stronger character and stronger communities. Every child deserves the chance to discover their abilities, build confidence, develop discipline and experience the joy and transformative power of sport.
                     </p>
+                    <p class="text-white font-bold text-sm tracking-widest uppercase">We exist to help children become the best version of themselves through sport.</p>
                 </div>
                 <div class="glass-card p-8 border-t-4 border-t-electricCyan">
-                    <span class="text-xs font-mono font-bold text-electricCyan uppercase tracking-widest">HOW WE DO IT<span style="display:none;">[cite: 6]</span></span>
-                    <h3 class="text-2xl font-black text-white uppercase mt-2 mb-4 huge-text">We develop the child first. The athlete second.<span style="display:none;">[cite: 6]</span></h3>
+                    <span class="text-xs font-mono font-bold text-electricCyan uppercase tracking-widest">HOW WE DO IT</span>
+                    <h3 class="text-2xl font-black text-white uppercase mt-2 mb-4 huge-text">We develop the child first. The athlete second.</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        We create a safe, positive, disciplined and development-focused environment where children can grow both on and off the court. Through professional coaching, structured training, progressive learning and meaningful competitive opportunities, we help children build the habits, skills, mindset and confidence needed for continuous growth.<span style="display:none;">[cite: 6]</span>
+                        We create a safe, positive, disciplined and development-focused environment where children can grow both on and off the court. Through professional coaching, structured training, progressive learning and meaningful competitive opportunities, we help children build the habits, skills, mindset and confidence needed for continuous growth. We bring together players, coaches, families and institutions to build a strong, inclusive and sustainable sporting ecosystem where young people can learn, grow and thrive.
+                    </p>
+                </div>
+            </section>
+
+            <!-- WHAT WE DO (Detailed Ecosystem) -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card p-8 sm:p-14 border-t-4 border-t-blazeOrange">
+                    <h2 class="text-3xl font-black text-white uppercase tracking-tight huge-text mb-4">WHAT WE DO</h2>
+                    <p class="text-white font-bold text-sm sm:text-base uppercase tracking-widest mb-6">CREATING PATHWAYS. DEVELOPING POTENTIAL.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        We create pathways for children to discover, develop, build, compete and excel through sport. We are building an integrated sports-development ecosystem through:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-300 font-mono">
+                        <p><i class="fas fa-check text-blazeOrange mr-2"></i> Professional coaching and structured training programmes.</p>
+                        <p><i class="fas fa-check text-blazeOrange mr-2"></i> Progressive player and talent development pathways.</p>
+                        <p><i class="fas fa-check text-blazeOrange mr-2"></i> Our own sporting infrastructure, anchored by a FIBA-standard basketball court.</p>
+                        <p><i class="fas fa-check text-blazeOrange mr-2"></i> Competitions, matches and tournaments.</p>
+                        <p><i class="fas fa-check text-blazeOrange mr-2"></i> School partnerships and institutional collaborations.</p>
+                        <p><i class="fas fa-check text-blazeOrange mr-2"></i> Grassroots basketball development and academy teams.</p>
+                        <p><i class="fas fa-check text-blazeOrange mr-2"></i> Recreational basketball opportunities.</p>
+                        <p><i class="fas fa-check text-blazeOrange mr-2"></i> Long-term expansion into multiple sports.</p>
+                    </div>
+                    <p class="text-white font-bold text-sm uppercase mt-8 pt-6 border-t border-white/10">
+                        Our purpose is to give children and young people meaningful opportunities to develop through sport.
+                    </p>
+                </div>
+            </section>
+
+            <!-- WHY INSPIRE -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl sm:text-6xl font-black text-white uppercase huge-text mb-4">WHY INSPIRE?</h2>
+                    <p class="text-blazeOrange font-bold text-sm uppercase tracking-widest">MORE THAN BASKETBALL. A JOURNEY OF GROWTH.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                    <div class="glass-card p-8 border-l-4 border-l-white">
+                        <h4 class="text-xl font-black text-white uppercase huge-text mb-2">OUR COURT. OUR COMMITMENT.</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Our own FIBA-standard court gives players a dedicated space to train, develop and compete.</p>
+                    </div>
+                    <div class="glass-card p-8 border-l-4 border-l-electricCyan">
+                        <h4 class="text-xl font-black text-white uppercase huge-text mb-2">OUR COMMUNITY. OUR AMBITION.</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">We are building a connected basketball ecosystem through grassroots coaching, academy teams, school partnerships, tournaments and recreational play. We aim to strengthen the game across Hubballi–Dharwad and North Karnataka.</p>
+                    </div>
+                    <div class="glass-card p-8 border-l-4 border-l-blue-500">
+                        <h4 class="text-xl font-black text-white uppercase huge-text mb-2">OUR PHILOSOPHY. CHILD FIRST.</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Every child deserves respect, encouragement and an opportunity to grow. We focus on age-appropriate learning, individual attention and a positive, inclusive environment.</p>
+                    </div>
+                    <div class="glass-card p-8 border-l-4 border-l-champGold">
+                        <h4 class="text-xl font-black text-white uppercase huge-text mb-2">OUR APPROACH. PROGRESS WITH PURPOSE.</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">We want every parent and player to understand what is being learned, how development is progressing and what the next step can be.</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center p-8 bg-obsidian border-2 border-white/10">
+                    <h3 class="text-2xl font-black text-white uppercase huge-text mb-4">OUR BELIEF</h3>
+                    <p class="text-blazeOrange font-bold text-sm uppercase tracking-widest mb-4">SPORT IS THE STARTING POINT. BECOMING BETTER IS THE JOURNEY.</p>
+                    <p class="text-slate-400 text-sm max-w-4xl mx-auto leading-relaxed mb-4">
+                        INSPIRE Sports Academy is building more than sports programmes: an environment where children and athletes can discover their potential, develop their ability, compete with purpose and pursue excellence.
+                    </p>
+                    <p class="text-white font-bold text-sm max-w-3xl mx-auto">
+                        Our ambition is a sporting culture that produces not only better athletes, but also more confident, disciplined, resilient and responsible people.
                     </p>
                 </div>
             </section>
         </main>
 
-        <!-- ==================== 3. LEADERSHIP TEAM TAB ==================== -->
+        <!-- ==================== 3. OUR STORY TAB (DEDICATED SECTION) ==================== -->
+        <main id="tab-story" class="tab-content space-y-20 pb-20 pt-10">
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-16">
+                <span class="text-[10px] font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Story</span>
+                <h2 class="text-4xl sm:text-7xl lg:text-8xl font-black text-white uppercase huge-text mt-4 mb-8">IT STARTED WITH A BASKETBALL AND A BELIEF.</h2>
+                <div class="max-w-4xl mx-auto text-slate-400 text-sm sm:text-lg leading-relaxed space-y-6 text-left sm:text-center px-2">
+                    <p>Founded by Santosh and Manjunath Hullur in January 2022, Inspire Basketball Academy & Club was built on one simple belief: every child deserves the chance to discover and develop their potential.</p>
+                    <p>Our journey began with the conviction that sport is about much more than winning. Basketball can help children build confidence, discipline, resilience, character and lifelong friendships. Along the way, a committed leadership team backed our vision and contributed their time, experience and support. Their trust helped turn a shared dream into reality.</p>
+                    <p class="text-white font-bold text-base sm:text-xl uppercase tracking-wider text-center pt-6 border-t border-white/10">
+                        Today, that belief is reflected in our own FIBA-standard court in Hubballi–Dharwad. Guided by a child-first philosophy, we are creating opportunities for young players to learn, improve and pursue their ambitions.
+                    </p>
+                    <p class="text-blazeOrange font-bold text-base sm:text-xl uppercase tracking-wider text-center pt-2">
+                        The court is ready. The dreams are bigger. Our journey is just beginning. At Inspire, we are not just building basketball players, but helping build people for life.
+                    </p>
+                </div>
+            </section>
+
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-8 sm:p-10 border-l-4 border-l-champGold">
+                    <h3 class="text-3xl font-black text-white uppercase huge-text mb-4">OUR BELIEF</h3>
+                    <p class="text-white font-bold uppercase tracking-widest text-sm mb-4">EVERY CHILD HAS POTENTIAL.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Sport is one of the most powerful ways to help children grow. Beyond the game, sport teaches confidence, discipline, resilience, teamwork and respect. It helps children discover their abilities, take on challenges and become the best version of themselves. At Inspire, we develop the child first and the athlete second.
+                    </p>
+                </div>
+                <div class="glass-card p-8 sm:p-10 border-l-4 border-l-electricCyan">
+                    <h3 class="text-3xl font-black text-white uppercase huge-text mb-4">OUR PROMISE</h3>
+                    <p class="text-white font-bold uppercase tracking-widest text-sm mb-4">A PLACE TO LEARN, GROW AND BELONG.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        We provide a safe, positive and inclusive environment where every player is encouraged to learn, improve and take the next step. Through professional coaching, structured training and progressive learning, we support each player’s development at an individual pace. We bring together players, coaches, families and institutions to build a strong, inclusive and sustainable sporting ecosystem.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <!-- ==================== 4. LEADERSHIP TEAM TAB ==================== -->
         <main id="tab-team" class="tab-content space-y-20 pb-20 pt-10">
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center border-b border-white/10 pb-16">
-                <span class="text-[10px] font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Leadership Team</span><span style="display:none;">[cite: 6]</span>
-                <h2 class="text-4xl sm:text-7xl font-black text-white uppercase huge-text mt-4">ONE DREAM. ONE TEAM. ONE PURPOSE.<span style="display:none;">[cite: 6]</span></h2>
+                <span class="text-[10px] font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Leadership Team</span>
+                <h2 class="text-4xl sm:text-7xl font-black text-white uppercase huge-text mt-4">ONE DREAM. ONE TEAM. ONE PURPOSE.</h2>
                 <p class="text-slate-400 text-sm sm:text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
-                    Behind Inspire is a team of individuals who believed in a shared vision and came together to make it a reality. Their trust, commitment, expertise and backing have strengthened our foundation and opened opportunities for young athletes.<span style="display:none;">[cite: 6]</span>
+                    Behind Inspire is a team of individuals who believed in a shared vision and came together to make it a reality. Their trust, commitment, expertise and backing have strengthened our foundation and opened opportunities for young athletes.
                 </p>
             </section>
             
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Flex Wrap Layout for perfect centering of 7 items -->
-                <div class="auto-center-grid gap-4 sm:gap-6">
-                    <!-- Leader 1 -->
+                <div class="auto-center-grid">
                     <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform">
                         <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60">
                             <i class="fas fa-user text-4xl text-slate-500"></i>
                         </div>
-                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Dr. Nagesh D. Jakaraddi<span style="display:none;">[cite: 6]</span></h4>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Dr. Nagesh D. Jakaraddi</h4>
                         <p class="text-[9px] sm:text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Leadership Team</p>
                     </div>
-                    <!-- Leader 2 -->
                     <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform">
                         <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60"><i class="fas fa-user text-4xl text-slate-500"></i></div>
-                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Girish Patil<span style="display:none;">[cite: 6]</span></h4>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Girish Patil</h4>
                         <p class="text-[9px] sm:text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Leadership Team</p>
                     </div>
-                    <!-- Leader 3 -->
                     <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform">
                         <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60"><i class="fas fa-user text-4xl text-slate-500"></i></div>
-                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Rohit D’Souza<span style="display:none;">[cite: 6]</span></h4>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Rohit D’Souza</h4>
                         <p class="text-[9px] sm:text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Leadership Team</p>
                     </div>
-                    <!-- Leader 4 -->
                     <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform">
                         <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60"><i class="fas fa-user text-4xl text-slate-500"></i></div>
-                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Umesh Badiger<span style="display:none;">[cite: 6]</span></h4>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Umesh Badiger</h4>
                         <p class="text-[9px] sm:text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Leadership Team</p>
                     </div>
-                    <!-- Leader 5 -->
                     <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform">
                         <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60"><i class="fas fa-user text-4xl text-slate-500"></i></div>
-                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Parsuram Churamari<span style="display:none;">[cite: 6]</span></h4>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Parsuram Churamari</h4>
                         <p class="text-[9px] sm:text-[10px] text-blazeOrange font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Leadership Team</p>
                     </div>
-                    <!-- Leader 6 -->
                     <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform">
                         <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60"><i class="fas fa-user text-4xl text-slate-500"></i></div>
-                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Santosh Hullur<span style="display:none;">[cite: 6]</span></h4>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Santosh Hullur</h4>
                         <p class="text-[9px] sm:text-[10px] text-electricCyan font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Founder / Leadership</p>
                     </div>
-                    <!-- Leader 7 -->
                     <div class="glass-card p-6 sm:p-8 text-center hover:-translate-y-2 transition-transform">
                         <div class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-none bg-obsidian border border-white/10 mb-6 overflow-hidden flex items-center justify-center grayscale opacity-60"><i class="fas fa-user text-4xl text-slate-500"></i></div>
-                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Manjunath Hullur<span style="display:none;">[cite: 6]</span></h4>
+                        <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tighter leading-tight">Manjunath Hullur</h4>
                         <p class="text-[9px] sm:text-[10px] text-electricCyan font-mono uppercase tracking-widest mt-2 border-t border-white/10 pt-2">Founder / Leadership</p>
                     </div>
                 </div>
             </section>
         </main>
 
-        <!-- ==================== 4. PROGRAMMES TAB ==================== -->
+        <!-- ==================== 5. PROGRAMMES TAB ==================== -->
         <main id="tab-programmes" class="tab-content space-y-20 pb-20 pt-10">
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white uppercase huge-text mb-6">FIVE PROGRAMMES.<br>ONE LOVE FOR BASKETBALL.<span style="display:none;">[cite: 6]</span></h2>
+                <h2 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white uppercase huge-text mb-6">FIVE PROGRAMMES.<br>ONE LOVE FOR BASKETBALL.</h2>
                 <p class="text-slate-400 text-sm sm:text-lg max-w-3xl mx-auto mb-12 sm:mb-16">
-                    Our basketball programmes cater to different ages, abilities and experience levels, from first-time beginners to competitive and recreational players. Age groups are guidelines. Placement and progression depend on each player's ability, experience and readiness.<span style="display:none;">[cite: 6]</span>
+                    Our basketball programmes cater to different ages, abilities and experience levels, from first-time beginners to competitive and recreational players. Age groups are guidelines. Placement and progression depend on each player's ability, experience and readiness.
                 </p>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 text-left">
@@ -389,12 +484,12 @@
                     <div class="glass-card p-8 sm:p-12 hover:-translate-y-2 transition-transform border-t-2 border-white/10">
                         <div class="flex justify-between items-start mb-6">
                             <span class="text-5xl font-black text-white/10 huge-text">01</span>
-                            <span class="bg-white/10 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-none">6–9 Years</span><span style="display:none;">[cite: 6]</span>
+                            <span class="bg-white/10 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-none">6–9 Years</span>
                         </div>
-                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase huge-text mb-2">ROOKIE | PRE-BEGINNER<span style="display:none;">[cite: 6]</span></h3>
-                        <p class="text-blazeOrange font-bold text-xs sm:text-sm uppercase tracking-widest mb-4">Discover. Move. Play.<span style="display:none;">[cite: 6]</span></p>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase huge-text mb-2">ROOKIE | PRE-BEGINNER</h3>
+                        <p class="text-blazeOrange font-bold text-xs sm:text-sm uppercase tracking-widest mb-4">Discover. Move. Play.</p>
                         <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                            This is where a child’s basketball journey begins. Through fun games and simple activities, children learn to move, balance, coordinate and become comfortable with the ball. The focus is on building confidence, making friends and discovering the joy of playing basketball.<span style="display:none;">[cite: 6]</span>
+                            This is where a child’s basketball journey begins. Through fun games and simple activities, children learn to move, balance, coordinate and become comfortable with the ball. The focus is on building confidence, making friends and discovering the joy of playing basketball.
                         </p>
                     </div>
 
@@ -402,12 +497,12 @@
                     <div class="glass-card p-8 sm:p-12 hover:-translate-y-2 transition-transform border-t-2 border-white/10">
                         <div class="flex justify-between items-start mb-6">
                             <span class="text-5xl font-black text-white/10 huge-text">02</span>
-                            <span class="bg-white/10 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-none">10–12 Years</span><span style="display:none;">[cite: 6]</span>
+                            <span class="bg-white/10 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-none">10–12 Years</span>
                         </div>
-                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase huge-text mb-2">RISING STAR | BEGINNER<span style="display:none;">[cite: 6]</span></h3>
-                        <p class="text-blazeOrange font-bold text-xs sm:text-sm uppercase tracking-widest mb-4">Learn. Practise. Improve.<span style="display:none;">[cite: 6]</span></p>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase huge-text mb-2">RISING STAR | BEGINNER</h3>
+                        <p class="text-blazeOrange font-bold text-xs sm:text-sm uppercase tracking-widest mb-4">Learn. Practise. Improve.</p>
                         <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                            Ready to learn the basics? Players build a strong foundation in dribbling, passing, shooting, footwork and simple game rules. With regular practice and encouragement, they develop better control, teamwork and the confidence to enjoy playing with others.<span style="display:none;">[cite: 6]</span>
+                            Ready to learn the basics? Players build a strong foundation in dribbling, passing, shooting, footwork and simple game rules. With regular practice and encouragement, they develop better control, teamwork and the confidence to enjoy playing with others.
                         </p>
                     </div>
 
@@ -415,12 +510,12 @@
                     <div class="glass-card p-8 sm:p-12 hover:-translate-y-2 transition-transform border-t-2 border-white/10">
                         <div class="flex justify-between items-start mb-6">
                             <span class="text-5xl font-black text-white/10 huge-text">03</span>
-                            <span class="bg-white/10 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-none">13–16 Years</span><span style="display:none;">[cite: 6]</span>
+                            <span class="bg-white/10 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-none">13–16 Years</span>
                         </div>
-                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase huge-text mb-2">PRO | INTERMEDIATE<span style="display:none;">[cite: 6]</span></h3>
-                        <p class="text-blazeOrange font-bold text-xs sm:text-sm uppercase tracking-widest mb-4">Understand. Adapt. Compete.<span style="display:none;">[cite: 6]</span></p>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase huge-text mb-2">PRO | INTERMEDIATE</h3>
+                        <p class="text-blazeOrange font-bold text-xs sm:text-sm uppercase tracking-widest mb-4">Understand. Adapt. Compete.</p>
                         <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                            For players who know the basics and are ready to take their game further. Training helps them use their skills in real match situations, make smarter decisions, understand team play and improve both attack and defence. Players also build fitness, resilience and confidence through regular practice and competitive experience.<span style="display:none;">[cite: 6]</span>
+                            For players who know the basics and are ready to take their game further. Training helps them use their skills in real match situations, make smarter decisions, understand team play and improve both attack and defence. Players also build fitness, resilience and confidence through regular practice and competitive experience.
                         </p>
                     </div>
 
@@ -428,12 +523,12 @@
                     <div class="glass-card p-8 sm:p-12 hover:-translate-y-2 transition-transform border-t-2 border-white/10">
                         <div class="flex justify-between items-start mb-6">
                             <span class="text-5xl font-black text-white/10 huge-text">04</span>
-                            <span class="bg-white/10 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-none">17–22 Years</span><span style="display:none;">[cite: 6]</span>
+                            <span class="bg-white/10 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-none">17–22 Years</span>
                         </div>
-                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase huge-text mb-2">ELITE | ADVANCED<span style="display:none;">[cite: 6]</span></h3>
-                        <p class="text-blazeOrange font-bold text-xs sm:text-sm uppercase tracking-widest mb-4">Prepare. Perform. Progress.<span style="display:none;">[cite: 6]</span></p>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase huge-text mb-2">ELITE | ADVANCED</h3>
+                        <p class="text-blazeOrange font-bold text-xs sm:text-sm uppercase tracking-widest mb-4">Prepare. Perform. Progress.</p>
                         <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                            Designed for committed players who want to push their performance to the next level. Training focuses on advanced skills, game strategy, position-specific roles and athletic development. Players work towards greater consistency, stronger leadership and readiness for higher-level competition, based on their ability, performance and selection.<span style="display:none;">[cite: 6]</span>
+                            Designed for committed players who want to push their performance to the next level. Training focuses on advanced skills, game strategy, position-specific roles and athletic development. Players work towards greater consistency, stronger leadership and readiness for higher-level competition, based on their ability, performance and selection.
                         </p>
                     </div>
 
@@ -441,97 +536,124 @@
                     <div class="glass-card p-8 sm:p-12 hover:-translate-y-2 transition-transform lg:col-span-2 border-2 border-blazeOrange bg-obsidian">
                         <div class="flex justify-between items-start mb-6">
                             <span class="text-5xl font-black text-white/10 huge-text">05</span>
-                            <span class="bg-blazeOrange text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-none">All Ages</span><span style="display:none;">[cite: 6]</span>
+                            <span class="bg-blazeOrange text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-none">All Ages</span>
                         </div>
-                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase huge-text mb-2">BASKETBALL FOR LIFE<span style="display:none;">[cite: 6]</span></h3>
-                        <p class="text-white font-bold text-xs sm:text-sm uppercase tracking-widest mb-4">Play. Move. Connect. Enjoy.<span style="display:none;">[cite: 6]</span></p>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase huge-text mb-2">BASKETBALL FOR LIFE</h3>
+                        <p class="text-white font-bold text-xs sm:text-sm uppercase tracking-widest mb-4">Play. Move. Connect. Enjoy.</p>
                         <p class="text-slate-300 text-xs sm:text-sm max-w-4xl leading-relaxed">
-                            Basketball is not only for competitive players—it is a game for life. Whether you are new to the sport, returning after a break, a working professional or a parent, this programme gives you a chance to stay active, improve your fitness, make friends and enjoy the game at your own pace.<span style="display:none;">[cite: 6]</span>
+                            Basketball is not only for competitive players—it is a game for life. Whether you are new to the sport, returning after a break, a working professional or a parent, this programme gives you a chance to stay active, improve your fitness, make friends and enjoy the game at your own pace.
                         </p>
                     </div>
                 </div>
             </section>
         </main>
 
-        <!-- ==================== 5. PATHWAY TAB ==================== -->
+        <!-- ==================== 6. PATHWAY TAB ==================== -->
         <main id="tab-pathway" class="tab-content space-y-20 pb-20 pt-10">
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <span class="text-[10px] font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Player Development Pathway</span><span style="display:none;">[cite: 6]</span>
+                <span class="text-[10px] font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Player Development Pathway</span>
                 <h2 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white uppercase huge-text mt-4 mb-10">
-                    DISCOVER. DEVELOP. BUILD. COMPETE. EXCEL.<span style="display:none;">[cite: 6]</span>
+                    DISCOVER. DEVELOP. BUILD. COMPETE. EXCEL.
                 </h2>
                 <p class="text-slate-400 text-sm max-w-3xl mx-auto mb-16">
-                    We believe every child has potential. With the right coaching, environment, commitment and opportunities, every player can take meaningful steps towards becoming their best. These are stages of development, not fixed age groups. Each player progresses according to individual readiness.<span style="display:none;">[cite: 6]</span>
+                    We believe every child has potential. With the right coaching, environment, commitment and opportunities, every player can take meaningful steps towards becoming their best. These are stages of development, not fixed age groups. Each player progresses according to individual readiness.
                 </p>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 text-left">
                     <div class="glass-card p-6 sm:p-8 border-t-4 border-t-white">
-                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">DISCOVER<span style="display:none;">[cite: 6]</span></h4>
-                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Fall in love with the game.<span style="display:none;">[cite: 6]</span></p>
+                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">DISCOVER</h4>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Fall in love with the game.</p>
                         <ul class="text-xs text-slate-300 leading-relaxed font-mono space-y-2">
-                            <li><span class="text-blazeOrange">■</span> Experience basketball through fun, engaging activities.<span style="display:none;">[cite: 6]</span></li>
-                            <li><span class="text-blazeOrange">■</span> Develop movement, coordination and ball familiarity.<span style="display:none;">[cite: 6]</span></li>
-                            <li><span class="text-blazeOrange">■</span> Build confidence and a positive attitude towards learning.<span style="display:none;">[cite: 6]</span></li>
+                            <li><span class="text-blazeOrange">■</span> Experience basketball through fun, engaging activities.</li>
+                            <li><span class="text-blazeOrange">■</span> Develop movement, coordination and ball familiarity.</li>
+                            <li><span class="text-blazeOrange">■</span> Build confidence and a positive attitude towards learning.</li>
                         </ul>
                     </div>
                     <div class="glass-card p-6 sm:p-8 border-t-4 border-t-electricCyan">
-                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">DEVELOP<span style="display:none;">[cite: 6]</span></h4>
-                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Build strong fundamentals.<span style="display:none;">[cite: 6]</span></p>
+                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">DEVELOP</h4>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Build strong fundamentals.</p>
                         <ul class="text-xs text-slate-300 leading-relaxed font-mono space-y-2">
-                            <li><span class="text-electricCyan">■</span> Learn dribbling, passing, shooting and footwork.<span style="display:none;">[cite: 6]</span></li>
-                            <li><span class="text-electricCyan">■</span> Improve ball control and basic game understanding.<span style="display:none;">[cite: 6]</span></li>
-                            <li><span class="text-electricCyan">■</span> Gain consistency through structured practice.<span style="display:none;">[cite: 6]</span></li>
+                            <li><span class="text-electricCyan">■</span> Learn dribbling, passing, shooting and footwork.</li>
+                            <li><span class="text-electricCyan">■</span> Improve ball control and basic game understanding.</li>
+                            <li><span class="text-electricCyan">■</span> Gain consistency through structured practice.</li>
                         </ul>
                     </div>
                     <div class="glass-card p-6 sm:p-8 border-t-4 border-t-blue-500">
-                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">BUILD<span style="display:none;">[cite: 6]</span></h4>
-                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Become a stronger athlete.<span style="display:none;">[cite: 6]</span></p>
+                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">BUILD</h4>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Become a stronger athlete.</p>
                         <ul class="text-xs text-slate-300 leading-relaxed font-mono space-y-2">
-                            <li><span class="text-blue-400">■</span> Develop strength, speed, agility and coordination.<span style="display:none;">[cite: 6]</span></li>
-                            <li><span class="text-blue-400">■</span> Improve balance, mobility and movement quality.<span style="display:none;">[cite: 6]</span></li>
-                            <li><span class="text-blue-400">■</span> Strengthen discipline, resilience, confidence and teamwork.<span style="display:none;">[cite: 6]</span></li>
+                            <li><span class="text-blue-400">■</span> Develop strength, speed, agility and coordination.</li>
+                            <li><span class="text-blue-400">■</span> Improve balance, mobility and movement quality.</li>
+                            <li><span class="text-blue-400">■</span> Strengthen discipline, resilience, confidence and teamwork.</li>
                         </ul>
                     </div>
                     <div class="glass-card p-6 sm:p-8 border-t-4 border-t-blazeOrange">
-                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">COMPETE<span style="display:none;">[cite: 6]</span></h4>
-                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Put skills into action.<span style="display:none;">[cite: 6]</span></p>
+                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">COMPETE</h4>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Put skills into action.</p>
                         <ul class="text-xs text-slate-300 leading-relaxed font-mono space-y-2">
-                            <li><span class="text-blazeOrange">■</span> Apply skills in real-game situations.<span style="display:none;">[cite: 6]</span></li>
-                            <li><span class="text-blazeOrange">■</span> Develop decision-making and team strategies.<span style="display:none;">[cite: 6]</span></li>
-                            <li><span class="text-blazeOrange">■</span> Gain match experience through available competitive opportunities.<span style="display:none;">[cite: 6]</span></li>
+                            <li><span class="text-blazeOrange">■</span> Apply skills in real-game situations.</li>
+                            <li><span class="text-blazeOrange">■</span> Develop decision-making and team strategies.</li>
+                            <li><span class="text-blazeOrange">■</span> Gain match experience through available competitive opportunities.</li>
                         </ul>
                     </div>
                     <div class="glass-card p-6 sm:p-8 border-t-4 border-t-yellow-500">
-                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">EXCEL<span style="display:none;">[cite: 6]</span></h4>
-                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Strive for your potential.<span style="display:none;">[cite: 6]</span></p>
+                        <h4 class="text-2xl font-black text-white uppercase huge-text mb-2">EXCEL</h4>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-widest mb-4">Strive for your potential.</p>
                         <ul class="text-xs text-slate-300 leading-relaxed font-mono space-y-2">
-                            <li><span class="text-yellow-500">■</span> Pursue advanced technical and tactical development.<span style="display:none;">[cite: 6]</span></li>
-                            <li><span class="text-yellow-500">■</span> Prepare for higher levels of competition.<span style="display:none;">[cite: 6]</span></li>
-                            <li><span class="text-yellow-500">■</span> Explore club, district, state and national opportunities, subject to eligibility, performance and selection.<span style="display:none;">[cite: 6]</span></li>
+                            <li><span class="text-yellow-500">■</span> Pursue advanced technical and tactical development.</li>
+                            <li><span class="text-yellow-500">■</span> Prepare for higher levels of competition.</li>
+                            <li><span class="text-yellow-500">■</span> Explore club, district, state and national opportunities, subject to eligibility, performance and selection.</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="mt-16 text-center">
-                    <p class="text-white font-bold text-lg uppercase tracking-widest border-t border-white/10 pt-8 max-w-3xl mx-auto">
-                        AT INSPIRE DEVELOPMENT IS A JOURNEY – NOT A RACE<span style="display:none;">[cite: 6]</span>
+                <div class="mt-16 text-center glass-card p-10 border-t-4 border-t-blazeOrange text-left">
+                    <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">Our Approach to Every Player</span>
+                    <h3 class="text-2xl sm:text-3xl font-black text-white uppercase mt-4 mb-4 huge-text">STRUCTURED. PROGRESSIVE. PLAYER-FOCUSED.</h3>
+                    <p class="text-slate-400 text-sm mb-6">
+                        We recognise that every player is different. Our coaching matches learning to age, ability, experience and readiness. Training combines technical skills, physical development, tactical learning and game play. We focus on strong fundamentals, teamwork, enjoyment and individual progress.
                     </p>
-                    <p class="text-slate-400 text-sm mt-4 max-w-2xl mx-auto leading-relaxed">
-                        We don't rush development: we nurture potential, recognise individual progress and help every player take the next step.<span style="display:none;">[cite: 6]</span>
+                    
+                    <h4 class="text-white font-bold text-sm uppercase tracking-widest border-b border-white/10 pb-2 mb-4">HOW OUR TRAINING WORKS</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-300 font-mono mb-8">
+                        <p><span class="text-blazeOrange">■</span> <strong>Age-appropriate learning:</strong> Skill-based training and activities suited to each player's development.</p>
+                        <p><span class="text-blazeOrange">■</span> <strong>Individual growth:</strong> Personal progress within an inclusive team environment.</p>
+                        <p><span class="text-blazeOrange">■</span> <strong>Learn through play:</strong> Practice games and competition give players the chance to apply their skills.</p>
+                        <p><span class="text-blazeOrange">■</span> <strong>Consistent training:</strong> Regular coaching sessions planned across the week.</p>
+                        <p class="md:col-span-2"><span class="text-blazeOrange">■</span> <strong>Balanced development:</strong> Training designed to support sporting growth alongside children's academic commitments.</p>
+                    </div>
+
+                    <p class="text-white font-bold text-lg uppercase tracking-widest border-t border-white/10 pt-8 max-w-3xl mx-auto text-center">
+                        AT INSPIRE DEVELOPMENT IS A JOURNEY – NOT A RACE
+                    </p>
+                    <p class="text-slate-400 text-sm mt-4 max-w-2xl mx-auto leading-relaxed text-center">
+                        We don't rush development: we nurture potential, recognise individual progress and help every player take the next step.
                     </p>
                 </div>
             </section>
         </main>
 
-        <!-- ==================== 6. FACILITY TAB (Three.js Court) ==================== -->
+        <!-- ==================== 7. FACILITY TAB (Three.js Court) ==================== -->
         <main id="tab-facility" class="tab-content space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-10">
             <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-white/10">
                 <div class="max-w-3xl">
-                    <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-blazeOrange">Our Basketball Facility</span><span style="display:none;">[cite: 6]</span>
-                    <h2 class="text-4xl sm:text-6xl font-black text-white uppercase huge-text mt-2 mb-4">A DEDICATED HOME FOR BASKETBALL.<span style="display:none;">[cite: 6]</span></h2>
-                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                        Our own FIBA-standard court in Hubballi–Dharwad reflects our long-term commitment to the game. It gives our players a dedicated place to train, sharpen their skills and enjoy the game.<span style="display:none;">[cite: 6]</span> We believe quality sporting infrastructure can open up more opportunities for children and strengthen our region's basketball community.<span style="display:none;">[cite: 6]</span>
+                    <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-blazeOrange">Our Basketball Facility</span>
+                    <h2 class="text-4xl sm:text-6xl font-black text-white uppercase huge-text mt-2 mb-4">A DEDICATED HOME FOR BASKETBALL.</h2>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                        Our own FIBA-standard court in Hubballi–Dharwad reflects our long-term commitment to the game. It gives our players a dedicated place to train, sharpen their skills and enjoy the game. We believe quality sporting infrastructure can open up more opportunities for children and strengthen our region's basketball community.
                     </p>
+                    <p class="text-white font-bold text-sm uppercase tracking-widest mt-4">A BIGGER COURT. A BIGGER PURPOSE.</p>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mt-2 mb-4">
+                        We haven’t just built a court. We’ve invested in the future of basketball. Our facility represents our commitment to:
+                    </p>
+                    <ul class="text-xs sm:text-sm text-slate-300 font-mono space-y-2 mb-6">
+                        <li><span class="text-electricCyan">■</span> Providing a dedicated environment for basketball development.</li>
+                        <li><span class="text-electricCyan">■</span> Creating more openings for young players.</li>
+                        <li><span class="text-electricCyan">■</span> Supporting structured coaching and player growth.</li>
+                        <li><span class="text-electricCyan">■</span> Encouraging practice, participation and competition.</li>
+                        <li><span class="text-electricCyan">■</span> Strengthening the basketball community across Hubballi–Dharwad and North Karnataka.</li>
+                    </ul>
+                    <p class="text-blazeOrange font-bold text-sm uppercase tracking-widest">OUR COURT. OUR COMMITMENT. OUR FUTURE.</p>
                 </div>
             </div>
 
@@ -554,27 +676,30 @@
             </div>
         </main>
 
-        <!-- ==================== 7. CONTACT / JOIN TAB ==================== -->
+        <!-- ==================== 8. CONTACT / JOIN TAB ==================== -->
         <main id="tab-contact" class="tab-content space-y-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-10">
             
             <section class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
                 <!-- Contact Info -->
                 <div class="space-y-8">
                     <h2 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white uppercase huge-text mb-4 leading-[0.9]">
-                        GIVE YOUR CHILD THE CHANCE TO GROW.<span style="display:none;">[cite: 6]</span>
+                        GIVE YOUR CHILD THE CHANCE TO GROW.
                     </h2>
                     <p class="text-slate-400 text-sm sm:text-lg leading-relaxed">
-                        Let your child discover their potential, build confidence, develop basketball skills and enjoy the game. Whether your child is a beginner or an experienced player, Inspire is a place to learn, improve and grow. JOIN THE INSPIRE FAMILY.<span style="display:none;">[cite: 6]</span>
+                        Let your child discover their potential, build confidence, develop basketball skills and enjoy the game. Whether your child is a beginner or an experienced player, Inspire is a place to learn, improve and grow. JOIN THE INSPIRE FAMILY.
                     </p>
 
                     <div class="glass-card p-8 border-l-4 border-l-blazeOrange">
-                        <h3 class="text-2xl font-black text-white uppercase huge-text mb-4">INSPIRE BASKETBALL ACADEMY<span style="display:none;">[cite: 6]</span></h3>
+                        <h3 class="text-2xl font-black text-white uppercase huge-text mb-4">INSPIRE BASKETBALL ACADEMY</h3>
                         <p class="text-slate-300 font-mono text-xs sm:text-sm leading-relaxed mb-6">
-                            Opp. Radha Krishna Lawns,<br>Shree Shakthpeet Nagar,<br>Unkal Lake South End,<br>Hubballi – 580031, Karnataka, India.<span style="display:none;">[cite: 6]</span>
+                            Opp. Radha Krishna Lawns,<br>Shree Shakthpeet Nagar,<br>Unkal Lake South End,<br>Hubballi – 580031, Karnataka, India.
                         </p>
-                        <div class="space-y-3 font-mono text-xs sm:text-sm text-slate-400">
-                            <p><i class="fas fa-phone w-6 text-blazeOrange"></i> +91 90190 73197</p>
-                            <p><i class="fab fa-whatsapp w-6 text-blazeOrange"></i> +91 90190 73197</p>
+                        <div class="space-y-4 font-mono text-xs sm:text-sm text-slate-400">
+                            <a href="tel:+919019073197" class="block hover:text-white transition-colors"><i class="fas fa-phone w-6 text-blazeOrange"></i> +91 90190 73197</a>
+                            <a href="https://wa.me/919019073197" target="_blank" class="block hover:text-white transition-colors"><i class="fab fa-whatsapp w-6 text-blazeOrange"></i> +91 90190 73197</a>
+                            <a href="mailto:info@inspiresportshd.in" class="block hover:text-white transition-colors"><i class="fas fa-envelope w-6 text-blazeOrange"></i> info@inspiresportshd.in</a>
+                            <a href="https://maps.app.goo.gl/pAJWDoDg6kSSoedP9" target="_blank" class="block hover:text-white transition-colors"><i class="fas fa-map-marker-alt w-6 text-blazeOrange"></i> Google Maps Directions</a>
+                            <a href="https://www.instagram.com/inspirebasketballclub/" target="_blank" class="block hover:text-white transition-colors"><i class="fab fa-instagram w-6 text-blazeOrange"></i> @inspirebasketballclub</a>
                         </div>
                     </div>
                 </div>
@@ -588,28 +713,28 @@
                         <input type="hidden" name="redirect" value="https://badoza.github.io/inspire.in/">
 
                         <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Parent / Guardian Name</label><span style="display:none;">[cite: 6]</span>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Parent / Guardian Name</label>
                             <input type="text" name="parent_name" required class="w-full bg-obsidian border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors rounded-none">
                         </div>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Child's Name</label><span style="display:none;">[cite: 6]</span>
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Child's Name</label>
                                 <input type="text" name="child_name" required class="w-full bg-obsidian border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors rounded-none">
                             </div>
                             <div>
-                                <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Child's Age</label><span style="display:none;">[cite: 6]</span>
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Child's Age</label>
                                 <input type="number" name="age" required class="w-full bg-obsidian border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors rounded-none">
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Mobile / WhatsApp Number</label><span style="display:none;">[cite: 6]</span>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Mobile / WhatsApp Number</label>
                             <input type="tel" name="phone" required class="w-full bg-obsidian border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors rounded-none">
                         </div>
 
                         <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Previous Basketball Experience</label><span style="display:none;">[cite: 6]</span>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Previous Basketball Experience</label>
                             <select name="experience" required class="w-full bg-obsidian border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors appearance-none rounded-none">
                                 <option value="Beginner">Beginner</option>
                                 <option value="Some Experience">Some Experience</option>
@@ -618,7 +743,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Programme of Interest</label><span style="display:none;">[cite: 6]</span>
+                            <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Programme of Interest</label>
                             <select name="sport_program" required class="w-full bg-obsidian border border-white/10 px-4 py-4 text-sm text-white focus:outline-none focus:border-blazeOrange transition-colors appearance-none rounded-none">
                                 <option value="Rookie (6-9)">Rookie (6–9 Years)</option>
                                 <option value="Rising Star (10-12)">Rising Star (10–12 Years)</option>
