@@ -149,7 +149,7 @@
             </div>
 
             <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-6 font-bold text-[10px] lg:text-xs uppercase tracking-widest">
+            <nav class="hidden md:flex items-center gap-5 lg:gap-6 font-bold text-[10px] lg:text-xs uppercase tracking-widest">
                 <button onclick="switchTab('home')" class="nav-link-desktop text-white hover:text-blazeOrange transition-colors active" data-tab="home">Home</button>
                 <button onclick="switchTab('about')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="about">About</button>
                 <button onclick="switchTab('story')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="story">Story</button>
@@ -157,9 +157,11 @@
                 <button onclick="switchTab('programmes')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="programmes">Programmes</button>
                 <button onclick="switchTab('pathway')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="pathway">Pathway</button>
                 <button onclick="switchTab('facility')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="facility">Facility</button>
+                <!-- Added Contact to Nav Links -->
+                <button onclick="switchTab('contact')" class="nav-link-desktop text-slate-400 hover:text-blazeOrange transition-colors" data-tab="contact">Contact</button>
             </nav>
 
-            <button onclick="switchTab('contact')" class="hidden md:block bg-white hover:bg-blazeOrange text-obsidian hover:text-white font-black text-xs px-8 py-3.5 rounded-none uppercase tracking-widest transition-all">
+            <button onclick="switchTab('contact')" class="hidden xl:block bg-white hover:bg-blazeOrange text-obsidian hover:text-white font-black text-xs px-8 py-3.5 rounded-none uppercase tracking-widest transition-all">
                 Enrol Now
             </button>
 
@@ -183,9 +185,10 @@
             <button onclick="switchTab('programmes'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Programmes</button>
             <button onclick="switchTab('pathway'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Pathway</button>
             <button onclick="switchTab('facility'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Facility</button>
+            <button onclick="switchTab('contact'); closeMobileMenu()" class="text-3xl sm:text-4xl font-black text-white uppercase huge-text hover-text-outline w-full text-center">Contact</button>
             <div class="w-12 h-px bg-white/20 mx-auto my-2"></div>
             <button onclick="switchTab('contact'); closeMobileMenu()" class="text-lg font-bold text-blazeOrange uppercase tracking-widest w-full text-center">
-                Contact & Enrol <i class="fas fa-arrow-right ml-2"></i>
+                Enrol Now <i class="fas fa-arrow-right ml-2"></i>
             </button>
         </div>
     </div>
@@ -201,8 +204,10 @@
                 <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-60">
                     <source src="./INSPIREtempo.mp4" type="video/mp4">
                 </video>
+                <!-- Gradient Layer z-10 -->
                 <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent z-10"></div>
                 
+                <!-- Content Layer z-20 -->
                 <div class="relative z-20 max-w-7xl mx-auto px-4 w-full flex flex-col items-start justify-start text-left">
                     <div class="inline-flex flex-col items-end mb-4">
                         <h1 class="text-5xl sm:text-7xl lg:text-[8.5rem] font-black tracking-tighter text-white uppercase huge-text text-left drop-shadow-2xl">
@@ -319,7 +324,7 @@
                 </div>
             </section>
 
-            <!-- WHAT WE DO (Detailed Ecosystem) -->
+            <!-- WHAT WE DO -->
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="glass-card p-8 sm:p-14 border-t-4 border-t-blazeOrange">
                     <h2 class="text-3xl font-black text-white uppercase tracking-tight huge-text mb-4">WHAT WE DO</h2>
@@ -759,20 +764,6 @@
                     </form>
                 </div>
             </section>
-
-            <!-- Google Sheets Live Batches -->
-            <section class="pt-10 border-t border-white/10">
-                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8">
-                    <div>
-                        <h2 class="text-3xl font-black text-white uppercase huge-text">LIVE BATCH ROSTERS</h2>
-                        <p class="text-slate-400 text-xs sm:text-sm mt-2 font-mono">Synchronised directly from Inspire Admin Database.</p>
-                    </div>
-                    <button onclick="fetchSchedules()" class="text-[10px] sm:text-xs font-bold text-obsidian bg-white hover:bg-blazeOrange hover:text-white px-6 py-3 uppercase tracking-widest transition-colors rounded-none">
-                        Refresh Data
-                    </button>
-                </div>
-                <div id="schedule-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-            </section>
         </main>
 
         <!-- Digital Signature Footer -->
@@ -912,34 +903,7 @@
             renderer.setSize(container.clientWidth, container.clientHeight);
         }
 
-        // --- GOOGLE SHEETS LIVE BATCHES ---
-        const SCHEDULE_API_URL = 'https://script.google.com/macros/s/AKfycbzSwsOARrbQEznAvEminfPGg3bK8Jx0b4YQ0SrH11FlBG0kVpMzA0BFUSqRtzsZyu4i/exec';
-        async function fetchSchedules() {
-            const container = document.getElementById('schedule-container');
-            container.innerHTML = '<p class="text-slate-500 font-mono text-xs">Loading batches...</p>';
-            try {
-                const res = await fetch(SCHEDULE_API_URL); const batches = await res.json();
-                container.innerHTML = '';
-                batches.forEach(b => {
-                    const stat = b.Status || 'Open';
-                    let col = 'text-white border-white/20 bg-white/5';
-                    if (stat.toLowerCase().includes('fill')) col = 'text-blazeOrange border-blazeOrange bg-blazeOrange/10';
-
-                    container.insertAdjacentHTML('beforeend', `
-                        <div class="glass-card p-6 border-l-2 border-l-white rounded-none hover:-translate-y-1 transition-transform cursor-pointer" onclick="switchTab('contact')">
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-[9px] font-bold uppercase px-3 py-1 border ${col}">${stat}</span>
-                                <span class="text-[10px] font-mono text-slate-400 font-bold tracking-widest">${b.Days || 'MON-FRI'}</span>
-                            </div>
-                            <h3 class="text-xl font-black text-white uppercase huge-text mb-2">${b.BatchName || 'Session'}</h3>
-                            <p class="text-xs text-slate-300 font-bold flex items-center gap-2 font-mono"><i class="far fa-clock text-blazeOrange"></i> ${b.Timing || 'TBA'}</p>
-                        </div>
-                    `);
-                });
-            } catch (e) { container.innerHTML = `<p class="col-span-full text-left text-slate-500 font-mono">Batches currently offline.</p>`; }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => { initThreeArena(); fetchSchedules(); });
+        document.addEventListener('DOMContentLoaded', () => { initThreeArena(); });
     </script>
 </body>
 </html>
