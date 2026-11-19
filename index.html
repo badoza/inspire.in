@@ -30,7 +30,7 @@
       "image": "https://badoza.github.io/inspire.in/logo.png",
       "description": "Inspire Sports Academy is a sports-development organisation committed to helping people become better through sport.",
       "telephone": "+91-9019073197",
-      "email": "inspiresportsacademy.hd@gmail.com",
+      "email": "inspiresportsacademyhd@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Opp. Radha Krishna Lawns, Shree Shakthpeet Nagar, Unkal Lake South End",
@@ -186,6 +186,24 @@
             <div class="w-12 h-px bg-white/20 mx-auto my-2"></div>
             <button onclick="switchTab('contact'); closeMobileMenu()" class="text-lg font-bold text-blazeOrange uppercase tracking-widest w-full text-center">
                 Join Now <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Submission Confirmation Toast Notification -->
+    <div id="toast-notification" role="status" aria-live="polite" class="fixed top-24 right-4 left-4 sm:left-auto sm:right-6 z-[120] hidden max-w-md bg-obsidian border-2 border-emerald-400 p-5 shadow-[0_15px_40px_rgba(16,185,129,0.25)] transition-all duration-300 opacity-0 translate-y-[-10px]">
+        <div class="flex items-start gap-4">
+            <div class="w-9 h-9 bg-emerald-500/20 border border-emerald-400/50 flex items-center justify-center shrink-0 text-emerald-400">
+                <i class="fas fa-check text-base"></i>
+            </div>
+            <div class="flex-1 text-left">
+                <h4 class="font-mono font-bold text-sm uppercase tracking-wider text-emerald-400">Enrolment Submitted!</h4>
+                <p class="font-sans text-xs sm:text-sm text-slate-200 mt-1 leading-relaxed">
+                    Thank you for submitting your enquiry. Our team at Inspire Sports Academy has received your details and will contact you shortly.
+                </p>
+            </div>
+            <button type="button" onclick="hideToastNotification()" class="text-slate-400 hover:text-white text-lg leading-none p-1" aria-label="Dismiss notification">
+                <i class="fas fa-times"></i>
             </button>
         </div>
     </div>
@@ -406,7 +424,7 @@
             </div>
         </main>
 
-        <!-- ==================== 3. OUR STORY TAB (Full-Width Left-to-Right + Single Big Promise Box) ==================== -->
+        <!-- ==================== 3. OUR STORY TAB ==================== -->
         <main id="tab-story" class="tab-content pb-20 pt-8 sm:pt-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-14 text-left">
 
@@ -421,10 +439,10 @@
                         <p>Founded by Santosh and Manjunath Hullur in January 2022, Inspire Sports Academy was built on one simple belief: every child deserves the opportunity to discover and develop their potential.</p>
                         <p>Our journey began with the conviction that sport is about much more than winning. It helps children build confidence, discipline, resilience, character and lifelong friendships.</p>
                         <p>With three decades of combined experience as basketball players and coaches, our team brings a deep understanding of the game and a strong passion for grassroots basketball development.</p>
-                        <p>SANTOSH HULLUR’s passion for developing basketball at the grassroots level has been the driving force behind the creation of Inspire Basketball Academy. His vision, combined with the support of our leadership team, has led us to this new chapter.</p>
-                        <p>We are deeply grateful to DR. AJITH PRASAD, Secretary of Janata Shikshana Samiti, for providing access to the JSS basketball court when we had no dedicated practice ground. His support helped lay the foundation for Inspire's journey.</p>
-                        <p>Behind this journey is a committed leadership team comprising Dr. Nagesh D. Jakaraddi, Girish Patil, Rohit D'Souza, Umesh Badiger , Parsuram Churamari and Raghunath Shinde. Their collective trust, experience, guidance and support helped turn a shared dream into reality.</p>
-                        <p>The dream of having our own basketball court became a reality through the invaluable contribution of Dr. Nagesh D. Jakaraddi. His commitment and support made this important milestone in Inspire's journey possible.</p>
+                        <p><strong class="font-bold text-white">SANTOSH HULLUR</strong>’s passion for developing basketball at the grassroots level has been the driving force behind the creation of Inspire Basketball Academy. His vision, combined with the support of our leadership team, has led us to this new chapter.</p>
+                        <p>We are deeply grateful to <strong class="font-bold text-white">DR. AJITH PRASAD</strong>, Secretary of Janata Shikshana Samiti, for providing access to the JSS basketball court when we had no dedicated practice ground. His support helped lay the foundation for Inspire's journey.</p>
+                        <p>Behind this journey is a committed leadership team comprising <strong class="font-bold text-white">Dr. Nagesh D. Jakaraddi</strong>, <strong class="font-bold text-white">Girish Patil</strong>, <strong class="font-bold text-white">Rohit D'Souza</strong>, <strong class="font-bold text-white">Umesh Badiger</strong>, <strong class="font-bold text-white">Parsuram Churamari</strong> and <strong class="font-bold text-white">Raghunath Shinde</strong>. Their collective trust, experience, guidance and support helped turn a shared dream into reality.</p>
+                        <p>The dream of having our own basketball court became a reality through the invaluable contribution of <strong class="font-bold text-white">DR. NAGESH D. JAKARADDI</strong>. His commitment and support made this important milestone in Inspire's journey possible.</p>
                         <p>Today, our FIBA-standard basketball court in Hubballi–Dharwad provides young players with opportunities to train, compete and pursue their ambitions.</p>
                         <p>While basketball is where our journey began, our ambition extends far beyond the game. We aspire to build a vibrant multi-sport ecosystem that nurtures talent, creates opportunities and makes sport an integral part of every child's development.</p>
                         <p>Guided by a child-first philosophy, we are building an environment where every child gets the opportunity to learn, improve and become the best version of themselves.</p>
@@ -437,7 +455,7 @@
                     </div>
                 </section>
 
-                <!-- Single Full-Width OUR PROMISE Box (OUR BELIEF box removed completely) -->
+                <!-- Single Full-Width OUR PROMISE Box -->
                 <section class="w-full pt-4">
                     <div class="glass-card p-8 sm:p-12 border-l-4 border-l-blazeOrange w-full space-y-4">
                         <h3 class="text-lg sm:text-2xl lg:text-3xl font-bold text-white uppercase tracking-wide">
@@ -509,7 +527,7 @@
             </div>
         </main>
 
-        <!-- ==================== 5. PROGRAMMES TAB (Same Boxes & Design + Uniform Typography) ==================== -->
+        <!-- ==================== 5. PROGRAMMES TAB ==================== -->
         <main id="tab-programmes" class="tab-content pb-20 pt-8 sm:pt-10">
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-left">
                 <div class="w-full space-y-5">
@@ -594,7 +612,7 @@
             </section>
         </main>
 
-        <!-- ==================== 6. PATHWAY TAB (Same Boxes & Design + Uniform Typography) ==================== -->
+        <!-- ==================== 6. PATHWAY TAB ==================== -->
         <main id="tab-pathway" class="tab-content pb-20 pt-8 sm:pt-10">
             <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-left">
                 <div class="w-full space-y-5">
@@ -720,7 +738,7 @@
                     </p>
                 </div>
 
-                <!-- 3D Model Container: On mobile, the info card sits BELOW the canvas so the 3D court is never hidden -->
+                <!-- 3D Model Container -->
                 <div class="relative w-full">
                     <div class="relative w-full h-[360px] sm:h-[560px] lg:h-[680px] bg-obsidian border-2 border-white/10 rounded-none overflow-hidden">
                         <div id="three-canvas-container" class="absolute inset-0 cursor-grab active:cursor-grabbing"></div>
@@ -770,26 +788,34 @@
                         <div class="space-y-4 font-sans text-slate-200 text-sm sm:text-base font-medium">
                             <a href="tel:+919019073197" class="block hover:text-blazeOrange transition-colors"><i class="fas fa-phone w-6 text-blazeOrange"></i> +91 90190 73197</a>
                             <a href="https://wa.me/919019073197?text=Hello%20Inspire%20Sports%20Academy%2C%20I%20would%20like%20to%20enquire%20about%20basketball%20training%20and%20enrolment." target="_blank" rel="noopener noreferrer" class="block hover:text-emerald-400 transition-colors"><i class="fab fa-whatsapp w-6 text-emerald-400"></i> +91 90190 73197 (WhatsApp)</a>
-                            <a href="mailto:inspiresportsacademy.hd@gmail.com" class="block hover:text-blazeOrange transition-colors break-all"><i class="fas fa-envelope w-6 text-blazeOrange"></i> inspiresportsacademy.hd@gmail.com</a>
+                            <a href="mailto:inspiresportsacademyhd@gmail.com" class="block hover:text-blazeOrange transition-colors break-all"><i class="fas fa-envelope w-6 text-blazeOrange"></i> inspiresportsacademyhd@gmail.com</a>
                             <a href="https://maps.app.goo.gl/pAJWDoDg6kSSoedP9" target="_blank" rel="noopener noreferrer" class="block hover:text-blazeOrange transition-colors"><i class="fas fa-map-marker-alt w-6 text-blazeOrange"></i> Google Maps Directions</a>
                             <a href="https://www.instagram.com/inspirebasketballclub/" target="_blank" rel="noopener noreferrer" class="block hover:text-blazeOrange transition-colors"><i class="fab fa-instagram w-6 text-blazeOrange"></i> @inspirebasketballclub</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Enrolment Application Form Configured Directly to inspiresportsacademy.hd@gmail.com -->
+                <!-- Enrolment Application Form Configured Directly to inspiresportsacademyhd@gmail.com with Instant Confirmation -->
                 <div class="glass-card p-6 sm:p-10 border-t-4 border-t-white">
                     <h3 class="text-lg sm:text-2xl lg:text-3xl font-bold text-white uppercase tracking-wide mb-2">ENROLMENT ENQUIRY</h3>
                     <p class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-6">Fields marked with <span class="text-blazeOrange">*</span> are required</p>
 
                     <div id="form-error-banner" class="hidden mb-6 p-4 border border-red-500/60 bg-red-500/10 text-red-300 text-xs sm:text-sm font-sans space-y-1"></div>
 
-                    <form id="enrolment-form" action="https://formsubmit.co/inspiresportsacademy.hd@gmail.com" method="POST" class="space-y-5" novalidate>
+                    <div id="form-success-banner" class="hidden mb-6 p-5 border-l-4 border-emerald-400 bg-emerald-500/10 text-emerald-200 text-sm font-sans space-y-1">
+                        <p class="font-bold text-emerald-400 uppercase tracking-wider text-xs sm:text-sm flex items-center gap-2">
+                            <i class="fas fa-check-circle"></i> Enrolment Enquiry Submitted Successfully!
+                        </p>
+                        <p class="text-slate-200 text-xs sm:text-sm leading-relaxed">
+                            Thank you for registering your interest with Inspire Sports Academy. We have received your details and will reach out to you shortly via phone or WhatsApp.
+                        </p>
+                    </div>
+
+                    <form id="enrolment-form" action="https://formsubmit.co/inspiresportsacademyhd@gmail.com" method="POST" class="space-y-5" novalidate>
                         <!-- FormSubmit Official Email Routing Settings -->
                         <input type="hidden" name="_subject" value="New Enrolment Enquiry - Inspire Sports Academy">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://badoza.github.io/inspire.in/">
                         <!-- Anti-spam Honeypot -->
                         <input type="text" name="_honey" style="display:none">
 
@@ -847,7 +873,7 @@
                             By submitting this enquiry, you consent to Inspire Sports Academy contacting you via phone or WhatsApp regarding batch timings and trial sessions.
                         </p>
 
-                        <button type="submit" class="w-full bg-blazeOrange hover:bg-white text-white hover:text-obsidian font-black py-5 uppercase tracking-widest text-sm transition-colors mt-2 rounded-none">
+                        <button type="submit" id="enrol-submit-btn" class="w-full bg-blazeOrange hover:bg-white text-white hover:text-obsidian font-black py-5 uppercase tracking-widest text-sm transition-colors mt-2 rounded-none disabled:opacity-60 disabled:cursor-not-allowed">
                             Join Now
                         </button>
                     </form>
@@ -919,6 +945,30 @@
             document.body.classList.remove('menu-open'); 
         }
 
+        // --- Toast Notification Controls ---
+        let toastTimer = null;
+        function showToastNotification() {
+            const toast = document.getElementById('toast-notification');
+            if (!toast) return;
+            if (toastTimer) clearTimeout(toastTimer);
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.remove('opacity-0', 'translate-y-[-10px]');
+                toast.classList.add('opacity-100', 'translate-y-0');
+            }, 10);
+            toastTimer = setTimeout(hideToastNotification, 7000);
+        }
+
+        function hideToastNotification() {
+            const toast = document.getElementById('toast-notification');
+            if (!toast) return;
+            toast.classList.remove('opacity-100', 'translate-y-0');
+            toast.classList.add('opacity-0', 'translate-y-[-10px]');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 300);
+        }
+
         // --- Tab Routing ---
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
@@ -936,7 +986,7 @@
             if (tabId === 'facility') setTimeout(onThreeWindowResize, 60);
         }
 
-        // --- ANTI-GIBBERISH NAME & STRICT FORM VALIDATION ---
+        // --- ANTI-GIBBERISH NAME & STRICT FORM VALIDATION + AJAX SUBMISSION ---
         function isRealisticName(rawValue) {
             const value = rawValue.trim();
             if (value.length < 2 || value.length > 60) return false;
@@ -945,37 +995,24 @@
             const lettersOnly = value.replace(/[^A-Za-z]/g, '').toLowerCase();
             if (lettersOnly.length < 2) return false;
 
-            // Block names made of fewer than 2 unique letters (e.g., "aaaa", "jjjj")
             const uniqueLetters = new Set(lettersOnly.split(''));
             if (uniqueLetters.size < 2) return false;
 
-            // Block 3+ identical consecutive letters (e.g., "jjjjj", "hhhhh", "aaa")
             if (/(.)\1{2,}/i.test(lettersOnly)) return false;
-
-            // Block repeating 2-letter spam patterns (e.g., "jajajaja", "ababab")
             if (/([a-z]{2})\1{2,}/i.test(lettersOnly)) return false;
 
-            // Block common dummy / keyboard-mash patterns
             const blockedSnippets = ['asdf', 'qwer', 'zxcv', 'hjkl', 'uiop', 'jklm', 'abcd', 'efgh', 'wxyz', 'test', 'dummy', 'fake', 'asdfg', 'qwerty'];
             if (blockedSnippets.some(seq => lettersOnly.includes(seq))) return false;
 
-            // Validate each word individually
             const words = value.split(/\s+/);
             let hasSubstantialWord = false;
 
             for (const word of words) {
                 const cleanWord = word.replace(/[^A-Za-z]/g, '').toLowerCase();
                 if (!cleanWord) return false;
-
-                // Reject single unbroken gibberish word over 22 characters
                 if (cleanWord.length > 22) return false;
-
                 if (cleanWord.length >= 2) hasSubstantialWord = true;
-
-                // Words of 3+ letters must contain at least one vowel (a, e, i, o, u, y)
                 if (cleanWord.length >= 3 && !/[aeiouy]/.test(cleanWord)) return false;
-
-                // Block 5+ consecutive consonants or 4+ consecutive vowels (catches random keyboard mashing)
                 if (/[bcdfghjklmnpqrstvwxz]{5,}/.test(cleanWord)) return false;
                 if (/[aeiou]{4,}/.test(cleanWord)) return false;
             }
@@ -986,23 +1023,25 @@
         function initEnrolmentValidation() {
             const form = document.getElementById('enrolment-form');
             const errorBanner = document.getElementById('form-error-banner');
+            const successBanner = document.getElementById('form-success-banner');
+            const submitBtn = document.getElementById('enrol-submit-btn');
             if (!form) return;
 
-            // Allow alphabets, spaces, dots, apostrophes, and hyphens only for name fields
             form.querySelectorAll('[data-alpha-only="true"]').forEach(input => {
                 input.addEventListener('input', () => {
                     input.value = input.value.replace(/[^A-Za-z\s.'-]/g, '').replace(/\s{2,}/g, ' ');
                 });
             });
 
-            // Digits only for Age and Mobile Phone fields
             form.querySelectorAll('[data-digits-only="true"]').forEach(input => {
                 input.addEventListener('input', () => {
                     input.value = input.value.replace(/\D/g, '');
                 });
             });
 
-            form.addEventListener('submit', (e) => {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
                 const parentName = document.getElementById('parent_name').value.trim();
                 const childName = document.getElementById('child_name').value.trim();
                 const ageVal = parseInt(document.getElementById('player_age').value.trim(), 10);
@@ -1021,12 +1060,44 @@
                 if (!programVal) errors.push('Please select a Programme of Interest.');
 
                 if (errors.length > 0) {
-                    e.preventDefault();
+                    successBanner.classList.add('hidden');
                     errorBanner.innerHTML = errors.map(err => `<p>• ${err}</p>`).join('');
                     errorBanner.classList.remove('hidden');
                     errorBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                } else {
-                    errorBanner.classList.add('hidden');
+                    return;
+                }
+
+                errorBanner.classList.add('hidden');
+                successBanner.classList.add('hidden');
+
+                const originalBtnHtml = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> Submitting...';
+
+                try {
+                    const formData = new FormData(form);
+                    const response = await fetch('https://formsubmit.co/ajax/inspiresportsacademyhd@gmail.com', {
+                        method: 'POST',
+                        headers: { 'Accept': 'application/json' },
+                        body: formData
+                    });
+                    const result = await response.json();
+
+                    if (response.ok && (result.success === 'true' || result.success === true)) {
+                        form.reset();
+                        successBanner.classList.remove('hidden');
+                        successBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        showToastNotification();
+                    } else {
+                        throw new Error(result.message || 'Submission failed');
+                    }
+                } catch (err) {
+                    errorBanner.innerHTML = '<p>• Unable to submit right now. Please try again or message us directly on WhatsApp (+91 90190 73197).</p>';
+                    errorBanner.classList.remove('hidden');
+                    errorBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnHtml;
                 }
             });
         }
