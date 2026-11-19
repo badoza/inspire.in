@@ -28,7 +28,7 @@
       "url": "https://inspiresportshd.in/",
       "logo": "https://badoza.github.io/inspire.in/logo.png",
       "image": "https://badoza.github.io/inspire.in/logo.png",
-      "description": "Inspire Sports Academy is a sports-development organisation committed to helping people become better through basketball",
+      "description": "Inspire Sports Academy is a sports-development organisation committed to helping people become better through sport.",
       "telephone": "+91-9019073197",
       "address": {
         "@type": "PostalAddress",
@@ -193,35 +193,36 @@
     <div class="w-full relative z-10 pt-20">
 
         <!-- ==================== 1. HOME TAB ==================== -->
-        <main id="tab-home" class="tab-content active space-y-24 sm:space-y-32 pb-20">
+        <main id="tab-home" class="tab-content active space-y-20 sm:space-y-24 pb-20">
             
-            <section class="relative w-full min-h-[calc(100vh-5rem)] flex items-start justify-center overflow-hidden pt-5 sm:pt-8 pb-12">
+            <section class="relative w-full min-h-[calc(100vh-5rem)] flex items-start justify-center overflow-hidden pt-4 sm:pt-6 pb-14">
                 <!-- Video Layer z-0 -->
                 <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-60">
                     <source src="./INSPIREtempo.mp4" type="video/mp4">
                 </video>
                 <!-- Gradient Layer z-10 -->
-                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/50 to-obsidian/30 z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/55 to-obsidian/30 z-10"></div>
                 
                 <!-- Content Layer z-20 -->
                 <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-start justify-start text-left">
                     
-                    <!-- Hubballi-Dharwad Base positioned above INSPIRE on the left -->
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none border border-white/20 bg-white/10 backdrop-blur-md text-slate-200 font-mono font-bold text-[10px] sm:text-xs tracking-widest uppercase mb-4 shadow-md">
-                        <span class="w-2 h-2 rounded-full bg-blazeOrange animate-pulse"></span> Hubballi-Dharwad Base
+                    <!-- Top Row: INSPIRE pulled up on the left, Hubballi-Dharwad Base on the right -->
+                    <div class="w-full flex items-start justify-between gap-3 mb-5">
+                        <h1 class="flex flex-col items-start uppercase drop-shadow-2xl">
+                            <span class="text-[12.5vw] sm:text-7xl lg:text-[7.5rem] font-black tracking-tighter text-white huge-text leading-[0.85]">
+                                INSPIRE
+                            </span>
+                            <span class="text-[6.2vw] sm:text-3xl lg:text-5xl font-black tracking-[0.12em] text-transparent bg-clip-text bg-gradient-to-r from-blazeOrange to-champGold whitespace-nowrap mt-2 sm:mt-3 font-mono leading-none">
+                                SPORTS ACADEMY
+                            </span>
+                        </h1>
+
+                        <div class="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-none border border-white/20 bg-white/10 backdrop-blur-md text-slate-200 font-mono font-bold text-[8px] sm:text-xs tracking-widest uppercase shadow-md shrink-0 mt-1">
+                            <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blazeOrange animate-pulse"></span> Hubballi-Dharwad Base
+                        </div>
                     </div>
 
-                    <!-- Larger INSPIRE with SPORTS ACADEMY cleanly below on a single line -->
-                    <h1 class="flex flex-col items-start uppercase drop-shadow-2xl mb-5">
-                        <span class="text-[16vw] sm:text-8xl lg:text-[8.5rem] font-black tracking-tighter text-white huge-text leading-[0.85]">
-                            INSPIRE
-                        </span>
-                        <span class="text-[6.8vw] sm:text-4xl lg:text-5xl font-black tracking-[0.12em] text-transparent bg-clip-text bg-gradient-to-r from-blazeOrange to-champGold whitespace-nowrap mt-2 sm:mt-3 font-mono leading-none">
-                            SPORTS ACADEMY
-                        </span>
-                    </h1>
-
-                    <p class="text-lg sm:text-2xl lg:text-3xl font-bold text-white border-l-4 border-blazeOrange pl-4 mt-1 uppercase tracking-wide">
+                    <p class="text-lg sm:text-2xl lg:text-3xl font-bold text-white border-l-4 border-blazeOrange pl-4 uppercase tracking-wide">
                         MORE THAN A GAME. A PLACE TO GROW.
                     </p>
 
@@ -232,55 +233,56 @@
                         <p>At Inspire Sports Academy, children discover their potential, develop their basketball skills and build confidence through dedicated coaching, structured training and our own FIBA-standard court in Hubballi–Dharwad.</p>
                     </div>
 
+                    <!-- Hero CTA Buttons -->
                     <div class="relative z-[50] flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-start pt-7 sm:pt-8">
                         <button onclick="switchTab('contact')" class="w-full sm:w-auto inline-block text-center bg-blazeOrange text-white font-black text-sm px-10 py-4 sm:py-5 uppercase tracking-widest rounded-none border-2 border-blazeOrange hover:bg-obsidian hover:text-blazeOrange transition-all whitespace-nowrap">
                             Enrol Now
                         </button>
                         <button onclick="switchTab('programmes')" class="w-full sm:w-auto inline-block text-center bg-transparent border-2 border-white/30 text-white font-black text-sm px-10 py-4 sm:py-5 uppercase tracking-widest rounded-none hover:border-white hover:bg-white/5 transition-colors whitespace-nowrap">
-                            Explore The Academy
+                            Explore The Programmes
                         </button>
+                    </div>
+
+                    <!-- Opportunity Statement Below Hero Buttons -->
+                    <div class="relative z-[50] w-full mt-8 sm:mt-10 pt-6 border-t border-white/10">
+                        <p class="text-lg sm:text-2xl lg:text-3xl font-bold text-blazeOrange uppercase tracking-wide">
+                            EVERY GREAT JOURNEY BEGINS WITH AN OPPORTUNITY.
+                        </p>
+                        <p class="text-slate-200 text-sm sm:text-base lg:text-lg mt-2 leading-relaxed font-medium">
+                            Give your child the chance to discover what they are capable of becoming, and let their basketball journey begin at Inspire.
+                        </p>
                     </div>
                 </div>
             </section>
 
-            <!-- Belief & Flagship -->
-            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-                <div>
+            <!-- Flagship Programme & Home Court (Full-Width Stacked, No Box) -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-20">
+                
+                <!-- Flagship Programme -->
+                <div class="w-full">
                     <span class="text-[10px] font-mono font-bold text-blazeOrange uppercase tracking-widest">Our Flagship Programme</span>
                     <h2 class="text-4xl sm:text-6xl font-black text-white uppercase huge-text mt-4 mb-6">INSPIRE BASKETBALL ACADEMY</h2>
-                    <p class="text-slate-400 leading-relaxed text-sm sm:text-lg mb-6">
-                        Every player starts somewhere. Each one has potential. Through professional coaching, structured training and progressive programmes, we help children learn basketball, improve their skills and enjoy the game.
-                    </p>
-                    <p class="text-slate-400 leading-relaxed text-sm sm:text-lg mb-6">
-                        From beginners taking their first steps to committed players preparing for higher levels of competition, we provide opportunities to learn, grow and progress.
-                    </p>
+                    <div class="w-full text-slate-400 leading-relaxed text-sm sm:text-lg space-y-4 mb-6">
+                        <p>Every player starts somewhere. Each one has potential. Through professional coaching, structured training and progressive programmes, we help children learn basketball, improve their skills and enjoy the game.</p>
+                        <p>From beginners taking their first steps to committed players preparing for higher levels of competition, we provide opportunities to learn, grow and progress.</p>
+                    </div>
                     <p class="text-white font-bold text-lg sm:text-xl uppercase tracking-wider border-l-4 border-blazeOrange pl-4">
                         Discover. Develop. Build. Compete. Excel.
                     </p>
                 </div>
-                <div class="glass-card p-8 sm:p-14 border-t-4 border-t-electricCyan">
-                    <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">Our Home Court</span>
-                    <h3 class="text-3xl sm:text-4xl font-black text-white uppercase huge-text mt-4 mb-6">A BIGGER COURT. A BIGGER PURPOSE.</h3>
-                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-8">
+
+                <!-- Home Court (Below Flagship Programme, No Box, Full Width) -->
+                <div class="w-full pt-14 sm:pt-16 border-t border-white/10">
+                    <span class="text-[10px] font-mono font-bold text-electricCyan uppercase tracking-widest">Our Home Court</span>
+                    <h3 class="text-4xl sm:text-6xl font-black text-white uppercase huge-text mt-4 mb-6">A BIGGER COURT. A BIGGER PURPOSE.</h3>
+                    <p class="w-full text-slate-400 text-sm sm:text-lg leading-relaxed mb-8">
                         Our own FIBA-standard court in Hubballi–Dharwad reflects our commitment to developing the sport and creating lasting opportunities for the next generation. We haven’t just built a court. We’ve invested in the future of basketball.
                     </p>
-                    <button onclick="switchTab('facility')" class="text-[10px] sm:text-xs font-bold text-white uppercase tracking-widest hover:text-blazeOrange transition-colors flex items-center gap-2">
-                        View Our Facility <i class="fas fa-arrow-right"></i>
+                    <button onclick="switchTab('facility')" class="text-xs font-bold text-white uppercase tracking-widest hover:text-blazeOrange transition-colors inline-flex items-center gap-2">
+                        View Our Facility <i class="fas fa-arrow-right text-blazeOrange"></i>
                     </button>
                 </div>
-            </section>
 
-            <!-- Home Page Closing -->
-            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-10">
-                <h2 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white uppercase huge-text mb-6 hover-text-outline cursor-default transition-all duration-500">
-                    EVERY GREAT JOURNEY BEGINS WITH AN OPPORTUNITY.
-                </h2>
-                <p class="text-slate-400 text-sm sm:text-xl mb-10 max-w-3xl mx-auto px-4">
-                    Give your child the chance to discover what they are capable of becoming, and let their basketball journey begin at Inspire.
-                </p>
-                <button onclick="switchTab('contact')" class="w-full sm:w-auto bg-white text-obsidian font-black text-sm px-10 py-5 uppercase tracking-widest rounded-none hover:bg-blazeOrange hover:text-white transition-colors inline-block">
-                    Join The Inspire Family
-                </button>
             </section>
         </main>
 
